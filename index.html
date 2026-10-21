@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b5d46">
+<meta name="color-scheme" content="light dark">
+<script>(function(){try{var t=localStorage.getItem("pai2_tema");if(t!=="gelap"&&t!=="terang")t=(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)?"gelap":"terang";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","terang");}})();</script>
+<title>Simulasi ASAT PAI Kelas VIII</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g1:#0b5d46;--g2:#0f7a5a;--g3:#e6f3ee;--gold:#c8a33a;--gold2:#f6ecc4;
+  --cream:#fbf6e9;--ink:#1d2b28;--mut:#5f6f6a;--line:#e3dcc6;
+  --bad:#c0392b;--badbg:#fdecea;--ok:#1e8e5a;--okbg:#e6f6ee;--warn:#b7791f;--warnbg:#fff6df;--r:16px;
+  /* token tema (terang) */
+  --card:#fff;--card-soft:#faf8f0;--track:#ece6d2;--btn1:#0b5d46;--btn2:#0f7a5a;--on-solid:#fff;
+  --on-warn:#6b4a0b;--on-info:#0b4a38;--on-bad:#8a2218;--on-ok:#146c43;--on-gold:#6d5410;
+  --b-warn:#f0d58a;--b-info:#b8dccd;--b-bad:#f1b6af;--b-ok:#a9dcc2;--b-gold:#e2c766;
+  --chip-bg:#eef1ef;--tag-ink:#4a5753;--ayat-bg:#fffdf5;--pb-ink:#3d4a46;--shadow:rgba(29,43,40,.16);
+  --c1:#0f7a5a;--c2:#b7791f;--ring:rgba(15,122,90,.18);--sh:rgba(60,50,10,.06);--ok-solid:#167a4b;--bad-solid:#b3321f;
+  color-scheme:light;
+}
+:root[data-theme="gelap"]{
+  --cream:#0e1815;--card:#16241f;--card-soft:#1b2c26;--ink:#e8f1ed;--mut:#a1b5ad;--line:#2d423b;
+  --g1:#8fdcc0;--g2:#3fbf95;--g3:#1c382f;--gold:#d7b24e;--gold2:#3a3315;
+  --bad:#f08a7e;--badbg:#3b1f1c;--ok:#58cf93;--okbg:#173627;--warn:#e5b25a;--warnbg:#3a2f14;
+  --track:#2a3d36;--btn1:#0b5d46;--btn2:#0f7a5a;--on-solid:#07130e;
+  --on-warn:#f1d9a0;--on-info:#bfe9d8;--on-bad:#f6c1ba;--on-ok:#a7e6c5;--on-gold:#ecd58a;
+  --b-warn:#6b5522;--b-info:#2f5d4e;--b-bad:#6b3732;--b-ok:#2c6a4d;--b-gold:#7a6522;
+  --chip-bg:#22332d;--tag-ink:#b5c6bf;--ayat-bg:#1d2a22;--pb-ink:#c4d3cc;--shadow:rgba(0,0,0,.5);
+  --c1:#2bb58a;--c2:#e5b25a;--ring:rgba(63,191,149,.3);--sh:rgba(0,0,0,.35);--ok-solid:#58cf93;--bad-solid:#f08a7e;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:16px;line-height:1.55;color:var(--ink);
+  background-color:var(--cream);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23c8a33a' stroke-opacity='.28' stroke-width='1'%3E%3Crect x='16' y='16' width='32' height='32'/%3E%3Crect x='16' y='16' width='32' height='32' transform='rotate(45 32 32)'/%3E%3Ccircle cx='32' cy='32' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  min-height:100vh;
+}
+header.top{
+  position:sticky;top:0;z-index:30;color:#fff;
+  background:linear-gradient(135deg,var(--btn1),var(--btn2));
+  border-bottom:3px solid var(--gold);box-shadow:0 2px 12px rgba(0,0,0,.18);
+}
+.top-in{max-width:920px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.logo{width:42px;height:42px;flex:none}
+.ttl{flex:1;min-width:0}
+.ttl b{display:block;font-size:1.02rem;line-height:1.2}
+.ttl small{opacity:.85;font-size:.78rem}
+.chip{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;padding:6px 12px;font-size:.8rem;font-family:inherit;max-width:46vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+button.chip{cursor:pointer}
+main{max-width:920px;margin:0 auto;padding:18px 16px 60px}
+.view{display:none}.view.on{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h1,h2,h3,h4{line-height:1.25;margin:0 0 .5em}
+h2{font-size:1.35rem;color:var(--g1)}
+h4{color:var(--g1);margin:1.1em 0 .35em;font-size:1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:0 2px 8px var(--sh)}
+.hero{text-align:center;padding:26px 18px;background:linear-gradient(160deg,var(--card),var(--gold2));}
+.bismillah{font-family:'Amiri',serif;font-size:1.9rem;color:var(--g1);margin:0 0 6px;direction:rtl}
+.muted{color:var(--mut);font-size:.9rem}
+label{display:block;font-weight:600;font-size:.9rem;margin:14px 0 6px}
+input[type=text],input[type=number],select{
+  width:100%;font:inherit;padding:13px 14px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);min-height:50px}
+input:focus,select:focus{outline:none;border-color:var(--g2);box-shadow:0 0 0 3px var(--ring)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:12px 22px;border:0;border-radius:14px;
+  font:inherit;font-weight:600;cursor:pointer;background:linear-gradient(135deg,var(--btn1),var(--btn2));color:#fff;
+  box-shadow:0 3px 0 rgba(0,0,0,.18);transition:transform .08s,opacity .2s;text-decoration:none}
+.btn:active{transform:translateY(2px);box-shadow:none}
+.btn.gold{background:linear-gradient(135deg,#b78f1f,var(--gold));color:#2b2306}
+.btn.sec{background:var(--card);color:var(--g1);border:2px solid var(--g1);box-shadow:none}
+.btn.ghost{background:transparent;color:var(--g1);box-shadow:none;border:2px dashed var(--line)}
+.btn.danger{background:linear-gradient(135deg,#a93226,#c0392b)}
+.btn.block{width:100%}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}.grid .wide{grid-column:1/-1}}
+.babcard{display:flex;gap:14px;align-items:center;text-align:left;width:100%;cursor:pointer;font:inherit;color:inherit}
+.babcard:hover{border-color:var(--g2)}
+.ikon{flex:none;width:54px;height:54px;border-radius:16px;background:var(--g3);display:grid;place-items:center;font-size:1.7rem}
+.babcard .nm{font-weight:600;line-height:1.3}
+.badge{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.74rem;font-weight:600;background:var(--g3);color:var(--g1);margin-top:5px}
+.badge.gold{background:var(--gold2);color:var(--on-gold)}
+.asatcard{background:linear-gradient(135deg,var(--btn1),var(--btn2));color:#fff;border:0}
+.asatcard .ikon{background:rgba(255,255,255,.18)}
+.asatcard .badge{background:rgba(255,255,255,.2);color:#fff}
+.banner{border-radius:12px;padding:12px 14px;margin:12px 0;font-size:.9rem;display:flex;gap:10px;align-items:flex-start}
+.banner.warn{background:var(--warnbg);border:1px solid var(--b-warn);color:var(--on-warn)}
+.banner.info{background:var(--g3);border:1px solid var(--b-info);color:var(--on-info)}
+.banner.bad{background:var(--badbg);border:1px solid var(--b-bad);color:var(--on-bad)}
+.crumb{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.crumb button{background:none;border:0;color:var(--g1);font:inherit;font-weight:600;cursor:pointer;padding:6px 0}
+.materi ul{padding-left:1.2em;margin:.3em 0}.materi li{margin:.28em 0}
+.materi p{margin:.4em 0}
+.materi .kotak{background:var(--gold2);border-left:5px solid var(--gold);padding:10px 14px;border-radius:10px;margin:12px 0}
+.progress{height:10px;background:var(--track);border-radius:99px;overflow:hidden;margin:8px 0 14px}
+.progress>i{display:block;height:100%;background:linear-gradient(90deg,var(--g2),var(--gold));border-radius:99px;transition:width .3s}
+.qno{font-size:.85rem;color:var(--mut);font-weight:600;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.qtext{font-size:1.08rem;font-weight:500;margin:10px 0 14px}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 14px;margin:9px 0;cursor:pointer;min-height:52px;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--g2)}
+.opt .lt{flex:none;width:30px;height:30px;border-radius:50%;background:var(--g3);color:var(--g1);display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.opt.sel{border-color:var(--g2);background:var(--g3)}
+.opt.sel .lt{background:var(--g2);color:var(--on-solid)}
+.opt.right{border-color:var(--ok);background:var(--okbg)}.opt.right .lt{background:var(--ok-solid);color:var(--on-solid)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}.opt.wrong .lt{background:var(--bad-solid);color:var(--on-solid)}
+.opt.dim{opacity:.7;cursor:default}
+.fb{border-radius:12px;padding:12px 14px;margin-top:12px;font-size:.93rem}
+.fb.ok{background:var(--okbg);border:1px solid var(--b-ok)}.fb.no{background:var(--badbg);border:1px solid var(--b-bad)}
+.fb b.t{display:block;margin-bottom:3px}
+.score{width:170px;height:170px;border-radius:50%;margin:8px auto 4px;display:grid;place-items:center;
+  background:conic-gradient(var(--g2) calc(var(--p)*1%),var(--track) 0)}
+.score>div{width:136px;height:136px;border-radius:50%;background:var(--card);display:grid;place-items:center;text-align:center;line-height:1.1}
+.score strong{font-size:2.4rem;color:var(--g1)}
+.score span{font-size:.75rem;color:var(--mut)}
+.stat{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+.stat div{background:var(--g3);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:1.25rem;color:var(--g1)}.stat small{color:var(--mut);font-size:.75rem}
+table.tb{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:8px}
+table.tb th,table.tb td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+table.tb th{background:var(--g3);color:var(--g1)}
+table.tb td:last-child,table.tb th:last-child{text-align:right}
+.rv{border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0;background:var(--card)}
+.rv.b{border-left:6px solid var(--ok)}.rv.s{border-left:6px solid var(--bad)}.rv.k{border-left:6px solid var(--warn)}
+.tag{display:inline-block;border-radius:6px;padding:1px 8px;font-size:.72rem;font-weight:700;margin-right:6px}
+.tag.b{background:var(--okbg);color:var(--on-ok)}.tag.s{background:var(--badbg);color:var(--on-bad)}.tag.k{background:var(--warnbg);color:var(--on-warn)}
+.rv .kv{font-size:.9rem;margin:3px 0}
+.rv .pb{background:var(--card-soft);border-radius:10px;padding:9px 12px;margin-top:8px;font-size:.88rem;color:var(--pb-ink)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.filters button{border:2px solid var(--line);background:var(--card);border-radius:99px;padding:7px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+.filters button.on{background:var(--g1);color:var(--on-solid);border-color:var(--g1)}
+.timer{position:sticky;top:64px;z-index:20;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:12px}
+.timer .tm{font-weight:700;font-size:1.2rem;font-variant-numeric:tabular-nums;color:var(--g1)}
+.timer.low .tm{color:var(--bad);animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.45}}
+.navgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:8px;margin:10px 0}
+.navgrid button{height:44px;border-radius:10px;border:2px solid var(--line);background:var(--card);font:inherit;font-weight:600;cursor:pointer;position:relative}
+.navgrid button.done{background:var(--g3);border-color:var(--g2);color:var(--g1)}
+.navgrid button.flag{background:var(--warnbg);border-color:var(--gold)}
+.navgrid button.cur{outline:3px solid var(--g1);outline-offset:1px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.78rem;color:var(--mut)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;border:2px solid var(--line);vertical-align:-2px;margin-right:4px}
+.kirim{font-size:.88rem;border-radius:12px;padding:10px 14px;margin:12px 0}
+.kirim.ok{background:var(--okbg);color:var(--on-ok)}.kirim.pending{background:var(--warnbg);color:var(--on-warn)}
+.kirim.gagal{background:var(--warnbg);color:var(--on-warn)}.kirim.err{background:var(--badbg);color:var(--on-bad)}.kirim.info{background:var(--g3);color:var(--on-info)}
+.overlay{position:fixed;inset:0;background:rgba(10,30,24,.55);display:none;align-items:center;justify-content:center;padding:18px;z-index:100}
+.overlay.on{display:flex}
+.modal{background:var(--card);border-radius:18px;max-width:440px;width:100%;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.modal h3{color:var(--g1)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#12372d;color:#fff;border-radius:99px;padding:10px 18px;font-size:.88rem;z-index:120;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.on{opacity:1}
+.isian-l{margin-top:0}
+.hint{font-size:.82rem;color:var(--mut);margin-top:6px}
+.pill{display:inline-flex;gap:6px;align-items:center;background:var(--g3);border-radius:99px;padding:4px 12px;font-size:.82rem;color:var(--g1);font-weight:600}
+footer{text-align:center;color:var(--mut);font-size:.78rem;margin-top:30px}
+@media(max-width:420px){.row2{grid-template-columns:1fr}.chip{max-width:38vw}.timer{top:62px}}
+textarea{width:100%;font:inherit;padding:13px 14px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);resize:vertical;min-height:90px}
+textarea:focus{outline:none;border-color:var(--g2);box-shadow:0 0 0 3px var(--ring)}
+.opt.pgk .lt{border-radius:8px}
+.opt.miss{border:2px dashed var(--ok);background:var(--card)}
+.sabox{background:var(--gold2);border-left:5px solid var(--gold);border-radius:10px;padding:10px 14px;margin:10px 0 14px}
+.jd-pil{background:var(--g3);border-radius:12px;padding:10px 14px;margin:8px 0 12px;font-size:.93rem}
+.jd-pil div{margin:3px 0}
+.jd-row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:10px 0;padding:8px 10px;border:2px solid var(--line);border-radius:12px;background:var(--card)}
+.jd-row>span{flex:1 1 200px}
+.jd-row select{width:auto;min-width:120px;flex:none;min-height:44px;padding:8px 10px}
+.jd-row.ok{border-color:var(--ok);background:var(--okbg)}.jd-row.no{border-color:var(--bad);background:var(--badbg)}
+.fb.pa{background:var(--warnbg);border:1px solid var(--b-warn)}
+.rv.p{border-left:6px solid var(--gold)}
+.tag.p{background:var(--gold2);color:var(--on-gold)}
+.tag.t{background:var(--chip-bg);color:var(--tag-ink)}
+.ayatbox{background:var(--ayat-bg);border:2px solid var(--gold);border-radius:14px;padding:12px 14px;margin:10px 0 14px}
+.ayatbox hr{border:0;border-top:1px dashed var(--line);margin:10px 0}
+.ayatbox .ar{font-family:"Amiri","Scheherazade New","Noto Naskh Arabic","Noto Sans Arabic","Geeza Pro","Traditional Arabic","Segoe UI",serif;font-size:1.7rem;line-height:2.3;text-align:center;direction:rtl;color:var(--g1)}
+.ayatbox .ref{text-align:center;font-size:.8rem;color:var(--mut);font-weight:600}
+.ayatbox details{margin-top:6px;font-size:.92rem}
+.ayatbox summary{cursor:pointer;color:var(--g2);font-weight:600;min-height:32px;display:flex;align-items:center}
+.ayatbox details p{margin:6px 0 2px;font-style:italic}
+.gbr{margin:10px 0 14px;text-align:center}
+.gbr svg{width:100%;height:auto;max-width:460px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.gbr figcaption{font-size:.82rem;color:var(--mut);margin-top:4px}
+.gbr2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:6px}
+.sv-grid{stroke:var(--line);stroke-width:1}.sv-ray{stroke:#c8a33a;stroke-width:2;stroke-dasharray:5 5}
+.sv-t{fill:var(--mut);font-size:12.5px}.sv-v{fill:var(--ink);font-size:13.5px;font-weight:700}.sv-h{fill:var(--ink);font-size:14.5px;font-weight:700}
+.sv-b0{fill:var(--c1)}.sv-b1{fill:var(--c2)}.sv-shadow{fill:var(--shadow)}.sv-sky{fill:var(--g3)}.sv-sun line{stroke:#e9b53a;stroke-width:4;stroke-linecap:round}
+.expchip{display:inline-block;margin-top:8px;background:var(--gold2);color:var(--on-gold);border:1px solid var(--b-gold);border-radius:99px;padding:4px 12px;font-weight:700;font-size:.9rem}
+.expchip.nol{background:var(--chip-bg);color:var(--mut);border-color:var(--line)}
+.expchip.big{display:block;text-align:center;border-radius:12px;margin:10px 0 0;padding:8px 12px}
+.expcard{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:14px;background:linear-gradient(135deg,var(--card),var(--gold2));border:2px solid var(--gold)}
+.lvl{width:60px;height:60px;border-radius:50%;background:var(--btn1);color:#fff;display:grid;place-items:center;text-align:center;line-height:1;font-weight:800;font-size:1.4rem;flex:none}
+.lvl small{display:block;font-size:.55rem;font-weight:600;letter-spacing:.06em;opacity:.85;margin-bottom:2px}
+.live{font-size:.78rem;font-weight:700;color:var(--mut)}.live.on{color:var(--ok)}
+.podium{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:end;margin:18px 0 10px}
+.pd{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.pd .crown{font-size:1.5rem;line-height:1;margin-bottom:2px}
+.pd .av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:1.2rem;background:var(--g3);color:var(--g1);border:3px solid var(--line)}
+.pd.p1 .av{width:64px;height:64px;font-size:1.5rem;border-color:var(--gold);box-shadow:0 0 0 4px var(--gold2)}
+.pd .pn{font-weight:700;font-size:.86rem;line-height:1.2;margin-top:6px;overflow-wrap:anywhere;max-height:2.5em;overflow:hidden}
+.pd .pk{font-size:.74rem;color:var(--mut)}
+.pd .bar{width:100%;margin-top:8px;border-radius:12px 12px 0 0;display:flex;flex-direction:column;align-items:center;gap:2px;padding-top:8px;transform-origin:bottom;animation:naik .7s cubic-bezier(.2,.8,.2,1) both}
+.pd .bar b{font-size:1.7rem;line-height:1}.pd .bar span{font-size:.78rem;font-weight:700}
+.pd.p1 .bar{height:140px;background:linear-gradient(180deg,#f3d36b,#c8a33a);color:#2b2306}
+.pd.p2 .bar{height:104px;background:linear-gradient(180deg,#e4e8e7,#aeb8b5);color:#25302d;animation-delay:.12s}
+.pd.p3 .bar{height:80px;background:linear-gradient(180deg,#e0b48a,#b27840);color:#2e1c0a;animation-delay:.24s}
+.pd.kosong{opacity:.45}
+@keyframes naik{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){.pd .bar{animation:none}}
+.lbl{list-style:none;margin:10px 0 0;padding:0}
+.lbrow{display:flex;align-items:center;gap:10px;padding:10px 12px;border:2px solid var(--line);border-radius:12px;background:var(--card);margin:8px 0}
+.lbrow.me{border-color:var(--g2);background:var(--g3)}
+.lbrow .no{min-width:30px;text-align:center;font-weight:800;color:var(--mut)}
+.lbrow .av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--g3);color:var(--g1);flex:none}
+.lbrow .nm{flex:1;min-width:0;font-weight:600;overflow-wrap:anywhere}
+.lbrow small{display:block;color:var(--mut);font-weight:400;font-size:.78rem}
+.lbrow .xp{font-weight:800;color:var(--g1);white-space:nowrap}
+.tema{padding:6px 10px;min-width:40px;text-align:center;font-size:1rem;line-height:1}
+@media print{header.top,.actions,.filters,.timer,.btn,.crumb,#kirim-asat,#kirim-lat{display:none!important}body{background:var(--card)}.card,.rv{box-shadow:none;break-inside:avoid}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="32" cy="32" r="30" fill="#c8a33a"/>
+      <circle cx="32" cy="32" r="26" fill="#0b5d46"/>
+      <path d="M38 15 A17 17 0 1 0 38 49 A13 13 0 1 1 38 15 Z" fill="#f6ecc4"/>
+      <polygon points="46,22 47.8,26.4 52.7,26.7 48.9,29.8 50.1,34.5 46,31.9 41.9,34.5 43.1,29.8 39.3,26.7 44.2,26.4" fill="#f6ecc4"/>
+    </svg>
+    <div class="ttl"><b>Simulasi ASAT PAI</b><small>Kelas VIII SMP · Tahun Ajaran 2026/2027</small></div>
+    <button class="chip tema" id="btn-tema" data-act="tema" type="button" aria-label="Ganti tema" title="Ganti tema"></button>
+    <button class="chip" id="chip-user" data-act="keluar" style="display:none" title="Ganti siswa"></button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ LOGIN ============ -->
+<section class="view" id="v-login">
+  <div class="card hero">
+    <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+    <h2>Assalamu'alaikum, Ananda</h2>
+    <p class="muted">Isi identitas dulu, lalu pilih latihan bab atau Simulasi ASAT.</p>
+  </div>
+  <form class="card" id="form-login" style="margin-top:14px" autocomplete="off" novalidate>
+    <label for="in-nama">Nama lengkap</label>
+    <input type="text" id="in-nama" maxlength="60" placeholder="Contoh: Ahmad Fauzi" autocapitalize="words">
+    <div class="row2">
+      <div>
+        <label for="in-absen">Nomor absen</label>
+        <input type="number" id="in-absen" min="1" max="40" inputmode="numeric" placeholder="1 – 40">
+      </div>
+      <div>
+        <label for="in-kelas">Kelas</label>
+        <select id="in-kelas"><option value="">Pilih kelas</option></select>
+      </div>
+    </div>
+    <div class="banner bad" id="err-login" style="display:none"></div>
+    <div class="actions"><button class="btn block" type="submit">Masuk &amp; Mulai Belajar ➜</button></div>
+    <p class="hint">Pastikan nama, nomor absen, dan kelas benar. Nilai dicatat berdasarkan kelas dan nomor absen.</p>
+  </form>
+</section>
+
+<!-- ============ HOME ============ -->
+<section class="view" id="v-home">
+  <div class="card hero" style="padding:20px">
+    <h2 id="h-salam">Assalamu'alaikum</h2>
+    <p class="muted" id="h-info"></p>
+  </div>
+  <div id="h-banners"></div>
+  <div id="h-exp"></div>
+  <h3 style="margin:20px 0 0;color:var(--g1)">Latihan per Bab</h3>
+  <div class="grid" id="h-bab"></div>
+  <h3 style="margin:24px 0 0;color:var(--g1)">Simulasi Akhir</h3>
+  <div class="grid"><button class="card babcard asatcard wide" data-act="asatintro">
+    <span class="ikon">📝</span>
+    <span><span class="nm">Simulasi ASAT PAI Kelas VIII</span><br>
+    <span class="badge">40 soal</span> <span class="badge">5 jenis soal</span> <span class="badge">90 menit</span> <span class="badge">Nilai maks. 100</span></span>
+  </button></div>
+  <footer>Semoga ilmu yang dipelajari bermanfaat dan berkah. Aamiin.</footer>
+</section>
+
+<!-- ============ BAB ============ -->
+<section class="view" id="v-bab">
+  <div class="crumb"><button data-act="home">← Beranda</button></div>
+  <div class="card materi" id="bab-isi"></div>
+</section>
+
+<!-- ============ LATIHAN ============ -->
+<section class="view" id="v-lat">
+  <div class="crumb"><button data-act="lat-keluar">← Keluar dari latihan</button></div>
+  <div class="card" id="lat-isi"></div>
+</section>
+
+<section class="view" id="v-lat-hasil">
+  <div class="card" id="lat-hasil-isi"></div>
+  <div id="lat-review"></div>
+</section>
+
+<!-- ============ ASAT ============ -->
+<section class="view" id="v-asat-intro">
+  <div class="crumb"><button data-act="home">← Beranda</button></div>
+  <div class="card" id="asat-intro-isi"></div>
+</section>
+
+<section class="view" id="v-asat">
+  <div class="timer" id="asat-timer">
+    <div><div class="muted" style="font-size:.74rem;line-height:1">Sisa waktu</div><div class="tm" id="tm">90:00</div></div>
+    <div style="text-align:right"><div class="muted" style="font-size:.74rem;line-height:1">Terjawab</div><b id="tm-ans">0/40</b></div>
+    <button class="btn sec" style="min-height:42px;padding:8px 14px" data-act="asat-nav">☰ Daftar Soal</button>
+  </div>
+  <div class="card" id="asat-isi"></div>
+</section>
+
+<section class="view" id="v-asat-hasil">
+  <div class="card" id="asat-hasil-isi"></div>
+  <div id="asat-review"></div>
+</section>
+
+<!-- ============ LEADERBOARD ============ -->
+<section class="view" id="v-lb">
+  <div class="crumb"><button data-act="home">← Beranda</button></div>
+  <div class="card" id="lb-isi"></div>
+</section>
+
+</main>
+
+<div class="overlay" id="ov"><div class="modal" id="ov-box"></div></div>
+<div class="toast" id="toast"></div>
+<noscript><div style="padding:20px;text-align:center">Aktifkan JavaScript untuk memakai aplikasi ini.</div></noscript>
+
+<script>
+/* =====================================================================
+   KONFIGURASI  — isi API_URL dengan URL Web App Google Apps Script
+   (berakhiran /exec). Kosongkan/biarkan default = mode lokal.
+   ===================================================================== */
+const CONFIG = {
+  API_URL: "PASTE_URL_WEB_APP_DI_SINI",
+  ASAT_MENIT: 90,
+  POIN: {PG:2, PGK:3, SA:3, JD:4, IS:2},   // 20x2 + 5x3 + 5x3 + 5x4 + 5x2 = 100
+  KELAS: ["VIII A","VIII B","VIII C","VIII D","VIII E","VIII F"],
+  MAKS_ABSEN: 40,
+  // Supabase (database realtime untuk EXP & leaderboard). Kunci ini KUNCI PUBLIK (anon):
+  // aman ada di index.html. Keamanan dijaga Row Level Security + fungsi catat_exp di server.
+  // Kosongkan salah satunya untuk mematikan leaderboard.
+  SUPABASE_URL: "https://empsnqxmtkxarazfnkbb.supabase.co",
+  SUPABASE_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVtcHNucXhtdGt4YXJhemZua2JiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI0Mzc4MDUsImV4cCI6MjEwODAxMzgwNX0.aDsQ5_Fjw9TQL-5yZl8dqLD8hT8Ke_GqyJ3dL_E9nXg"
+};
+
+/* =====================================================================
+   BANK SOAL & MATERI
+   Format soal pilihan ganda: c = jawaban benar, w = 3 pengecoh.
+   Urutan opsi diacak otomatis setiap percobaan.
+   ===================================================================== */
+/* Konstruktor soal.
+   PG(q, benar, [3 pengecoh], pembahasan)
+   PGK(q, [opsi], [indeks benar], pembahasan)        pilihan ganda kompleks
+   SA(pernyataan, alasan, kodeJawaban 0-4, pembahasan) sebab-akibat
+   JD(q, [kiri], [kanan], [indeks kanan tiap kiri], pembahasan) menjodohkan
+   IS(q, [[variasi kata kunci grup 1], [grup 2]], contohJawaban, pembahasan) isian argumen */
+const PG  = (q,c,w,e)       => ({t:'pg',  q,c,w,e});
+const PGK = (q,o,c,e)       => ({t:'pgk', q,o,c,e});
+const SA  = (p,a,k,e)       => ({t:'sa',  p,a,k,e});
+const JD  = (q,l,r,key,e)   => ({t:'jd',  q,l,r,key,e});
+const IS  = (q,g,k,e)       => ({t:'is',  q,g,k,e});
+const SA_OPT = [
+  "Pernyataan benar, alasan benar, dan keduanya berhubungan sebab akibat.",
+  "Pernyataan benar, alasan benar, tetapi keduanya tidak berhubungan sebab akibat.",
+  "Pernyataan benar, alasan salah.",
+  "Pernyataan salah, alasan benar.",
+  "Pernyataan salah dan alasan salah."
+];
+
+const BAB = [
+{
+  id:1, ikon:"🌿", judul:"Melestarikan Alam dan Menjaga Kehidupan",
+  materi:`
+<h2>Bab 1 — Melestarikan Alam dan Menjaga Kehidupan</h2>
+<h4>1. Manusia sebagai khalifah</h4>
+<p>Allah menciptakan manusia sebagai <b>khalifah</b> (wakil dan pengelola) di bumi (Q.S. Al-Baqarah/2:30). Tugasnya memakmurkan dan memelihara bumi. Alam adalah <b>amanah</b> dari Allah, bukan milik manusia sepenuhnya.</p>
+<h4>2. Dalil menjaga alam dan kehidupan</h4>
+<ul>
+<li><b>Q.S. Al-A'raf/7:56</b> — dilarang membuat kerusakan di bumi setelah Allah menatanya dengan baik.</li>
+<li><b>Q.S. Ar-Rum/30:41</b> — kerusakan di darat dan di laut terjadi karena perbuatan tangan manusia.</li>
+<li><b>Q.S. Al-Qasas/28:77</b> — Allah tidak menyukai orang yang berbuat kerusakan di bumi.</li>
+<li><b>Q.S. Al-A'raf/7:31</b> — dilarang berlebih-lebihan (<i>israf</i>) dalam memakai nikmat Allah.</li>
+<li><b>Q.S. Ali 'Imran/3:191</b> — Allah tidak menciptakan alam ini dengan sia-sia.</li>
+<li><b>Q.S. Al-Ma'idah/5:32</b> — menjaga satu jiwa seakan-akan menjaga seluruh manusia; menghilangkan satu nyawa tanpa hak seakan-akan membunuh seluruh manusia.</li>
+</ul>
+<h4>3. Hadis tentang menanam</h4>
+<ul>
+<li>Tanaman seorang muslim yang dimakan burung, manusia, atau hewan menjadi <b>sedekah</b> bagi penanamnya (HR. Bukhari dan Muslim).</li>
+<li>Jika kiamat akan terjadi dan seseorang memegang bibit pohon, hendaklah ia menanamnya (HR. Ahmad). Artinya, berbuat baik bagi alam harus terus dilakukan.</li>
+</ul>
+<h4>4. Bentuk pelestarian alam</h4>
+<ul>
+<li><b>Reboisasi</b>: menanam kembali hutan yang gundul.</li>
+<li>Prinsip <b>3R</b>: <i>reduce</i> (mengurangi sampah), <i>reuse</i> (memakai kembali), <i>recycle</i> (mendaur ulang).</li>
+<li>Menghemat air dan listrik, tidak <i>israf</i>.</li>
+<li>Tidak membuang sampah sembarangan dan tidak membakar hutan.</li>
+<li>Tidak memburu atau memperdagangkan satwa langka yang dilindungi.</li>
+</ul>
+<h4>5. Dampak kerusakan lingkungan</h4>
+<p>Banjir, tanah longsor, kabut asap, krisis air bersih, punahnya hewan dan tumbuhan, serta gangguan kesehatan.</p>
+<div class="kotak"><b>Ingat:</b> Merusak alam berarti merugikan sesama makhluk hidup. Menjaga alam adalah bagian dari ibadah dan rasa syukur.</div>`,
+  latihan:[
+   PG("Warga desa membuka lahan dengan membakar hutan karena dianggap murah dan cepat. Akibatnya kabut asap menyelimuti desa dan banyak anak jatuh sakit. Peristiwa ini paling tepat dikaitkan dengan Q.S. Ar-Rum/30:41 karena ...",
+      "kerusakan di darat timbul akibat perbuatan manusia, sehingga manusia wajib bertanggung jawab memperbaikinya",
+      ["kabut asap adalah takdir yang tidak berhubungan dengan perbuatan manusia","membakar hutan dibolehkan selama hasilnya menguntungkan warga desa","kerusakan alam hanya terjadi akibat pergantian musim dan cuaca"],
+      "Ar-Rum/30:41 menegaskan bahwa kerusakan di darat dan laut muncul akibat ulah manusia. Karena itu manusia bertanggung jawab mencegah dan memperbaikinya, bukan menyalahkan takdir."),
+   PG("Seorang siswa berkata, “Alam ini milik kita, jadi bebas kita pakai sesuka hati.” Pernyataan ini kurang tepat bila ditinjau dari makna khalifah karena ...",
+      "manusia hanya diberi amanah untuk mengelola bumi, sedangkan pemilik sebenarnya adalah Allah",
+      ["khalifah berarti manusia berkuasa penuh atas seluruh isi alam","alam diciptakan tanpa aturan dan batas pemakaian","tugas khalifah hanya beribadah ritual, bukan menjaga alam"],
+      "Khalifah adalah wakil Allah yang bertugas memakmurkan dan memelihara bumi. Alam adalah amanah, bukan milik mutlak manusia (Q.S. Al-Baqarah/2:30)."),
+   PG("Sekolah X menanam 100 bibit lalu tidak pernah merawatnya sehingga sebagian besar mati. Sekolah Y menanam 30 bibit, menyiramnya, dan memantaunya tiap pekan. Dari sudut pandang amanah menjaga alam, penilaian yang paling tepat adalah ...",
+      "Sekolah Y lebih sesuai karena menjaga alam menuntut pemeliharaan berkelanjutan, bukan sekadar menanam",
+      ["Sekolah X lebih baik karena jumlah bibit yang ditanam lebih banyak","keduanya sama baik karena niat menanam saja sudah cukup","keduanya salah karena menanam pohon bukan ajaran Islam"],
+      "Hadis tentang menanam bernilai sedekah bila tanamannya bermanfaat. Amanah menjaga alam berarti merawat sampai tumbuh, bukan hanya menanam lalu meninggalkannya."),
+   PG("Rina memakai kembali botol bekas sebagai wadah bekal. Dodi mengolah ban bekas menjadi pot bunga. Salma membeli sabun isi ulang agar sampah kemasan berkurang. Penerapan prinsip 3R yang tepat berturut-turut adalah ...",
+      "Rina – reuse; Dodi – recycle; Salma – reduce",
+      ["Rina – recycle; Dodi – reduce; Salma – reuse","Rina – reduce; Dodi – reuse; Salma – recycle","Rina – reuse; Dodi – reduce; Salma – recycle"],
+      "Reuse: memakai kembali tanpa mengubah bentuk. Recycle: mengolah menjadi barang baru. Reduce: mengurangi pemakaian dan sampah sejak awal."),
+   PG("Penebang liar menggunduli hutan di hulu sungai sehingga terjadi banjir bandang yang menewaskan warga. Prinsip dalam Q.S. Al-Ma'idah/5:32 relevan dengan peristiwa ini karena ...",
+      "menjaga jiwa sangat bernilai, sehingga perbuatan yang membahayakan nyawa banyak orang sangat dilarang",
+      ["menebang hutan dibolehkan karena alam diciptakan untuk dimanfaatkan","dosa hanya berlaku bagi pelaku yang membunuh langsung dengan tangannya","korban bencana sudah pasti ditakdirkan sehingga pelaku tidak perlu bertanggung jawab"],
+      "Ayat ini menegaskan nilai besar menjaga jiwa. Perbuatan merusak alam yang mengancam keselamatan orang banyak bertentangan dengan prinsip tersebut."),
+   PGK("Pilihlah SEMUA tindakan yang mencerminkan peran manusia sebagai khalifah di bumi!",
+      ["Memilah sampah organik dan anorganik di rumah","Menebang pohon di lereng bukit tanpa menanam kembali","Mematikan lampu dan keran air yang tidak dipakai","Berburu satwa langka untuk dijual sebagai koleksi","Mengikuti kegiatan bersih sungai bersama warga"],
+      [0,2,4],
+      "Khalifah memelihara dan memakmurkan bumi: memilah sampah, berhemat, dan membersihkan sungai. Menebang tanpa menanam dan berburu satwa langka justru merusak."),
+   PGK("Pilihlah SEMUA pernyataan yang sesuai dengan Q.S. Al-A'raf/7:31 dan 7:56!",
+      ["Manusia dilarang berbuat kerusakan di bumi setelah Allah menatanya dengan baik","Makan dan minum dianjurkan tanpa batas selama mampu membeli","Allah tidak menyukai orang yang berlebih-lebihan","Berhemat air saat berwudu sejalan dengan larangan israf","Berbuat kerusakan dibolehkan bila menghasilkan keuntungan"],
+      [0,2,3],
+      "Al-A'raf/7:56 melarang membuat kerusakan di bumi. Al-A'raf/7:31 melarang berlebih-lebihan (israf), termasuk memboroskan air."),
+   SA("Reboisasi sebaiknya dilakukan di lahan yang gundul.",
+      "Menanam pohon hanya bernilai sedekah jika buahnya dimakan manusia.",
+      2,
+      "Pernyataan benar: reboisasi menghijaukan lahan gundul. Alasan salah: hadis menyebut tanaman yang dimakan manusia, burung, atau hewan bernilai sedekah bagi penanamnya."),
+   JD("Jodohkan peristiwa di sebelah kiri dengan dalil atau prinsip yang paling tepat di sebelah kanan!",
+      ["Pabrik membuang limbah ke laut tanpa diolah","Keluarga membuang banyak makanan saat pesta","Pelajar menyadari setiap ciptaan Allah bermanfaat","Relawan menyelamatkan korban banjir"],
+      ["Ar-Rum/30:41: kerusakan karena ulah manusia","Al-A'raf/7:31: larangan berlebih-lebihan","Ali 'Imran/3:191: ciptaan Allah tidak sia-sia","Al-Ma'idah/5:32: menjaga jiwa manusia"],
+      [0,1,2,3],
+      "Limbah pabrik adalah kerusakan akibat ulah manusia. Membuang makanan adalah israf. Menyadari manfaat ciptaan sesuai Ali 'Imran/3:191. Menolong korban berarti menjaga jiwa."),
+   IS("Seorang teman berkata, “Air di rumahku melimpah, jadi boleh dipakai boros.” Tulis satu istilah dan alasan singkat untuk membantah pendapat itu!",
+      [["israf","berlebih","boros"],["tidak suka","tidak menyukai","dilarang","tercela","tidak disukai"]],
+      "Itu israf (berlebih-lebihan). Allah melarangnya dan tidak menyukai pelakunya (Al-A'raf/7:31).",
+      "Meski air melimpah, sikap boros termasuk israf. Allah tidak menyukai orang yang berlebih-lebihan.")
+  ],
+  asat:[
+   PG("Pak Anto membuang oli bekas ke selokan, sedangkan Bu Rini menjual oli bekas ke pengepul untuk diolah kembali. Penilaian yang paling tepat berdasarkan ajaran menjaga alam adalah ...",
+      "Bu Rini sejalan dengan ajaran menjaga alam karena mencegah pencemaran dan memanfaatkan kembali limbah",
+      ["Pak Anto lebih sesuai karena caranya lebih hemat waktu","keduanya tidak berkaitan dengan ajaran Islam","keduanya benar asalkan niatnya menghemat biaya"],
+      "Membuang limbah sembarangan mencemari lingkungan. Menyalurkan limbah untuk diolah kembali mengurangi kerusakan."),
+   PG("Pemerintah desa melarang perburuan satwa langka dan melatih warga bekas pemburu menjadi pemandu ekowisata. Kebijakan ini paling tepat dinilai sebagai ...",
+      "solusi yang melindungi satwa sekaligus menjaga kebutuhan ekonomi warga",
+      ["langkah keliru karena merugikan penghasilan warga","kebijakan yang tidak penting karena satwa bisa berkembang sendiri","kebijakan yang bertentangan dengan amanah khalifah"],
+      "Menjaga kelestarian hewan sejalan dengan amanah khalifah. Pelatihan ekowisata memberi penghasilan tanpa merusak alam."),
+   PG("Seorang pelajar ragu menanam pohon mangga karena hasilnya baru terasa belasan tahun lagi. Pesan hadis tentang bibit pohon yang paling kuat untuk meluruskan keraguannya adalah ...",
+      "kebaikan bagi alam tetap dikerjakan walaupun hasilnya belum tentu dinikmati sendiri",
+      ["menanam hanya perlu dilakukan jika hasilnya segera dinikmati","kiamat membuat kegiatan menanam tidak lagi bernilai","menanam pohon adalah kewajiban pemerintah saja"],
+      "Hadis ini mendorong kita terus berbuat baik bagi alam sampai akhir, meski manfaatnya mungkin dirasakan orang lain."),
+   PG("Data desa: tahun ke-1 tutupan hutan 60% dan banjir terjadi 1 kali; tahun ke-5 tutupan hutan 25% dan banjir terjadi 6 kali. Kesimpulan yang paling sesuai dengan ajaran Islam adalah ...",
+      "menurunnya hutan akibat ulah manusia berkaitan dengan meningkatnya bencana, sehingga perlu reboisasi dan pengawasan",
+      ["banjir meningkat semata-mata karena tahun semakin tua","bencana murni takdir sehingga tidak perlu dicegah","tutupan hutan tidak memengaruhi terjadinya banjir"],
+      "Data menunjukkan hubungan hutan yang berkurang dengan banjir yang meningkat. Islam memerintahkan manusia memperbaiki kerusakan yang diakibatkan perbuatannya."),
+   PGK("Pilihlah SEMUA kemungkinan dampak membuang sampah plastik ke sungai!",
+      ["Aliran sungai tersumbat sehingga risiko banjir meningkat","Kualitas air menurun dan membahayakan makhluk hidup di dalamnya","Tanah di sekitar sungai menjadi lebih subur karena plastik","Biaya kesehatan masyarakat dapat meningkat","Air sungai menjadi lebih jernih"],
+      [0,1,3],
+      "Sampah plastik menyumbat aliran, mencemari air, dan berdampak pada kesehatan. Plastik tidak menyuburkan tanah dan tidak menjernihkan air."),
+   SA("Kerusakan lingkungan hanya disebabkan oleh faktor alam.",
+      "Q.S. Ar-Rum/30:41 menyebut kerusakan di darat dan laut terjadi karena perbuatan tangan manusia.",
+      3,
+      "Pernyataan salah, karena ulah manusia merupakan penyebab penting kerusakan. Alasan benar sesuai Ar-Rum/30:41."),
+   JD("Jodohkan perbuatan di sebelah kiri dengan dampak yang paling mungkin di sebelah kanan!",
+      ["Membakar hutan","Menebang hutan secara liar","Membuang sampah ke sungai","Memburu satwa langka"],
+      ["Kabut asap dan gangguan pernapasan","Banjir dan tanah longsor","Sungai tersumbat dan tercemar","Populasi satwa terancam punah","Tanah menjadi subur selamanya"],
+      [0,1,2,3],
+      "Setiap perbuatan merusak membawa dampak: asap, banjir dan longsor, pencemaran sungai, serta kepunahan satwa."),
+   IS("Lengkapi argumen berikut dengan satu kata kerja: “Karena bumi adalah amanah dari Allah, manusia sebagai khalifah wajib ... bumi.”",
+      [["menjaga","memelihara","merawat","memakmurkan","melestarikan","mengelola"]],
+      "menjaga / memelihara / memakmurkan",
+      "Khalifah berarti pengelola yang bertugas menjaga, memelihara, dan memakmurkan bumi.")
+  ]
+},
+{
+  id:2, ikon:"📖", judul:"Kitab-Kitab Allah dan Toleransi",
+  materi:`
+<h2>Bab 2 — Kitab-Kitab Allah dan Toleransi</h2>
+<h4>1. Beriman kepada kitab-kitab Allah</h4>
+<p>Iman kepada kitab Allah adalah <b>rukun iman ke-3</b> (urutan: Allah, malaikat, kitab, rasul, hari akhir, qada dan qadar). Artinya meyakini bahwa Allah menurunkan kitab kepada para rasul sebagai petunjuk hidup.</p>
+<h4>2. Kitab dan rasul penerimanya</h4>
+<table class="tb"><tr><th>Kitab</th><th>Diturunkan kepada</th></tr>
+<tr><td>Suhuf (lembaran wahyu)</td><td>Nabi Ibrahim a.s. dan Nabi Musa a.s.</td></tr>
+<tr><td>Taurat</td><td>Nabi Musa a.s.</td></tr>
+<tr><td>Zabur</td><td>Nabi Daud a.s.</td></tr>
+<tr><td>Injil</td><td>Nabi Isa a.s.</td></tr>
+<tr><td>Al-Qur'an</td><td>Nabi Muhammad saw.</td></tr></table>
+<p class="muted">Wahyu disampaikan melalui malaikat Jibril.</p>
+<h4>3. Al-Qur'an</h4>
+<ul>
+<li>Wahyu pertama: <b>Q.S. Al-'Alaq/96:1–5</b>, diterima Nabi di Gua Hira.</li>
+<li>Diturunkan berangsur-angsur selama kurang lebih <b>22 tahun 2 bulan 22 hari</b>.</li>
+<li>Peristiwa turunnya Al-Qur'an pertama kali diperingati sebagai <b>Nuzulul Qur'an</b>.</li>
+<li>Keasliannya dijaga Allah (Q.S. Al-Hijr/15:9).</li>
+<li>Membenarkan kitab-kitab sebelumnya dan menjadi penjaga/penguji kebenarannya (Q.S. Al-Ma'idah/5:48).</li>
+<li>Menjadi pedoman hidup seluruh manusia sampai hari kiamat.</li>
+</ul>
+<h4>4. Toleransi</h4>
+<p>Toleransi adalah sikap menghargai perbedaan keyakinan dan pendapat tanpa mencampuradukkan akidah dan ibadah.</p>
+<ul>
+<li><b>Q.S. Al-Kafirun/109:6</b> — "Untukmu agamamu, untukku agamaku."</li>
+<li><b>Q.S. Al-Baqarah/2:256</b> — tidak ada paksaan dalam (memeluk) agama.</li>
+<li><b>Q.S. Al-Hujurat/49:13</b> — manusia dijadikan berbangsa-bangsa dan bersuku-suku agar saling mengenal; yang paling mulia adalah yang paling bertakwa.</li>
+<li><b>Q.S. Al-Mumtahanah/60:8</b> — Allah tidak melarang berbuat baik dan adil kepada orang yang tidak memerangi dan tidak mengusir kita karena agama.</li>
+<li><b>Piagam Madinah</b> — contoh toleransi Nabi saw.: mengatur hak dan kewajiban seluruh penduduk Madinah yang berbeda suku dan agama.</li>
+</ul>
+<h4>5. Contoh sikap toleran</h4>
+<ul>
+<li>Menghormati teman yang sedang beribadah.</li>
+<li>Menjaga kerukunan dengan tetangga berbeda agama dan tidak mengganggu ibadahnya.</li>
+<li>Tidak mengejek keyakinan orang lain dan tidak memaksakan keyakinan.</li>
+</ul>
+<div class="kotak"><b>Ingat:</b> Toleransi tidak berarti ikut beribadah dengan agama lain. Kita menghargai, tetapi akidah dan ibadah kita tetap terjaga.</div>`,
+  latihan:[
+   PG("Seorang siswa berpendapat, “Karena semua kitab berasal dari Allah, Al-Qur'an tidak perlu dijadikan pedoman utama.” Argumen yang paling tepat untuk meluruskannya adalah ...",
+      "Al-Qur'an dijaga keasliannya oleh Allah, membenarkan sekaligus menguji kitab sebelumnya, dan menjadi pedoman sampai kiamat",
+      ["kitab-kitab terdahulu tidak boleh diimani sama sekali","Al-Qur'an hanya diperuntukkan bagi bangsa Arab","semua kitab sama persis sehingga bebas memilih salah satunya"],
+      "Beriman kepada semua kitab Allah termasuk rukun iman, tetapi Al-Qur'an terjaga (Al-Hijr/15:9), menjadi penguji kitab sebelumnya (Al-Ma'idah/5:48), dan menjadi pedoman sampai kiamat."),
+   PG("Al-Qur'an diturunkan berangsur-angsur selama kurang lebih 22 tahun. Hikmah yang paling masuk akal dari cara penurunan ini adalah ...",
+      "memudahkan umat memahami, menghafal, dan mengamalkan, serta menjawab peristiwa yang terjadi",
+      ["agar umat tidak perlu menghafal ayat-ayatnya","karena isi Al-Qur'an belum ditentukan Allah sebelumnya","supaya isi Al-Qur'an bisa diubah sesuai keadaan zaman"],
+      "Penurunan bertahap membantu umat memahami dan mengamalkan ajaran sedikit demi sedikit serta menjawab persoalan yang muncul."),
+   PG("Piagam Madinah mengatur hak dan kewajiban penduduk Madinah yang berbeda suku dan agama. Nilai yang paling tepat diteladani sekolah dengan siswa berbeda agama adalah ...",
+      "kesetaraan hak dan kewajiban serta kerja sama menjaga keamanan bersama tanpa memaksakan keyakinan",
+      ["semua siswa wajib mengikuti ibadah kelompok mayoritas","siswa minoritas dibatasi haknya dalam kegiatan sekolah","tiap kelompok dipisahkan dan dilarang berinteraksi"],
+      "Piagam Madinah menjamin hak dan kewajiban semua kelompok sehingga tercipta kehidupan yang damai tanpa paksaan agama."),
+   PG("Warga non-Muslim mengundang tetangga bergotong royong memperbaiki jalan kampung. Rina ikut bekerja bakti, tetapi tidak ikut ritual ibadah pada acara lain. Penilaian atas sikap Rina adalah ...",
+      "tepat, karena ia bekerja sama dalam urusan sosial tanpa mencampuradukkan ibadah",
+      ["keliru, karena toleransi berarti mengikuti semua ritual","keliru, karena Muslim dilarang bekerja sama dengan non-Muslim","tepat hanya jika ia ikut ritual agar tidak ada yang tersinggung"],
+      "Toleransi berarti menghormati dan bekerja sama dalam kebaikan sosial, tetapi akidah dan ibadah tetap terjaga (Al-Kafirun/109:6)."),
+   PG("Seorang ketua OSIS memaksa temannya yang berbeda keyakinan mengikuti kegiatan keagamaannya agar “lebih akrab”. Tindakan ini bertentangan dengan Q.S. Al-Baqarah/2:256 karena ...",
+      "tidak ada paksaan dalam agama; keyakinan lahir dari kesadaran, bukan tekanan",
+      ["ayat itu melarang berteman dengan non-Muslim","ayat itu hanya berlaku bagi orang dewasa","ayat itu memerintahkan menjauhi semua yang berbeda agama"],
+      "Al-Baqarah/2:256 menegaskan tidak ada paksaan dalam memeluk agama karena jalan yang benar telah jelas."),
+   PGK("Pilihlah SEMUA pernyataan yang benar tentang kitab dan rasul penerimanya!",
+      ["Taurat diturunkan kepada Nabi Musa a.s.","Zabur diturunkan kepada Nabi Isa a.s.","Injil diturunkan kepada Nabi Isa a.s.","Al-Qur'an diturunkan kepada Nabi Muhammad saw.","Suhuf diturunkan kepada Nabi Daud a.s."],
+      [0,2,3],
+      "Taurat–Musa, Zabur–Daud, Injil–Isa, Al-Qur'an–Muhammad. Suhuf diturunkan kepada Nabi Ibrahim a.s. dan Musa a.s."),
+   PGK("Pilihlah SEMUA sikap yang mencerminkan toleransi sesuai ajaran Islam!",
+      ["Menghormati teman yang sedang beribadah","Mengejek tempat ibadah agama lain","Berbuat baik dan adil kepada tetangga berbeda agama yang tidak memerangi kita","Menjaga kerukunan saat agama lain merayakan hari besar tanpa mengganggunya","Ikut ibadah agama lain agar dianggap toleran"],
+      [0,2,3],
+      "Berbuat baik dan adil serta menghormati ibadah orang lain sesuai Al-Mumtahanah/60:8. Mengejek dan mencampuradukkan ibadah bukan toleransi."),
+   SA("Iman kepada kitab Allah merupakan rukun iman yang ketiga.",
+      "Al-Qur'an diturunkan selama kurang lebih 22 tahun 2 bulan 22 hari.",
+      1,
+      "Keduanya benar, tetapi lamanya Al-Qur'an diturunkan bukan sebab kitab menjadi rukun iman ketiga."),
+   JD("Jodohkan sikap di sebelah kiri dengan prinsip toleransi di sebelah kanan!",
+      ["Membiarkan tetangga beribadah dengan tenang","Tidak memaksa teman memeluk agamamu","Bergotong royong dengan warga berbeda agama","Tidak ikut ibadah agama lain"],
+      ["Menghargai kebebasan beribadah","Tidak ada paksaan dalam agama (Al-Baqarah/2:256)","Berbuat baik dan adil (Al-Mumtahanah/60:8)","Menjaga kemurnian akidah (Al-Kafirun/109:6)"],
+      [0,1,2,3],
+      "Setiap sikap mencerminkan prinsip toleransi yang diajarkan Al-Qur'an."),
+   IS("Seorang teman berkata, “Toleransi berarti ikut beribadah di semua agama.” Tulis satu kalimat singkat untuk meluruskannya!",
+      [["menghargai","menghormati","tidak mengganggu","rukun"],["mencampur","akidah","ibadah masing","ibadah sendiri","keyakinan masing"]],
+      "Toleransi berarti menghargai perbedaan tanpa mencampuradukkan akidah dan ibadah.",
+      "Toleransi adalah menghormati keyakinan orang lain tanpa mencampuradukkan akidah dan ibadah.")
+  ],
+  asat:[
+   PG("Seorang warga berkata, “Membantu tetangga non-Muslim yang tertimpa musibah itu terlarang.” Dalil yang paling tepat untuk menanggapinya adalah ...",
+      "Al-Mumtahanah/60:8: Allah tidak melarang berbuat baik dan adil kepada mereka yang tidak memerangi dan tidak mengusir kita",
+      ["Al-Ikhlas/112:1: Allah itu Esa sehingga kita menjauhi semua non-Muslim","Al-Lahab/111:1: semua non-Muslim akan binasa","Al-Fatihah/1:5: ibadah hanya kepada Allah sehingga tidak boleh bergaul"],
+      "Berbuat baik dan adil kepada non-Muslim yang tidak memerangi dan tidak mengusir kita dibolehkan, bahkan dianjurkan."),
+   PG("A berkata, “Kita boleh mengamalkan isi Taurat dan Injil sekarang sebagai pengganti Al-Qur'an.” B berkata, “Kita mengimani kitab-kitab itu berasal dari Allah, tetapi pedoman amal kini adalah Al-Qur'an.” Penilaian yang tepat adalah ...",
+      "B benar, karena Al-Qur'an membenarkan dan menguji kitab sebelumnya serta menjadi pedoman sampai kiamat",
+      ["A benar, karena kitab terdahulu lebih lengkap isinya","keduanya salah, karena tidak boleh mengimani kitab selain Al-Qur'an","keduanya benar, karena pedoman boleh dicampur dari semua kitab"],
+      "Iman kepada kitab terdahulu tetap wajib, tetapi Al-Qur'an menjadi penjaga dan penguji kebenarannya (Al-Ma'idah/5:48)."),
+   PG("Wahyu pertama diawali dengan kata “Iqra'” (bacalah). Pesan yang paling tepat dari awal wahyu ini adalah ...",
+      "Islam sejak awal mendorong umatnya membaca dan menuntut ilmu",
+      ["Islam sejak awal memerintahkan berperang","Islam sejak awal mewajibkan zakat harta","Islam sejak awal melarang bertanya tentang ilmu"],
+      "Perintah “Iqra'” pada Al-'Alaq/96:1–5 menunjukkan pentingnya membaca dan menuntut ilmu."),
+   PG("Sebuah sekolah menolak siswa berbeda agama menjadi pengurus kegiatan sosial hanya karena perbedaan agama. Ditinjau dari Q.S. Al-Hujurat/49:13, kebijakan ini ...",
+      "keliru, karena perbedaan dijadikan sarana saling mengenal dan kemuliaan diukur dari takwa",
+      ["benar, karena yang paling mulia adalah kelompok mayoritas","benar, karena perbedaan pasti menimbulkan perpecahan","tidak berkaitan dengan hubungan sosial antarsesama"],
+      "Al-Hujurat/49:13: manusia dijadikan berbangsa dan bersuku agar saling mengenal; yang paling mulia di sisi Allah adalah yang paling bertakwa."),
+   PGK("Pilihlah SEMUA pernyataan yang benar tentang Al-Qur'an!",
+      ["Wahyu pertama berupa Q.S. Al-'Alaq/96:1–5","Wahyu pertama diterima di Gua Hira","Wahyu pertama berupa Q.S. Al-Fatihah","Diturunkan berangsur-angsur sekitar 22 tahun 2 bulan 22 hari","Hanya berlaku sampai Nabi Muhammad saw. wafat"],
+      [0,1,3],
+      "Wahyu pertama adalah Al-'Alaq/96:1–5 di Gua Hira. Al-Qur'an turun bertahap dan menjadi pedoman sampai hari kiamat."),
+   SA("Piagam Madinah merupakan contoh toleransi Nabi saw.",
+      "Piagam Madinah memaksa semua penduduk Madinah memeluk Islam.",
+      2,
+      "Pernyataan benar karena piagam itu mengatur hak dan kewajiban penduduk yang berbeda suku dan agama. Alasan salah karena tidak ada paksaan memeluk Islam."),
+   JD("Jodohkan kitab di sebelah kiri dengan penerimanya di sebelah kanan!",
+      ["Suhuf","Taurat","Zabur","Injil"],
+      ["Nabi Daud a.s.","Nabi Isa a.s.","Nabi Ibrahim a.s. dan Nabi Musa a.s.","Nabi Musa a.s.","Nabi Muhammad saw."],
+      [2,3,0,1],
+      "Suhuf–Ibrahim dan Musa, Taurat–Musa, Zabur–Daud, Injil–Isa. Nabi Muhammad saw. menerima Al-Qur'an."),
+   IS("Mengapa dalam memeluk agama tidak boleh ada paksaan menurut Q.S. Al-Baqarah/2:256? Tulis alasan singkat!",
+      [["jelas","terang","nyata"]],
+      "Karena jalan yang benar telah jelas dibedakan dari jalan yang sesat.",
+      "Allah menjelaskan bahwa jalan yang benar telah jelas dari jalan yang sesat, sehingga tidak perlu ada paksaan.")
+  ]
+},
+{
+  id:3, ikon:"🤝", judul:"Jujur, Amanah, Integritas, dan Munafik",
+  materi:`
+<h2>Bab 3 — Jujur, Amanah, Integritas, dan Munafik</h2>
+<h4>1. Jujur (<i>as-sidq</i>)</h4>
+<p>Jujur adalah sesuai antara ucapan, perbuatan, dan kenyataan. Nabi saw. bersabda bahwa kejujuran membawa kepada kebaikan, dan kebaikan menuntun ke surga (HR. Bukhari dan Muslim).</p>
+<ul><li>Q.S. At-Taubah/9:119 — perintah bertakwa dan bersama orang-orang yang benar (jujur).</li></ul>
+<h4>2. Amanah</h4>
+<p>Amanah adalah sesuatu yang dipercayakan kepada kita dan wajib dijaga serta ditunaikan.</p>
+<ul>
+<li>Q.S. An-Nisa'/4:58 — amanat harus disampaikan kepada orang yang berhak menerimanya.</li>
+<li>Q.S. Al-Mu'minun/23:8 — orang beriman memelihara amanat dan janjinya.</li>
+<li>Contoh: menjaga barang titipan, memakai uang kas sesuai peruntukan, menjalankan tugas dengan baik.</li>
+</ul>
+<h4>3. Integritas</h4>
+<p>Integritas adalah kesesuaian antara perkataan dan perbuatan, konsisten pada kebenaran meskipun tidak ada yang mengawasi.</p>
+<h4>4. Sifat wajib rasul</h4>
+<table class="tb"><tr><th>Sifat</th><th>Arti</th></tr>
+<tr><td>Siddiq</td><td>benar / jujur</td></tr>
+<tr><td>Amanah</td><td>dapat dipercaya</td></tr>
+<tr><td>Tabligh</td><td>menyampaikan</td></tr>
+<tr><td>Fathanah</td><td>cerdas</td></tr></table>
+<p class="muted">Sebelum menjadi rasul, Nabi Muhammad saw. dijuluki <b>Al-Amin</b> (yang dapat dipercaya).</p>
+<h4>5. Munafik</h4>
+<p>Munafik adalah orang yang menampakkan keimanan, tetapi menyembunyikan kekafiran di hatinya. Ada pula kemunafikan dalam perbuatan.</p>
+<p><b>Tiga tanda munafik</b> (HR. Bukhari dan Muslim):</p>
+<ul><li>apabila berbicara, ia berdusta;</li><li>apabila berjanji, ia mengingkari;</li><li>apabila dipercaya, ia berkhianat.</li></ul>
+<p>Allah menempatkan orang munafik pada tingkatan paling bawah di neraka (Q.S. An-Nisa'/4:145).</p>
+<h4>6. Dampak</h4>
+<p>Orang jujur dan amanah dipercaya, dihormati, dan tenang hatinya. Orang yang sering berbohong kehilangan kepercayaan orang lain.</p>`,
+  latihan:[
+   PG("Adi menemukan sebuah ponsel di kantin dan tidak ada yang melihatnya. Ponselnya sendiri sedang rusak. Pertimbangan yang paling sesuai ajaran Islam adalah ...",
+      "menyerahkannya kepada guru atau pemiliknya, karena barang temuan adalah amanah yang harus dikembalikan walau tidak ada yang melihat",
+      ["memakainya sementara selama tidak ketahuan","menjualnya lalu menyedekahkan hasilnya","membiarkannya karena itu bukan urusannya"],
+      "Barang temuan adalah amanah yang wajib dikembalikan kepada yang berhak (An-Nisa'/4:58)."),
+   PG("Rudi jujur dan rajin ketika diawasi guru, tetapi menyontek saat pengawas keluar kelas. Penilaian yang tepat atas sikap Rudi adalah ...",
+      "integritasnya belum utuh karena sikapnya tidak konsisten ketika tidak diawasi",
+      ["berintegritas karena nilainya tetap baik","berintegritas karena ia jujur saat diawasi","tidak bermasalah karena pengawas sedang tidak ada"],
+      "Integritas berarti konsisten pada kebenaran, termasuk ketika tidak ada yang mengawasi."),
+   PG("Sinta berjanji menjemput adiknya pukul tiga, tetapi lupa karena asyik bermain. Ia lalu berbohong dengan alasan macet. Tanda munafik yang tampak pada kejadian ini adalah ...",
+      "mengingkari janji dan berdusta, yaitu dua dari tiga tanda munafik",
+      ["hanya berkhianat terhadap amanah, tanpa unsur dusta","tidak ada tanda munafik sama sekali","ia otomatis dikeluarkan dari Islam"],
+      "Tiga tanda munafik: berdusta saat berbicara, mengingkari janji, dan berkhianat saat dipercaya. Pada kasus ini tampak dusta dan ingkar janji."),
+   PG("Dani selalu berkata benar. Eka menyampaikan pesan guru kepada seluruh teman dengan lengkap. Fani memahami soal sulit lalu menjelaskannya dengan cerdas. Pasangan sifat rasul yang tepat berturut-turut adalah ...",
+      "Dani – siddiq; Eka – tabligh; Fani – fathanah",
+      ["Dani – amanah; Eka – fathanah; Fani – siddiq","Dani – tabligh; Eka – siddiq; Fani – amanah","Dani – fathanah; Eka – amanah; Fani – tabligh"],
+      "Siddiq: benar. Tabligh: menyampaikan. Fathanah: cerdas. Amanah: dapat dipercaya."),
+   PG("Sebelum diangkat menjadi rasul, Nabi Muhammad saw. dijuluki Al-Amin. Bukti yang paling kuat atas julukan itu adalah ...",
+      "orang Mekah, termasuk yang belum beriman, menitipkan barang berharga kepada beliau karena yakin akan dijaga",
+      ["beliau memiliki harta paling banyak di Mekah","beliau memenangkan banyak peperangan","beliau pandai bersyair"],
+      "Al-Amin berarti yang dapat dipercaya. Kejujuran beliau diakui masyarakat Mekah."),
+   PGK("Pilihlah SEMUA perilaku yang mencerminkan amanah!",
+      ["Bendahara memakai uang kas sesuai peruntukannya","Mengembalikan buku pinjaman tepat waktu","Memakai uang titipan teman lalu menggantinya diam-diam","Melaksanakan piket kelas tanpa disuruh","Menyampaikan pesan titipan kepada orang yang dimaksud"],
+      [0,1,3,4],
+      "Amanah berarti menjaga dan menunaikan kepercayaan. Memakai uang titipan tanpa izin adalah pengkhianatan."),
+   PGK("Pilihlah SEMUA pernyataan yang benar tentang munafik!",
+      ["Tanda munafik: apabila berbicara ia berdusta","Tanda munafik: apabila berjanji ia mengingkari","Tanda munafik: apabila dipercaya ia berkhianat","Munafik pasti dapat dikenali dari penampilan fisiknya","Orang munafik ditempatkan Allah pada tingkatan paling bawah di neraka"],
+      [0,1,2,4],
+      "Tiga tanda munafik terdapat dalam hadis. Orang munafik berada pada tingkatan terbawah neraka (An-Nisa'/4:145). Kemunafikan tidak terlihat dari penampilan."),
+   SA("Integritas berarti tetap jujur meskipun tidak ada orang yang mengawasi.",
+      "Allah Maha Mengawasi seluruh perbuatan hamba-Nya.",
+      0,
+      "Pernyataan dan alasan benar. Kesadaran bahwa Allah Maha Mengawasi mendorong seseorang tetap jujur walau tidak diawasi manusia."),
+   JD("Jodohkan perilaku di sebelah kiri dengan penilaiannya di sebelah kanan!",
+      ["Menyontek saat ulangan","Mengembalikan barang temuan","Berjanji lalu tidak menepati","Memakai uang kas bukan untuk keperluan kelas"],
+      ["Bertentangan dengan sifat jujur","Mencerminkan sifat amanah","Ciri munafik: mengingkari janji","Mengkhianati amanah","Mencerminkan sifat fathanah"],
+      [0,1,2,3],
+      "Menyontek adalah ketidakjujuran, mengembalikan temuan adalah amanah, ingkar janji ciri munafik, dan menyalahgunakan kas adalah khianat."),
+   IS("Seorang siswa berkata, “Menyontek sekali saja tidak masalah asalkan tidak ketahuan.” Tulis satu alasan singkat untuk membantahnya!",
+      [["jujur","kejujuran","curang","dusta","bohong"],["allah","mengawasi","integritas","kepercayaan","dosa"]],
+      "Menyontek bertentangan dengan kejujuran dan integritas; Allah selalu mengawasi.",
+      "Menyontek adalah kecurangan. Orang berintegritas tetap jujur walau tidak ketahuan karena Allah mengawasi.")
+  ],
+  asat:[
+   PG("Guru menitipkan uang tabungan kelas kepada ketua kelas. Ketua kelas menunda menyerahkannya dan memakai sebagian untuk keperluan pribadi. Pelanggaran yang paling tepat adalah ...",
+      "berkhianat terhadap amanah karena tidak menunaikannya kepada yang berhak",
+      ["bersikap fathanah karena pandai mengelola uang","menjalankan tabligh karena menyampaikan titipan","bersikap siddiq karena tetap berkata benar"],
+      "An-Nisa'/4:58 memerintahkan amanat ditunaikan kepada yang berhak. Memakai titipan untuk kepentingan pribadi adalah khianat."),
+   PG("Seorang siswa sering berbohong. Suatu hari ia berkata jujur bahwa ponselnya hilang, tetapi tidak ada yang percaya. Pelajaran yang paling tepat adalah ...",
+      "kebiasaan berbohong merusak kepercayaan sehingga kejujuran pun sulit diterima",
+      ["kejujuran tidak ada gunanya","orang lain selalu salah menilai","berbohong dibolehkan asal kadang-kadang jujur"],
+      "Orang yang sering berdusta kehilangan kepercayaan, sehingga ucapan benarnya pun diragukan."),
+   PG("Para rasul selalu mampu menjawab argumen kaumnya dengan hujah yang tepat dan cerdas. Hal ini menunjukkan sifat ...",
+      "fathanah",
+      ["siddiq","amanah","tabligh"],
+      "Fathanah berarti cerdas. Siddiq: benar. Amanah: dapat dipercaya. Tabligh: menyampaikan."),
+   PG("Seorang siswa tampak sangat sopan dan religius di depan guru, tetapi di belakangnya mengejek orang lain dan mengingkari janjinya. Unsur kemunafikan yang paling menonjol adalah ...",
+      "perbedaan antara sikap yang ditampakkan dan yang disembunyikan, ditambah mengingkari janji",
+      ["sikap sopan di depan guru","rajin beribadah di sekolah","mengejek sekali dalam sehari"],
+      "Munafik menampakkan kebaikan tetapi menyembunyikan keburukan. Ingkar janji adalah salah satu tandanya."),
+   PGK("Pilihlah SEMUA upaya yang membangun integritas diri!",
+      ["Tetap jujur walaupun tidak diawasi","Menepati janji sekecil apa pun","Menyesuaikan ucapan dengan keinginan pendengar agar disukai","Mengakui kesalahan lalu memperbaikinya","Menyesuaikan ucapan dengan perbuatan"],
+      [0,1,3,4],
+      "Integritas adalah konsistensi ucapan dan perbuatan. Mengubah ucapan demi disukai melemahkan integritas."),
+   SA("Amanah hanya berkaitan dengan barang titipan.",
+      "Amanah mencakup tugas, jabatan, dan janji yang dipercayakan kepada seseorang.",
+      3,
+      "Pernyataan salah karena amanah lebih luas dari barang titipan. Alasan benar."),
+   JD("Jodohkan sifat rasul di sebelah kiri dengan contoh perilaku di sebelah kanan!",
+      ["Siddiq","Amanah","Tabligh","Fathanah"],
+      ["Menyampaikan pesan guru dengan lengkap kepada teman","Mengembalikan barang pinjaman dalam keadaan utuh","Selalu berkata benar walau merugikan diri","Memecahkan masalah dengan cara yang cerdas","Menutupi kesalahan dengan alasan palsu"],
+      [2,1,0,3],
+      "Siddiq: benar. Amanah: dapat dipercaya. Tabligh: menyampaikan. Fathanah: cerdas."),
+   IS("Mengapa orang yang berjanji tetapi tidak menepatinya dikatakan memiliki salah satu tanda munafik? Jawab singkat!",
+      [["ingkar","mengingkari","tidak menepati","melanggar janji","khianat"]],
+      "Karena apabila berjanji ia mengingkari (HR. Bukhari dan Muslim).",
+      "Salah satu tanda munafik dalam hadis adalah apabila berjanji ia mengingkari.")
+  ]
+},
+{
+  id:4, ikon:"🕌", judul:"Salat Gerhana, Istiska, dan Jenazah",
+  materi:`
+<h2>Bab 4 — Salat Gerhana, Istiska, dan Jenazah</h2>
+<h4>1. Salat gerhana</h4>
+<ul>
+<li><b>Salat kusuf</b>: salat saat gerhana matahari. <b>Salat khusuf</b>: salat saat gerhana bulan.</li>
+<li>Hukumnya <b>sunah muakkadah</b>.</li>
+<li>Dua rakaat. Setiap rakaat dikerjakan dengan <b>dua kali berdiri dan dua kali rukuk</b>, tetapi sujudnya dua kali seperti biasa.</li>
+<li>Tanpa azan dan iqamah. Jamaah diseru dengan <i>"Ash-shalatu jami'ah"</i>.</li>
+<li>Dilaksanakan saat gerhana berlangsung, dianjurkan berjamaah, dan disunahkan ada khutbah.</li>
+<li>Gerhana adalah <b>tanda kebesaran Allah</b>, bukan karena kematian atau kelahiran seseorang. Dianjurkan memperbanyak zikir, doa, istigfar, dan sedekah.</li>
+</ul>
+<h4>2. Salat istiska</h4>
+<ul>
+<li>Salat untuk memohon turunnya <b>hujan</b> ketika kemarau panjang.</li>
+<li>Dua rakaat, dikerjakan berjamaah (biasanya di lapangan), tanpa azan dan iqamah, dilanjutkan khutbah.</li>
+<li>Memperbanyak <b>istigfar, tobat, doa</b>, dan sedekah.</li>
+<li>Sebelumnya dianjurkan bertobat, memperbaiki hubungan dengan sesama, dan berbuat baik.</li>
+</ul>
+<h4>3. Pengurusan jenazah</h4>
+<p>Hukum mengurus jenazah muslim adalah <b>fardu kifayah</b>: jika sebagian orang telah melakukannya, gugurlah kewajiban yang lain. Urutannya:</p>
+<ol><li>Memandikan</li><li>Mengafani</li><li>Menyalatkan</li><li>Menguburkan</li></ol>
+<ul>
+<li>Kain kafan laki-laki disunahkan <b>3 lapis</b>, perempuan <b>5 lembar</b>.</li>
+<li>Jenazah dibaringkan di liang lahat <b>miring ke kanan menghadap kiblat</b>.</li>
+<li>Dianjurkan menyegerakan pengurusan jenazah.</li>
+</ul>
+<h4>4. Salat jenazah</h4>
+<ul>
+<li>Fardu kifayah, dikerjakan <b>berdiri, 4 kali takbir, tanpa rukuk dan sujud</b>, tanpa azan dan iqamah.</li>
+<li>Niat → takbir 1, baca <b>Al-Fatihah</b> → takbir 2, <b>salawat</b> atas Nabi → takbir 3, <b>doa untuk jenazah</b> → takbir 4, doa → <b>salam</b>.</li>
+</ul>
+<div class="kotak"><b>Ingat:</b> Kusuf = matahari, khusuf = bulan. Salat gerhana: 2 rakaat, 2 kali rukuk tiap rakaat. Salat jenazah: 4 takbir tanpa rukuk dan sujud.</div>`,
+  latihan:[
+   PG("Pada suatu malam terjadi gerhana bulan. Warga bertanya apakah salatnya sama dengan salat kusuf. Jawaban yang paling tepat adalah ...",
+      "tata caranya sama, yaitu dua rakaat dengan dua kali berdiri dan dua kali rukuk tiap rakaat; hanya namanya berbeda, yaitu khusuf",
+      ["berbeda, karena salat gerhana bulan dikerjakan empat rakaat","tidak ada salat khusus untuk gerhana bulan","sama persis dan sama-sama bernama kusuf"],
+      "Kusuf untuk gerhana matahari dan khusuf untuk gerhana bulan. Tata caranya sama."),
+   PG("Seorang warga mengatakan gerhana adalah pertanda kematian tokoh desa dan mengajak warga mengurung diri. Tanggapan yang paling tepat adalah ...",
+      "meluruskan bahwa gerhana adalah tanda kebesaran Allah, lalu mengajak salat gerhana, berzikir, berdoa, dan bersedekah",
+      ["membenarkan pendapat itu dan menutup rumah","mengabaikannya karena gerhana tidak perlu disikapi dengan ibadah","mengadakan pesta agar suasana tetap ceria"],
+      "Gerhana bukan karena kematian atau kelahiran seseorang, melainkan tanda kebesaran Allah. Dianjurkan berzikir, berdoa, beristigfar, dan bersedekah."),
+   PG("Desa mengalami kemarau berbulan-bulan. Seorang warga bertanya, “Apakah cukup salat istiska saja tanpa bertobat?” Jawaban yang paling tepat adalah ...",
+      "salat istiska dilengkapi istigfar, tobat, doa, memperbaiki hubungan dengan sesama, dan sedekah",
+      ["cukup salat saja, tobat tidak diperlukan","cukup berdoa sendiri tanpa salat dan khutbah","istiska hanya sah jika dikerjakan sendirian"],
+      "Istiska adalah permohonan hujan. Dianjurkan bertobat, memperbanyak istigfar dan doa, serta berbuat baik kepada sesama."),
+   PG("Seorang warga wafat. Sebagian warga sudah memandikan, mengafani, menyalatkan, dan menguburkannya, sedangkan yang lain tidak ikut. Penilaian yang tepat adalah ...",
+      "kewajiban gugur bagi yang lain karena hukumnya fardu kifayah, tetapi yang tidak ikut kehilangan kesempatan pahala",
+      ["semua yang tidak ikut berdosa karena hukumnya fardu ain","kewajiban belum gugur sampai seluruh warga ikut","hukumnya sunah sehingga tidak ada konsekuensi apa pun"],
+      "Fardu kifayah gugur bila sebagian orang telah melaksanakannya."),
+   PG("Ali menyalatkan jenazah. Setelah takbir pertama ia membaca Al-Fatihah, setelah takbir kedua ia membaca doa untuk jenazah, dan setelah takbir ketiga ia membaca salawat. Kesalahan Ali adalah ...",
+      "urutan bacaan tertukar: setelah takbir kedua salawat, setelah takbir ketiga doa untuk jenazah",
+      ["jumlah takbir seharusnya lima kali","seharusnya ada rukuk setelah takbir ketiga","seharusnya takbir pertama dilanjutkan dengan salawat"],
+      "Urutan: takbir 1 Al-Fatihah, takbir 2 salawat, takbir 3 doa untuk jenazah, takbir 4 doa lalu salam."),
+   PGK("Pilihlah SEMUA pernyataan yang benar tentang salat gerhana!",
+      ["Hukumnya sunah muakkadah","Setiap rakaat dikerjakan dengan dua kali rukuk","Didahului azan dan iqamah","Dianjurkan berjamaah dan disunahkan ada khutbah","Dilakukan dengan empat kali sujud pada tiap rakaat"],
+      [0,1,3],
+      "Salat gerhana sunah muakkadah, dua rakaat dengan dua kali berdiri dan rukuk tiap rakaat, tanpa azan dan iqamah, dan sujudnya dua kali seperti biasa."),
+   PGK("Pilihlah SEMUA pernyataan yang benar tentang pengurusan jenazah!",
+      ["Hukumnya fardu kifayah","Urutannya: memandikan, mengafani, menyalatkan, menguburkan","Kain kafan laki-laki disunahkan tiga lapis","Jenazah dimiringkan ke kiri membelakangi kiblat","Salat jenazah dikerjakan dengan rukuk dan sujud"],
+      [0,1,2],
+      "Jenazah dimiringkan ke kanan menghadap kiblat. Salat jenazah tidak memakai rukuk dan sujud."),
+   SA("Gerhana terjadi karena kematian orang besar.",
+      "Gerhana merupakan hukuman bagi orang tertentu.",
+      4,
+      "Keduanya salah. Gerhana adalah tanda kebesaran Allah, bukan akibat kematian atau kelahiran seseorang."),
+   JD("Jodohkan jenis salat di sebelah kiri dengan sebab pelaksanaannya di sebelah kanan!",
+      ["Salat kusuf","Salat khusuf","Salat istiska","Salat jenazah"],
+      ["Terjadi gerhana matahari","Terjadi gerhana bulan","Terjadi kemarau panjang","Wafatnya seorang muslim","Akan berangkat haji"],
+      [0,1,2,3],
+      "Kusuf: gerhana matahari. Khusuf: gerhana bulan. Istiska: kemarau panjang. Jenazah: wafatnya seorang muslim."),
+   IS("Seorang siswa bertanya mengapa saat salat istiska dianjurkan memperbanyak istigfar dan tobat. Tulis alasan singkat!",
+      [["dosa","maksiat","kesalahan","memperbaiki diri","kembali kepada allah","ampunan"]],
+      "Karena musibah dapat menjadi pengingat untuk bertobat dari dosa dan kembali kepada Allah.",
+      "Memohon hujan disertai tobat dan istigfar sebagai bentuk memperbaiki diri dan kembali kepada Allah.")
+  ],
+  asat:[
+   PG("Seorang siswa bertanya mengapa salat jenazah hanya dikerjakan dengan berdiri tanpa rukuk dan sujud. Penjelasan yang paling tepat berdasarkan tujuan salat jenazah adalah ...",
+      "salat jenazah berfokus pada doa dan permohonan ampun bagi jenazah, sehingga dilakukan dengan empat takbir sambil berdiri",
+      ["salat jenazah dikerjakan untuk memohon turunnya hujan","salat jenazah adalah salat sunah yang harus dilakukan sendiri","salat jenazah dilakukan dengan dua rakaat seperti salat gerhana"],
+      "Salat jenazah berisi empat takbir, bacaan Al-Fatihah, salawat, dan doa untuk jenazah."),
+   PG("Pengurus masjid mengumumkan salat gerhana matahari akan dikerjakan setelah gerhana selesai agar jamaah lebih banyak. Tanggapan yang paling tepat adalah ...",
+      "kurang tepat, karena salat gerhana dikerjakan saat gerhana berlangsung",
+      ["tepat, karena salat gerhana bebas dikerjakan kapan saja","tepat, karena salat gerhana harus setelah gerhana selesai","kurang tepat, karena gerhana hanya perlu zikir tanpa salat"],
+      "Salat gerhana dilaksanakan saat gerhana berlangsung dan dianjurkan berjamaah."),
+   PG("Dua jenazah, seorang laki-laki dan seorang perempuan, akan dikafani. Jumlah kain kafan yang disunahkan berturut-turut adalah ...",
+      "tiga lapis dan lima lembar",
+      ["lima lapis dan tiga lembar","satu lapis dan satu lembar","tiga lapis dan tiga lembar"],
+      "Kafan laki-laki disunahkan tiga lapis dan perempuan lima lembar."),
+   PG("Keluarga ingin menunda penguburan jenazah agar acara pemakaman lebih ramai. Anjuran yang paling tepat adalah ...",
+      "menyegerakan pengurusan jenazah",
+      ["menunda agar lebih ramai itu lebih utama","menunda wajib dilakukan satu hari","tidak ada anjuran tentang waktu pengurusan jenazah"],
+      "Pengurusan jenazah dianjurkan disegerakan."),
+   PGK("Pilihlah SEMUA pernyataan yang benar tentang salat istiska!",
+      ["Dikerjakan dua rakaat","Dikerjakan berjamaah, biasanya di lapangan","Didahului azan dan iqamah","Dilanjutkan dengan khutbah","Hanya dikerjakan saat terjadi gerhana"],
+      [0,1,3],
+      "Istiska: dua rakaat, berjamaah, tanpa azan dan iqamah, dilanjutkan khutbah, untuk memohon hujan."),
+   SA("Salat istiska dikerjakan ketika kemarau panjang.",
+      "Istiska berarti memohon turunnya hujan.",
+      0,
+      "Keduanya benar dan berhubungan: karena istiska berarti memohon hujan, salat ini dikerjakan saat kemarau panjang."),
+   JD("Jodohkan bacaan salat jenazah di sebelah kiri dengan waktu membacanya di sebelah kanan!",
+      ["Membaca Al-Fatihah","Membaca salawat atas Nabi","Membaca doa untuk jenazah","Membaca doa lalu salam"],
+      ["Setelah takbir pertama","Setelah takbir kedua","Setelah takbir ketiga","Setelah takbir keempat","Setelah rukuk"],
+      [0,1,2,3],
+      "Takbir 1: Al-Fatihah. Takbir 2: salawat. Takbir 3: doa untuk jenazah. Takbir 4: doa lalu salam."),
+   IS("Mengapa mengurus jenazah termasuk fardu kifayah, bukan fardu ain? Jawab singkat!",
+      [["sebagian","cukup sebagian","sudah dilakukan","gugur"]],
+      "Karena jika sebagian orang sudah melaksanakannya, kewajiban gugur bagi yang lain.",
+      "Fardu kifayah: bila sebagian orang telah melakukannya, gugurlah kewajiban yang lain.")
+  ]
+},
+{
+  id:5, ikon:"🔬", judul:"Kejayaan Ilmu Daulah Abbasiyah",
+  materi:`
+<h2>Bab 5 — Kejayaan Ilmu Daulah Abbasiyah</h2>
+<h4>1. Sejarah singkat</h4>
+<ul>
+<li>Daulah Abbasiyah berdiri tahun <b>750 M (132 H)</b> setelah meruntuhkan Daulah Umayyah. Pendirinya <b>Abu Abbas as-Saffah</b>.</li>
+<li>Khalifah <b>Al-Mansur</b> membangun kota <b>Baghdad</b> (762 M) sebagai pusat pemerintahan.</li>
+<li>Masa keemasan: masa <b>Harun ar-Rasyid</b> dan <b>Al-Ma'mun</b>.</li>
+<li>Berakhir saat Baghdad jatuh akibat serangan Mongol di bawah <b>Hulagu Khan</b> tahun <b>1258 M</b>.</li>
+</ul>
+<h4>2. Pusat ilmu: Baitul Hikmah</h4>
+<p>Baitul Hikmah di Baghdad adalah perpustakaan, pusat penerjemahan, dan pusat penelitian. Karya Yunani, Persia, dan India diterjemahkan, lalu dikembangkan oleh ilmuwan Muslim.</p>
+<h4>3. Tokoh dan karyanya</h4>
+<table class="tb"><tr><th>Tokoh</th><th>Bidang / Karya</th></tr>
+<tr><td>Al-Khawarizmi</td><td>Matematika, aljabar (<i>Al-Jabr wal Muqabalah</i>)</td></tr>
+<tr><td>Ibnu Sina (Avicenna)</td><td>Kedokteran (<i>Al-Qanun fit Tibb</i>)</td></tr>
+<tr><td>Ar-Razi</td><td>Kedokteran; membedakan campak dan cacar</td></tr>
+<tr><td>Ibnu Haitham (Alhazen)</td><td>Optik (<i>Al-Manazir</i>)</td></tr>
+<tr><td>Jabir bin Hayyan</td><td>Kimia</td></tr>
+<tr><td>Al-Biruni</td><td>Astronomi dan geografi</td></tr>
+<tr><td>Al-Farabi</td><td>Filsafat (dijuluki Guru Kedua)</td></tr>
+<tr><td>Imam Syafi'i</td><td>Fikih; menulis <i>Ar-Risalah</i> (ushul fikih)</td></tr></table>
+<h4>4. Faktor kemajuan</h4>
+<ul>
+<li>Dukungan khalifah terhadap ilmu dan ilmuwan.</li>
+<li>Gerakan penerjemahan dan perpustakaan yang besar.</li>
+<li>Stabilitas pemerintahan dan semangat belajar masyarakat.</li>
+<li>Dorongan Al-Qur'an untuk menuntut ilmu, misalnya Q.S. Al-Mujadilah/58:11: Allah meninggikan derajat orang beriman dan berilmu.</li>
+</ul>
+<h4>5. Teladan bagi pelajar</h4>
+<p>Rajin membaca, meneliti, jujur dalam ilmu, dan memanfaatkan ilmu untuk kemaslahatan umat.</p>`,
+  latihan:[
+   PG("Baitul Hikmah menjadi pusat kemajuan ilmu pada masa Abbasiyah. Analisis yang paling tepat tentang perannya adalah ...",
+      "menyatukan perpustakaan, penerjemahan karya Yunani, Persia, dan India, serta penelitian sehingga ilmu dikembangkan, bukan sekadar disalin",
+      ["hanya tempat menyimpan buku tanpa kegiatan penelitian","tempat memusnahkan buku-buku asing","lembaga yang hanya mengajarkan ilmu agama"],
+      "Baitul Hikmah adalah perpustakaan, pusat penerjemahan, dan pusat penelitian."),
+   PG("Seorang pelajar ingin meneladani Al-Khawarizmi. Kegiatan yang paling sesuai adalah ...",
+      "mempelajari matematika dengan tekun dan memanfaatkannya untuk memecahkan masalah masyarakat",
+      ["menghafal rumus tanpa memahami kegunaannya","menyalin pekerjaan teman agar cepat selesai","menjauhi pelajaran berhitung karena sulit"],
+      "Al-Khawarizmi mengembangkan aljabar dan memanfaatkannya untuk keperluan masyarakat."),
+   PG("Hubungan Q.S. Al-Mujadilah/58:11 dengan kemajuan ilmu pada masa Abbasiyah adalah ...",
+      "ayat itu mendorong umat menuntut ilmu karena Allah meninggikan derajat orang beriman dan berilmu",
+      ["ayat itu menyatakan ilmu hanya milik khalifah","ayat itu melarang menerjemahkan karya bangsa lain","ayat itu menyatakan derajat ditentukan oleh harta"],
+      "Dorongan Al-Qur'an untuk menuntut ilmu menjadi salah satu faktor kemajuan peradaban Islam."),
+   PG("Setelah Baghdad jatuh ke tangan Mongol pada 1258 M, banyak pusat ilmu dan karya ilmiah rusak. Kesimpulan yang paling tepat adalah ...",
+      "kemajuan peradaban perlu dijaga, termasuk pusat dan karya ilmu, karena kehancurannya menghambat kemajuan",
+      ["ilmu tidak berpengaruh pada kejayaan suatu peradaban","perpustakaan tidak perlu dilindungi","kejayaan hanya ditentukan oleh kekuatan militer"],
+      "Jatuhnya Baghdad menandai berakhirnya Daulah Abbasiyah dan menunjukkan pentingnya menjaga pusat ilmu."),
+   PG("Seseorang berkata, “Ilmuwan Muslim hanya menyalin karya Yunani.” Bukti yang paling kuat untuk membantahnya adalah ...",
+      "Ibnu Sina menulis Al-Qanun fit Tibb, Ibnu Haitham menulis Al-Manazir, dan Ar-Razi membedakan campak dan cacar",
+      ["karya Yunani dilarang diterjemahkan","semua karya ilmuwan Muslim sama persis dengan karya Yunani","tidak ada ilmuwan Muslim yang menulis kitab sendiri"],
+      "Ilmuwan Muslim menerjemahkan, lalu mengembangkan dan menemukan hal baru."),
+   PGK("Pilihlah SEMUA pasangan tokoh dan bidang yang benar!",
+      ["Al-Khawarizmi – aljabar","Ibnu Sina – kedokteran","Ibnu Haitham – kimia","Jabir bin Hayyan – kimia","Al-Biruni – ilmu qiraat"],
+      [0,1,3],
+      "Ibnu Haitham ahli optik. Al-Biruni ahli astronomi dan geografi."),
+   PGK("Pilihlah SEMUA faktor yang mendukung kemajuan ilmu pada masa Abbasiyah!",
+      ["Dukungan khalifah terhadap ilmu dan ilmuwan","Gerakan penerjemahan yang besar","Pelarangan penelitian","Stabilitas pemerintahan dan semangat belajar masyarakat","Penutupan perpustakaan"],
+      [0,1,3],
+      "Dukungan khalifah, penerjemahan, dan stabilitas mendorong kemajuan ilmu."),
+   SA("Daulah Abbasiyah berdiri setelah Daulah Fatimiyah runtuh.",
+      "Baghdad dibangun oleh Al-Mansur sebagai pusat pemerintahan Daulah Abbasiyah.",
+      3,
+      "Pernyataan salah: Abbasiyah berdiri setelah meruntuhkan Daulah Umayyah (750 M). Alasan benar."),
+   JD("Jodohkan tokoh di sebelah kiri dengan karyanya di sebelah kanan!",
+      ["Al-Khawarizmi","Ibnu Sina","Ibnu Haitham","Imam Syafi'i"],
+      ["Al-Jabr wal Muqabalah","Al-Qanun fit Tibb","Al-Manazir","Ar-Risalah"],
+      [0,1,2,3],
+      "Al-Khawarizmi: aljabar. Ibnu Sina: kedokteran. Ibnu Haitham: optik. Imam Syafi'i: ushul fikih."),
+   IS("Seorang siswa berkata, “Belajar sejarah ilmuwan Muslim tidak bermanfaat.” Tulis satu alasan singkat untuk membantahnya!",
+      [["teladan","meneladani","motivasi","semangat","inspirasi","mencontoh","contoh"]],
+      "Karena kita dapat meneladani semangat belajar dan kejujuran ilmiah mereka.",
+      "Sejarah ilmuwan Muslim memberi teladan ketekunan, penelitian, dan kejujuran dalam ilmu.")
+  ],
+  asat:[
+   PG("Dibandingkan masa sebelumnya, ciri utama masa kejayaan Abbasiyah di Baghdad adalah ...",
+      "pengembangan ilmu melalui penerjemahan, perpustakaan, dan penelitian",
+      ["pembatasan ilmu hanya untuk kalangan istana","penghentian seluruh kegiatan penerjemahan","pemindahan seluruh ilmuwan keluar dari Baghdad"],
+      "Masa Harun ar-Rasyid dan Al-Ma'mun dikenal sebagai puncak perkembangan ilmu."),
+   PG("Seorang peneliti ingin mempelajari cara kerja penglihatan dan cahaya. Tokoh Muslim yang karyanya paling relevan adalah ...",
+      "Ibnu Haitham melalui Al-Manazir",
+      ["Jabir bin Hayyan melalui penelitian kimia","Al-Biruni melalui ilmu geografi","Al-Farabi melalui ilmu filsafat"],
+      "Ibnu Haitham (Alhazen) adalah ahli optik."),
+   PG("Sinta membaca banyak sumber, mencatat, dan menyebut sumbernya. Tia menyalin tulisan teman tanpa menyebut sumber. Siswa yang meneladani ilmuwan Muslim masa Abbasiyah adalah ...",
+      "Sinta, karena ilmuwan Muslim tekun belajar, meneliti, dan jujur dalam ilmu",
+      ["Tia, karena cara itu lebih cepat selesai","keduanya, karena hasil tulisannya sama","tidak ada, karena ilmuwan Muslim tidak mementingkan kejujuran"],
+      "Tekun belajar dan jujur dalam ilmu adalah teladan ilmuwan Muslim."),
+   PG("Al-Farabi dijuluki “Guru Kedua” setelah Aristoteles. Alasan yang paling tepat adalah ...",
+      "sumbangannya yang besar dalam filsafat sehingga dipandang sebagai penerus tradisi Aristoteles",
+      ["keahliannya dalam ilmu pelayaran dan perdagangan","kemenangannya dalam peperangan melawan Mongol","karyanya di bidang pertanian dan perkebunan"],
+      "Al-Farabi adalah filsuf besar Muslim."),
+   PGK("Pilihlah SEMUA pernyataan yang benar tentang Daulah Abbasiyah!",
+      ["Berdiri tahun 750 M","Didirikan oleh Abu Abbas as-Saffah","Kota Baghdad dibangun oleh Al-Mansur sebagai ibu kota di Damaskus","Berakhir saat Baghdad jatuh ke Mongol pada 1258 M","Berdiri setelah meruntuhkan Daulah Utsmaniyah"],
+      [0,1,3],
+      "Baghdad adalah pusat pemerintahan Abbasiyah. Abbasiyah berdiri setelah Umayyah runtuh."),
+   SA("Ibnu Sina dikenal dengan nama Avicenna di dunia Barat.",
+      "Al-Khawarizmi menulis Al-Jabr wal Muqabalah.",
+      1,
+      "Keduanya benar, tetapi tidak berhubungan sebab akibat."),
+   JD("Jodohkan nama di sebelah kiri dengan perannya di sebelah kanan!",
+      ["Baitul Hikmah","Abu Abbas as-Saffah","Hulagu Khan","Al-Mansur"],
+      ["Pusat penerjemahan dan penelitian di Baghdad","Pendiri Daulah Abbasiyah","Pemimpin pasukan Mongol penakluk Baghdad","Pembangun kota Baghdad","Khalifah pertama Daulah Umayyah"],
+      [0,1,2,3],
+      "Baitul Hikmah pusat ilmu, as-Saffah pendiri, Hulagu Khan penakluk Baghdad, Al-Mansur pembangun Baghdad."),
+   IS("Mengapa gerakan penerjemahan penting bagi kemajuan ilmu pada masa Abbasiyah? Jawab singkat!",
+      [["yunani","persia","india","bangsa lain","karya asing","buku asing","ilmu dari"]],
+      "Karena ilmu dari Yunani, Persia, dan India dapat dipelajari lalu dikembangkan.",
+      "Karya bangsa lain diterjemahkan, dipelajari, dan dikembangkan oleh ilmuwan Muslim.")
+  ]
+}
+];
+
+/* =====================================================================
+   UTIL
+   ===================================================================== */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad2 = n => String(n).padStart(2,'0');
+const fmt = n => { const v = Math.round(n*10)/10; return String(Number.isInteger(v) ? v : v.toFixed(1)).replace('.',','); };
+const LET = ['A','B','C','D','E'];
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function uid(){ try{ if(crypto && crypto.randomUUID) return crypto.randomUUID(); }catch(e){} return 'x'+Date.now().toString(36)+Math.random().toString(36).slice(2,12); }
+const store = {
+  get(k,d){ try{ const v=localStorage.getItem(k); return v==null?d:JSON.parse(v); }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); return true; }catch(e){ return false; } },
+  del(k){ try{ localStorage.removeItem(k); }catch(e){} }
+};
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('on'); clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove('on'),2600); }
+function modal(html, buttons){
+  const box = $('#ov-box'); box.innerHTML = html + '<div class="actions" style="justify-content:flex-end" id="ov-act"></div>';
+  const act = $('#ov-act'); 
+  buttons.forEach(b => { const el=document.createElement('button'); el.className='btn '+(b.cls||''); el.textContent=b.t; el.onclick=()=>{ closeModal(); b.fn && b.fn(); }; act.appendChild(el); });
+  $('#ov').classList.add('on');
+}
+function closeModal(){ $('#ov').classList.remove('on'); }
+const apiAktif = () => /^https:\/\/script\.google\.com\/macros\/s\/[^\s]+\/exec/.test(CONFIG.API_URL);
+
+/* =====================================================================
+   BANK SOAL TERINDEKS & PENILAIAN
+   Tipe: PG, PGK (pilihan ganda kompleks), SA (sebab-akibat),
+         JD (menjodohkan), IS (isian singkat berbasis argumen)
+   ===================================================================== */
+/* =====================================================================
+   TEMA TERANG / GELAP
+   Pilihan disimpan di localStorage ('pai2_tema'). Bila belum memilih,
+   mengikuti pengaturan perangkat (prefers-color-scheme).
+   ===================================================================== */
+function temaSekarang(){ return document.documentElement.getAttribute('data-theme') === 'gelap' ? 'gelap' : 'terang'; }
+function terapkanTema(t){
+  document.documentElement.setAttribute('data-theme', t);
+  const b = document.getElementById('btn-tema');
+  if(b){
+    b.textContent = t === 'gelap' ? '☀️' : '🌙';
+    b.setAttribute('aria-label', t === 'gelap' ? 'Ganti ke tema terang' : 'Ganti ke tema gelap');
+    b.title = b.getAttribute('aria-label');
+  }
+}
+function gantiTema(){
+  const t = temaSekarang() === 'gelap' ? 'terang' : 'gelap';
+  terapkanTema(t);
+  try{ localStorage.setItem('pai2_tema', t); }catch(e){}
+}
+terapkanTema(temaSekarang());
+try{
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  const ikut = e => { let p = null; try{ p = localStorage.getItem('pai2_tema'); }catch(x){} if(p !== 'gelap' && p !== 'terang') terapkanTema(e.matches ? 'gelap' : 'terang'); };
+  if(mq.addEventListener) mq.addEventListener('change', ikut);
+}catch(e){}
+
+/* =====================================================================
+   MEDIA SOAL: AYAT AL-QUR'AN & GAMBAR (SVG)
+   Soal dihubungkan ke media lewat ID soal (L = latihan, A = ASAT).
+   Contoh: AYAT['L1-01'] = [AY.rum41];  GAMBAR['L1-03'] = chartBar(...)
+   Gambar dibuat dari kode (SVG), jadi tanpa file tambahan dan tajam di HP.
+   ===================================================================== */
+const AY = {
+  rum41:  {ref:"Q.S. Ar-Rum/30:41", ar:"ظَهَرَ ٱلْفَسَادُ فِى ٱلْبَرِّ وَٱلْبَحْرِ بِمَا كَسَبَتْ أَيْدِى ٱلنَّاسِ لِيُذِيقَهُم بَعْضَ ٱلَّذِى عَمِلُوا۟ لَعَلَّهُمْ يَرْجِعُونَ",
+           id:"Telah tampak kerusakan di darat dan di laut disebabkan karena perbuatan tangan manusia. (Allah menghendaki) agar mereka merasakan sebagian dari (akibat) perbuatan mereka, agar mereka kembali (ke jalan yang benar)."},
+  baq30:  {ref:"Q.S. Al-Baqarah/2:30", ar:"وَإِذْ قَالَ رَبُّكَ لِلْمَلَٰٓئِكَةِ إِنِّى جَاعِلٌ فِى ٱلْأَرْضِ خَلِيفَةً",
+           id:"Dan (ingatlah) ketika Tuhanmu berfirman kepada para malaikat, “Aku hendak menjadikan khalifah di bumi.”"},
+  mai32:  {ref:"Q.S. Al-Ma'idah/5:32", ar:"مَن قَتَلَ نَفْسًۢا بِغَيْرِ نَفْسٍ أَوْ فَسَادٍ فِى ٱلْأَرْضِ فَكَأَنَّمَا قَتَلَ ٱلنَّاسَ جَمِيعًا",
+           id:"Barang siapa membunuh seseorang bukan karena orang itu membunuh orang lain, atau bukan karena berbuat kerusakan di bumi, maka seakan-akan dia telah membunuh semua manusia."},
+  ara31:  {ref:"Q.S. Al-A'raf/7:31", ar:"وَكُلُوا۟ وَٱشْرَبُوا۟ وَلَا تُسْرِفُوٓا۟ ۚ إِنَّهُۥ لَا يُحِبُّ ٱلْمُسْرِفِينَ",
+           id:"Makan dan minumlah, tetapi jangan berlebihan. Sesungguhnya Allah tidak menyukai orang yang berlebih-lebihan."},
+  ara56:  {ref:"Q.S. Al-A'raf/7:56", ar:"وَلَا تُفْسِدُوا۟ فِى ٱلْأَرْضِ بَعْدَ إِصْلَٰحِهَا",
+           id:"Janganlah kamu berbuat kerusakan di bumi setelah (Allah) memperbaikinya."},
+  hij9:   {ref:"Q.S. Al-Hijr/15:9", ar:"إِنَّا نَحْنُ نَزَّلْنَا ٱلذِّكْرَ وَإِنَّا لَهُۥ لَحَٰفِظُونَ",
+           id:"Sesungguhnya Kamilah yang menurunkan Al-Qur'an, dan pasti Kami (pula) yang memeliharanya."},
+  kaf6:   {ref:"Q.S. Al-Kafirun/109:6", ar:"لَكُمْ دِينُكُمْ وَلِىَ دِينِ",
+           id:"Untukmu agamamu, dan untukkulah agamaku."},
+  baq256: {ref:"Q.S. Al-Baqarah/2:256", ar:"لَآ إِكْرَاهَ فِى ٱلدِّينِ ۖ قَد تَّبَيَّنَ ٱلرُّشْدُ مِنَ ٱلْغَىِّ",
+           id:"Tidak ada paksaan dalam (menganut) agama (Islam); sungguh telah jelas (perbedaan) jalan yang benar dari jalan yang sesat."},
+  mum8:   {ref:"Q.S. Al-Mumtahanah/60:8", ar:"لَا يَنْهَىٰكُمُ ٱللَّهُ عَنِ ٱلَّذِينَ لَمْ يُقَٰتِلُوكُمْ فِى ٱلدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَٰرِكُمْ أَن تَبَرُّوهُمْ وَتُقْسِطُوٓا۟ إِلَيْهِمْ ۚ إِنَّ ٱللَّهَ يُحِبُّ ٱلْمُقْسِطِينَ",
+           id:"Allah tidak melarang kamu berbuat baik dan berlaku adil terhadap orang-orang yang tidak memerangimu dalam urusan agama dan tidak mengusirmu dari kampung halamanmu. Sesungguhnya Allah mencintai orang-orang yang berlaku adil."},
+  alaq:   {ref:"Q.S. Al-'Alaq/96:1–5", ar:"ٱقْرَأْ بِٱسْمِ رَبِّكَ ٱلَّذِى خَلَقَ ۝ خَلَقَ ٱلْإِنسَٰنَ مِنْ عَلَقٍ ۝ ٱقْرَأْ وَرَبُّكَ ٱلْأَكْرَمُ ۝ ٱلَّذِى عَلَّمَ بِٱلْقَلَمِ ۝ عَلَّمَ ٱلْإِنسَٰنَ مَا لَمْ يَعْلَمْ",
+           id:"Bacalah dengan (menyebut) nama Tuhanmu yang menciptakan. Dia menciptakan manusia dari segumpal darah. Bacalah, dan Tuhanmulah Yang Mahamulia, yang mengajar (manusia) dengan pena. Dia mengajarkan manusia apa yang tidak diketahuinya."},
+  huj13:  {ref:"Q.S. Al-Hujurat/49:13", ar:"إِنَّ أَكْرَمَكُمْ عِندَ ٱللَّهِ أَتْقَىٰكُمْ",
+           id:"Sesungguhnya yang paling mulia di antara kamu di sisi Allah ialah orang yang paling bertakwa."},
+  nis58:  {ref:"Q.S. An-Nisa'/4:58", ar:"إِنَّ ٱللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا۟ ٱلْأَمَٰنَٰتِ إِلَىٰٓ أَهْلِهَا",
+           id:"Sesungguhnya Allah menyuruhmu menyampaikan amanat kepada yang berhak menerimanya."},
+  nis145: {ref:"Q.S. An-Nisa'/4:145", ar:"إِنَّ ٱلْمُنَٰفِقِينَ فِى ٱلدَّرْكِ ٱلْأَسْفَلِ مِنَ ٱلنَّارِ",
+           id:"Sesungguhnya orang-orang munafik itu (ditempatkan) pada tingkatan yang paling bawah dari neraka."},
+  nuh10:  {ref:"Q.S. Nuh/71:10–11", ar:"فَقُلْتُ ٱسْتَغْفِرُوا۟ رَبَّكُمْ إِنَّهُۥ كَانَ غَفَّارًا ۝ يُرْسِلِ ٱلسَّمَآءَ عَلَيْكُم مِّدْرَارًا",
+           id:"Maka aku (Nuh) berkata (kepada mereka), “Mohonlah ampunan kepada Tuhanmu, sungguh Dia Maha Pengampun, niscaya Dia akan mengirimkan hujan yang lebat dari langit kepadamu.”"},
+  fus37:  {ref:"Q.S. Fussilat/41:37", ar:"وَمِنْ ءَايَٰتِهِ ٱلَّيْلُ وَٱلنَّهَارُ وَٱلشَّمْسُ وَٱلْقَمَرُ ۚ لَا تَسْجُدُوا۟ لِلشَّمْسِ وَلَا لِلْقَمَرِ وَٱسْجُدُوا۟ لِلَّهِ ٱلَّذِى خَلَقَهُنَّ",
+           id:"Sebagian dari tanda-tanda (kebesaran)-Nya ialah malam, siang, matahari, dan bulan. Janganlah bersujud kepada matahari dan jangan (pula) kepada bulan, tetapi bersujudlah kepada Allah yang menciptakannya."},
+  muj11:  {ref:"Q.S. Al-Mujadilah/58:11", ar:"يَرْفَعِ ٱللَّهُ ٱلَّذِينَ ءَامَنُوا۟ مِنكُمْ وَٱلَّذِينَ أُوتُوا۟ ٱلْعِلْمَ دَرَجَٰتٍ",
+           id:"Allah niscaya akan mengangkat (derajat) orang-orang yang beriman di antara kamu dan orang-orang yang diberi ilmu beberapa derajat."}
+};
+const AYAT = {
+  'L1-01':[AY.rum41], 'L1-02':[AY.baq30], 'L1-05':[AY.mai32], 'L1-07':[AY.ara56, AY.ara31], 'A1-06':[AY.rum41],
+  'L2-01':[AY.hij9], 'L2-04':[AY.kaf6], 'L2-05':[AY.baq256], 'L2-07':[AY.mum8], 'A2-01':[AY.mum8], 'A2-03':[AY.alaq], 'A2-04':[AY.huj13],
+  'L3-01':[AY.nis58], 'L3-07':[AY.nis145], 'A3-01':[AY.nis58],
+  'L4-02':[AY.fus37], 'L4-03':[AY.nuh10],
+  'L5-03':[AY.muj11]
+};
+
+const svgFig = (judul, vb, isi, cap) =>
+  `<figure class="gbr"><svg viewBox="${vb}" role="img" aria-label="${esc(judul)}" xmlns="http://www.w3.org/2000/svg"><title>${esc(judul)}</title>${isi}</svg>${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}</figure>`;
+
+/* Diagram batang: judul, kategori, seri [{n, v:[...]}], nilai maksimum sumbu, keterangan.
+   Satu seri = tanpa legenda (judul sudah menamai). Dua seri = legenda + label nilai. */
+function chartBar(judul, kat, seri, maks, cap){
+  const W = 420, H = 250, ML = 40, MR = 12, MT = seri.length > 1 ? 76 : 54, MB = 44;
+  const pw = W - ML - MR, ph = H - MT - MB, gw = pw / kat.length, m = seri.length;
+  const bw = Math.min(56, gw * 0.7 / m), gap = 4;
+  let s = `<text x="${ML}" y="20" class="sv-h">${esc(judul)}</text>`;
+  if(m > 1){
+    let x = ML;
+    seri.forEach((sr, j) => { s += `<rect x="${x}" y="32" width="12" height="12" rx="3" class="sv-b${j}"/><text x="${x + 17}" y="42" class="sv-t">${esc(sr.n)}</text>`; x += 17 + sr.n.length * 6.6 + 18; });
+  }
+  for(let i = 0; i <= 4; i++){
+    const y = MT + ph - ph * i / 4;
+    s += `<line x1="${ML}" x2="${W - MR}" y1="${y}" y2="${y}" class="sv-grid"/><text x="${ML - 6}" y="${y + 4}" text-anchor="end" class="sv-t">${Math.round(maks * i / 4 * 10) / 10}</text>`;
+  }
+  kat.forEach((k, i) => {
+    const cx = ML + gw * i + gw / 2, x0 = cx - (m * bw + (m - 1) * gap) / 2;
+    seri.forEach((sr, j) => {
+      const v = sr.v[i], h = Math.max(2, ph * v / maks), x = x0 + j * (bw + gap), y = MT + ph - h;
+      s += `<path d="M${x},${MT + ph} V${y + 4} Q${x},${y} ${x + 4},${y} H${x + bw - 4} Q${x + bw},${y} ${x + bw},${y + 4} V${MT + ph} Z" class="sv-b${j}"/><text x="${x + bw / 2}" y="${y - 6}" text-anchor="middle" class="sv-v">${v}</text>`;
+    });
+    s += `<text x="${cx}" y="${H - MB + 20}" text-anchor="middle" class="sv-t">${esc(k)}</text>`;
+  });
+  return svgFig(judul + '. ' + kat.map((k, i) => k + ': ' + seri.map(sr => sr.n + ' ' + sr.v[i]).join(', ')).join('; '), `0 0 ${W} ${H}`, s, cap);
+}
+
+/* Gerhana: mode 'bulan' (Matahari–Bumi–Bulan) atau 'matahari' (Matahari–Bulan–Bumi). */
+function svgGerhana(mode){
+  const sun = `<g class="sv-sun">${[0,45,90,135,180,225,270,315].map(a => `<line x1="${56 + 44 * Math.cos(a * Math.PI / 180)}" y1="${100 + 44 * Math.sin(a * Math.PI / 180)}" x2="${56 + 54 * Math.cos(a * Math.PI / 180)}" y2="${100 + 54 * Math.sin(a * Math.PI / 180)}"/>`).join('')}</g><circle cx="56" cy="100" r="36" fill="#e9b53a"/>`;
+  let s = sun + `<text x="56" y="172" text-anchor="middle" class="sv-t">Matahari</text><line x1="100" y1="100" x2="400" y2="100" class="sv-ray"/>`;
+  if(mode === 'bulan'){
+    s += `<polygon points="214,80 404,66 404,134 214,120" class="sv-shadow"/><circle cx="214" cy="100" r="22" fill="#0f7a5a"/><circle cx="340" cy="100" r="13" fill="#8d9a96"/>
+      <text x="214" y="150" text-anchor="middle" class="sv-t">Bumi</text><text x="340" y="138" text-anchor="middle" class="sv-t">Bulan</text>`;
+    return svgFig('Diagram gerhana bulan: Matahari, Bumi, dan Bulan segaris dengan Bumi di tengah', '0 0 420 190', s, 'Gerhana bulan: Bumi berada di antara Matahari dan Bulan, sehingga Bulan masuk ke bayangan Bumi (tidak sesuai skala).');
+  }
+  s += `<polygon points="236,90 372,97 372,103 236,110" class="sv-shadow"/><circle cx="236" cy="100" r="11" fill="#8d9a96"/><circle cx="376" cy="100" r="24" fill="#0f7a5a"/>
+    <text x="236" y="136" text-anchor="middle" class="sv-t">Bulan</text><text x="376" y="146" text-anchor="middle" class="sv-t">Bumi</text>`;
+  return svgFig('Diagram gerhana matahari: Matahari, Bulan, dan Bumi segaris dengan Bulan di tengah', '0 0 420 190', s, 'Gerhana matahari: Bulan berada di antara Matahari dan Bumi, sehingga cahaya Matahari terhalang (tidak sesuai skala).');
+}
+
+/* Garis waktu Daulah Abbasiyah. */
+function svgTimeline(){
+  const ev = [['750 M', 'Abbasiyah berdiri'], ['762 M', 'Baghdad dibangun'], ['786–809 M', 'Harun ar-Rasyid'], ['813–833 M', "Al-Ma'mun"], ['1258 M', 'Baghdad jatuh ke Mongol']];
+  let s = `<line x1="24" y1="105" x2="396" y2="105" class="sv-ray" style="stroke-dasharray:none;stroke-width:3"/>`;
+  ev.forEach((e, i) => {
+    const x = 62 + i * 74, up = i % 2 === 0, y = up ? 40 : 146;
+    s += `<line x1="${x}" y1="105" x2="${x}" y2="${up ? 84 : 126}" class="sv-grid" style="stroke-width:2"/><circle cx="${x}" cy="105" r="8" fill="#0f7a5a" style="stroke:var(--card);stroke-width:3"/>
+      <text x="${x}" y="${y}" text-anchor="middle" class="sv-v">${e[0]}</text>`;
+    const w = e[1].split(' ');
+    const l1 = w.length > 2 ? w.slice(0, 2).join(' ') : e[1], l2 = w.length > 2 ? w.slice(2).join(' ') : '';
+    s += `<text x="${x}" y="${y + 16}" text-anchor="middle" class="sv-t">${esc(l1)}</text>` + (l2 ? `<text x="${x}" y="${y + 30}" text-anchor="middle" class="sv-t">${esc(l2)}</text>` : '');
+  });
+  return svgFig('Garis waktu Daulah Abbasiyah: 750 berdiri, 762 Baghdad dibangun, 786 sampai 809 Harun ar-Rasyid, 813 sampai 833 Al-Ma\'mun, 1258 Baghdad jatuh ke Mongol', '0 0 420 200', s, 'Garis waktu Daulah Abbasiyah (M = Masehi, jarak tidak sesuai skala).');
+}
+
+/* Hulu sungai gundul dan banjir bandang di permukiman. */
+function svgBanjir(){
+  let s = `<rect width="420" height="200" class="sv-sky"/><path d="M0,128 Q95,36 205,118 L205,200 L0,200 Z" fill="#c9b48a"/><path d="M205,150 H420 V200 H205 Z" fill="#d9c9a3"/>`;
+  [[30,128],[62,106],[94,92],[126,96],[158,108],[48,150],[88,142],[130,138],[170,134]].forEach(p => { s += `<rect x="${p[0]}" y="${p[1]}" width="7" height="16" rx="2" fill="#6b4f2a"/><rect x="${p[0] - 3}" y="${p[1] - 2}" width="13" height="4" rx="2" fill="#8a6a3a"/>`; });
+  s += `<path d="M205,160 Q250,140 290,158 T420,150 V200 H205 Z" fill="#a67b4b" opacity=".92"/><path d="M205,172 Q250,160 290,172 T420,168" fill="none" stroke="#c99a63" stroke-width="3"/>`;
+  [[268,128],[318,126],[368,128]].forEach(p => { s += `<rect x="${p[0]}" y="${p[1]}" width="34" height="30" fill="#f6ecc4" stroke="#8a6a3a" stroke-width="2"/><polygon points="${p[0] - 5},${p[1]} ${p[0] + 17},${p[1] - 20} ${p[0] + 39},${p[1]}" fill="#c0392b"/>`; });
+  s += `<path d="M150,120 Q200,128 236,152" fill="none" stroke="#2a6fb0" stroke-width="3" stroke-dasharray="6 5"/><polygon points="236,152 224,150 230,142" fill="#2a6fb0"/>
+    <text x="14" y="24" class="sv-v">Hulu: hutan gundul</text><text x="214" y="24" class="sv-v">Hilir: banjir bandang</text>
+    <text x="150" y="190" class="sv-t">air hujan mengalir deras</text>`;
+  return svgFig('Ilustrasi: hutan di hulu sungai gundul, air hujan mengalir deras ke permukiman sehingga terjadi banjir bandang', '0 0 420 200', s, 'Ilustrasi hubungan hutan gundul di hulu dan banjir bandang di hilir.');
+}
+
+const GAMBAR = {
+  'L1-03': chartBar('Bibit pohon setelah 6 bulan', ['Sekolah X', 'Sekolah Y'], [{n:'Ditanam', v:[100, 30]}, {n:'Masih hidup', v:[20, 27]}], 100, 'Sekolah X tidak merawat bibit; Sekolah Y menyiram dan memantau tiap pekan.'),
+  'A1-04': '<div class="gbr2">' + chartBar('Tutupan hutan desa (%)', ['Tahun ke-1', 'Tahun ke-5'], [{n:'Hutan', v:[60, 25]}], 80, '') + chartBar('Kejadian banjir (kali per tahun)', ['Tahun ke-1', 'Tahun ke-5'], [{n:'Banjir', v:[1, 6]}], 8, '') + '</div>',
+  'L1-05': svgBanjir(),
+  'L3-02': chartBar('Ulangan yang dikerjakan jujur oleh Rudi (dari 5)', ['Diawasi guru', 'Pengawas keluar'], [{n:'Jujur', v:[5, 1]}], 5, ''),
+  'L4-01': svgGerhana('bulan'),
+  'A4-02': svgGerhana('matahari'),
+  'L5-04': svgTimeline()
+};
+
+/* Ayat tampil dalam kotak khusus; terjemah dapat dibuka. Status buka-tutup diingat agar
+   tidak menutup sendiri ketika siswa memilih jawaban (halaman soal digambar ulang). */
+const TIPE = {PG:'Pilihan Ganda', PGK:'Pilihan Ganda Kompleks', SA:'Sebab–Akibat', JD:'Menjodohkan', IS:'Isian Singkat (Argumen)'};
+const PETUNJUK = {
+  PG:'Pilih satu jawaban yang paling tepat.',
+  PGK:'Pilih SEMUA jawaban yang benar (boleh lebih dari satu). Pilihan yang salah mengurangi skor.',
+  SA:'Tentukan benar-salahnya pernyataan dan alasan, serta hubungan keduanya.',
+  JD:'Pasangkan setiap butir di kiri dengan satu pilihan di kanan lewat menu pilihan.',
+  IS:'Tulis jawaban singkat (satu frasa atau satu kalimat pendek) yang memuat alasan utama.'
+};
+const QID = {};
+BAB.forEach(b => {
+  b.latihan.forEach((it,i) => { const id = `L${b.id}-${pad2(i+1)}`; QID[id] = {id, bab:b.id, tipe:it.t.toUpperCase(), it, ayat:AYAT[id] || null, gbr:GAMBAR[id] || ''}; });
+  b.asat.forEach((it,i) => { const id = `A${b.id}-${pad2(i+1)}`; QID[id] = {id, bab:b.id, tipe:it.t.toUpperCase(), it, ayat:AYAT[id] || null, gbr:GAMBAR[id] || ''}; });
+});
+const r2 = x => Math.round(x*100)/100;
+function normIs(s){
+  return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[\u2018\u2019'`´]/g,'').replace(/[-–_.,;:!?()"“”\/]/g,' ').replace(/\s+/g,' ').trim();
+}
+function bangunOpsi(Q){
+  const it = Q.it;
+  if(Q.tipe === 'PG') return shuffle([0,1,2,3]);
+  if(Q.tipe === 'PGK') return shuffle(it.o.map((_,i) => i));
+  if(Q.tipe === 'JD') return shuffle(it.r.map((_,i) => i));
+  return null;
+}
+function terjawab(Q, v){
+  switch(Q.tipe){
+    case 'PG': case 'SA': return typeof v === 'number';
+    case 'PGK': return Array.isArray(v) && v.length > 0;
+    case 'JD': return Array.isArray(v) && v.some(x => typeof x === 'number' && x >= 0);
+    case 'IS': return typeof v === 'string' && v.trim() !== '';
+  }
+  return false;
+}
+/* Hasil satu soal: frac 0..1 (skor parsial), status, jawaban & kunci dalam teks. */
+function nilaiSoal(Q, v, opt){
+  const it = Q.it; let frac = 0, jaw = '', kunci = '', ada = false;
+  switch(Q.tipe){
+    case 'PG': {
+      const tx = [it.c, ...it.w], bk = opt.indexOf(0);
+      kunci = LET[bk] + '. ' + it.c;
+      if(typeof v === 'number'){ ada = true; jaw = LET[v] + '. ' + tx[opt[v]]; frac = v === bk ? 1 : 0; }
+      break; }
+    case 'PGK': {
+      const ben = opt.map((oi,k) => it.c.includes(oi) ? k : -1).filter(k => k >= 0);
+      kunci = ben.map(k => LET[k]).join(', ');
+      const pil = Array.isArray(v) ? v.slice().sort((a,b) => a-b) : [];
+      if(pil.length){
+        ada = true; jaw = pil.map(k => LET[k]).join(', ');
+        const hit = pil.filter(k => ben.includes(k)).length, salah = pil.length - hit;
+        frac = Math.max(0, (hit - salah) / ben.length);
+      }
+      break; }
+    case 'SA':
+      kunci = LET[it.k];
+      if(typeof v === 'number'){ ada = true; jaw = LET[v]; frac = v === it.k ? 1 : 0; }
+      break;
+    case 'JD': {
+      kunci = it.l.map((_,i) => (i+1) + '-' + LET[opt.indexOf(it.key[i])]).join('; ');
+      const arr = Array.isArray(v) ? v : []; let ok = 0; const psg = [];
+      it.l.forEach((_,i) => {
+        const p = arr[i];
+        if(typeof p === 'number' && p >= 0){ ada = true; psg.push((i+1) + '-' + LET[p]); if(opt[p] === it.key[i]) ok++; }
+      });
+      jaw = psg.join('; '); frac = ok / it.l.length;
+      break; }
+    case 'IS': {
+      kunci = it.k; jaw = String(v || '').trim().slice(0,120);
+      if(jaw){
+        ada = true; const n = normIs(jaw);
+        const m = it.g.filter(g => g.some(x => { const y = normIs(x); return y && n.includes(y); })).length;
+        frac = m / it.g.length;
+      }
+      break; }
+  }
+  const status = !ada ? 'Kosong' : (frac >= 0.999 ? 'Benar' : (frac <= 0 ? 'Salah' : 'Sebagian'));
+  return {frac, status, jaw, kunci};
+}
+/* Teks soal untuk kolom "Soal" di Spreadsheet (termasuk opsi PGK/JD). */
+function soalTeks(Q, opt){
+  const it = Q.it; let s = Q.tipe === 'SA' ? 'Pernyataan: ' + it.p + ' | Alasan: ' + it.a : it.q;
+  if(Q.tipe === 'PGK') s += ' | ' + opt.map((oi,k) => LET[k] + '. ' + it.o[oi]).join('; ');
+  if(Q.tipe === 'JD') s += ' | Kiri: ' + it.l.map((x,i) => (i+1) + '. ' + x).join('; ') + ' | Pilihan: ' + opt.map((oi,k) => LET[k] + '. ' + it.r[oi]).join('; ');
+  return s.slice(0,700);
+}
+/* HTML isi soal. v = jawaban saat ini, rev = tampilkan kunci. */
+function soalHTML(Q, opt, v, rev){
+  const it = Q.it;
+  let h = `<div class="qtext">${Q.tipe === 'SA' ? 'Perhatikan pernyataan dan alasan berikut, lalu pilih hubungan yang tepat!' : esc(it.q)}</div>${ayatHTML(Q, rev)}${Q.gbr || ''}<p class="hint" style="margin:10px 0">${PETUNJUK[Q.tipe]}</p>`;
+  const btn = (k, cls, teks, lt) => `<button class="opt ${Q.tipe === 'PGK' ? 'pgk' : ''} ${cls}" data-act="q-pick" data-k="${k}" ${rev ? 'disabled' : ''}><span class="lt">${lt}</span><span>${esc(teks)}</span></button>`;
+  if(Q.tipe === 'SA'){
+    h += `<div class="sabox"><div><b>Pernyataan:</b> ${esc(it.p)}</div><div style="margin-top:6px"><b>Alasan:</b> ${esc(it.a)}</div></div>`;
+    h += SA_OPT.map((t,k) => btn(k, rev ? (k === it.k ? 'right' : (k === v ? 'wrong' : 'dim')) : (v === k ? 'sel' : ''), t, LET[k])).join('');
+  } else if(Q.tipe === 'PG'){
+    const tx = [it.c, ...it.w], bk = opt.indexOf(0);
+    h += opt.map((oi,k) => btn(k, rev ? (k === bk ? 'right' : (k === v ? 'wrong' : 'dim')) : (v === k ? 'sel' : ''), tx[oi], LET[k])).join('');
+  } else if(Q.tipe === 'PGK'){
+    const pil = Array.isArray(v) ? v : [];
+    h += opt.map((oi,k) => {
+      const b = it.c.includes(oi), p = pil.includes(k);
+      const cls = rev ? (b && p ? 'right' : (b ? 'miss' : (p ? 'wrong' : 'dim'))) : (p ? 'sel' : '');
+      return btn(k, cls, it.o[oi], p ? '✓' : LET[k]);
+    }).join('');
+  } else if(Q.tipe === 'JD'){
+    h += '<div class="jd-pil">' + opt.map((oi,k) => `<div><b>${LET[k]}.</b> ${esc(it.r[oi])}</div>`).join('') + '</div>';
+    h += it.l.map((l,i) => {
+      const p = (Array.isArray(v) && typeof v[i] === 'number') ? v[i] : -1;
+      const ok = p >= 0 && opt[p] === it.key[i];
+      const cls = rev ? (ok ? 'ok' : 'no') : '';
+      const sel = `<select data-chg="jd" data-i="${i}" aria-label="Pasangan butir ${i+1}" ${rev ? 'disabled' : ''}><option value="-1">Pilih…</option>${opt.map((_,k) => `<option value="${k}" ${p === k ? 'selected' : ''}>${LET[k]}</option>`).join('')}</select>`;
+      const kk = rev && !ok ? `<small class="muted" style="flex:1 0 100%">Jawaban benar: <b>${LET[opt.indexOf(it.key[i])]}. ${esc(it.r[it.key[i]])}</b></small>` : '';
+      return `<div class="jd-row ${cls}"><span>${i+1}. ${esc(l)}</span>${sel}${kk}</div>`;
+    }).join('');
+  } else if(Q.tipe === 'IS'){
+    h += `<textarea id="isian" data-chg="is" rows="3" maxlength="120" autocomplete="off" spellcheck="false" placeholder="Ketik jawabanmu di sini" ${rev ? 'disabled' : ''}>${esc(v || '')}</textarea>`;
+  }
+  return h;
+}
+function fbHTML(Q, r){
+  const ok = r.status === 'Benar', sb = r.status === 'Sebagian';
+  const judul = ok ? '✅ Benar!' : (sb ? '🟡 Sebagian benar.' : (r.status === 'Kosong' ? '⚠️ Belum dijawab.' : '❌ Belum tepat.'));
+  const cls = ok ? 'ok' : (sb ? 'pa' : 'no');
+  let k = '';
+  if(Q.tipe === 'IS') k = 'Contoh jawaban: <b>' + esc(r.kunci) + '</b><br>';
+  else if(!ok) k = 'Kunci: <b>' + esc(r.kunci) + '</b><br>';
+  return `<div class="fb ${cls}"><b class="t">${judul}</b>${k}<span>${esc(Q.it.e)}</span></div>`;
+}
+
+/* =====================================================================
+   STATE
+   ===================================================================== */
+let S = { siswa:null };      // siswa: {nama, absen, kelas, id}
+let L = null;                // sesi latihan
+let A = null;                // sesi ASAT
+let timerH = null;
+let asatAktif = false;
+
+const idSiswa = (kelas, absen) => kelas.replace(/\s+/g,'') + '-' + pad2(absen);
+const kProg = () => 'pai2_prog_' + S.siswa.id;
+const kAsatState = () => 'pai2_asat_state_' + S.siswa.id;
+const kAsatDone = () => 'pai2_asat_done_' + S.siswa.id;
+
+function show(id){
+  if(id !== 'v-lb') lbStop();
+  $$('.view').forEach(v => v.classList.toggle('on', v.id === id));
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+  const chip = $('#chip-user');
+  if(S.siswa){ chip.style.display=''; chip.textContent = S.siswa.nama + ' · ' + S.siswa.kelas; }
+  else chip.style.display='none';
+}
+
+/* =====================================================================
+   PENGIRIMAN KE GOOGLE APPS SCRIPT  (antrean + anti-ganda)
+   Setiap hasil punya submissionId unik. Server menolak ID yang sama,
+   sehingga klik ganda / kirim ulang tidak membuat baris ganda.
+   ===================================================================== */
+const sendState = {};
+let flushing = false, retryN = 0, retryT = null;
+
+function getQueue(){ return store.get('pai2_queue', []); }
+function setQueue(q){ store.set('pai2_queue', q); }
+function removeFromQueue(id){ setQueue(getQueue().filter(p => p.submissionId !== id)); }
+
+function setSend(id, st, info){
+  sendState[id] = {st, info};
+  $$('.kirim[data-sub="'+id+'"]').forEach(el => paintSend(el));
+}
+function paintSend(el){
+  const id = el.dataset.sub, s = sendState[id] || {st: apiAktif() ? 'pending' : 'lokal'};
+  let cls='info', html='';
+  switch(s.st){
+    case 'lokal':  cls='info'; html='ℹ️ Mode lokal: hasil belum dikirim ke Spreadsheet karena URL belum diisi.'; break;
+    case 'pending':case 'mengirim': cls='pending'; html='⏳ Menyimpan ke Spreadsheet…'; break;
+    case 'ok':     cls='ok'; html='✅ Hasil tersimpan di Spreadsheet.'; break;
+    case 'gagal':  cls='gagal'; html='⚠️ Belum terkirim (koneksi bermasalah). Dicoba lagi otomatis. <button class="btn sec" style="min-height:36px;padding:4px 12px;margin-left:6px" data-act="kirimulang">Kirim ulang</button>'; break;
+    case 'ditolak':cls='info'; html='ℹ️ ASAT kamu sudah tercatat sebelumnya' + (s.info && s.info.nilai!=null ? ' (nilai '+fmt(s.info.nilai)+')' : '') + '. Hasil percobaan ini tidak disimpan ganda.'; break;
+    case 'galat':  cls='err'; html='❌ Ditolak server: ' + esc((s.info && s.info.pesan) || 'data tidak valid') + '.'; break;
+  }
+  el.className = 'kirim ' + cls; el.innerHTML = html;
+}
+function kirimEl(id){ return `<div class="kirim info" data-sub="${esc(id)}"></div>`; }
+
+async function post(payload){
+  const ctrl = new AbortController(); const t = setTimeout(()=>ctrl.abort(), 30000);
+  try{
+    const r = await fetch(CONFIG.API_URL, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body:JSON.stringify(payload), signal:ctrl.signal});
+    return await r.json();
+  } finally { clearTimeout(t); }
+}
+function antrekan(payload){
+  if(!apiAktif()){ setSend(payload.submissionId,'lokal'); return; }
+  const q = getQueue();
+  if(!q.some(p => p.submissionId === payload.submissionId)){ q.push(payload); setQueue(q); }
+  setSend(payload.submissionId,'pending');
+  flushQueue();
+}
+async function flushQueue(){
+  if(!apiAktif() || flushing) return;
+  flushing = true;
+  try{
+    for(const p of getQueue()){
+      setSend(p.submissionId,'mengirim');
+      let r;
+      try{ r = await post(p); }
+      catch(e){ setSend(p.submissionId,'gagal'); jadwalUlang(); return; }
+      if(r && r.ok){
+        removeFromQueue(p.submissionId);
+        if(r.status === 'sudah_ada'){
+          setSend(p.submissionId,'ditolak',r);
+          if(p.type==='asat'){ const sid = idSiswa(p.siswa.kelas, p.siswa.absen); store.set('pai2_asat_server_'+sid, {nilai:r.nilai}); }
+        } else setSend(p.submissionId,'ok',r);
+        retryN = 0;
+      } else if(r && r.status === 'validasi'){
+        removeFromQueue(p.submissionId); setSend(p.submissionId,'galat',r);
+      } else { setSend(p.submissionId,'gagal',r); jadwalUlang(); return; }
+    }
+  } finally { flushing = false; if(S.siswa && $('#v-home').classList.contains('on')) renderHome(); }
+}
+function jadwalUlang(){
+  clearTimeout(retryT); retryN++;
+  if(retryN > 6) return;
+  retryT = setTimeout(flushQueue, Math.min(60000, 4000 * Math.pow(2, retryN-1)));
+}
+window.addEventListener('online', () => { retryN = 0; flushQueue(); });
+
+/* =====================================================================
+   LOGIN
+   ===================================================================== */
+function initLogin(){
+  const sel = $('#in-kelas');
+  CONFIG.KELAS.forEach(k => { const o=document.createElement('option'); o.value=k; o.textContent=k; sel.appendChild(o); });
+  $('#in-absen').max = CONFIG.MAKS_ABSEN;
+  $('#form-login').addEventListener('submit', e => {
+    e.preventDefault();
+    const nama = $('#in-nama').value.replace(/\s+/g,' ').trim();
+    const absen = parseInt($('#in-absen').value, 10);
+    const kelas = $('#in-kelas').value;
+    const err = $('#err-login'); let m='';
+    if(nama.length < 3) m = 'Nama minimal 3 huruf.';
+    else if(!/^[A-Za-zÀ-ÿ'’.\- ]+$/.test(nama)) m = 'Nama hanya boleh berisi huruf, spasi, titik, atau tanda hubung.';
+    else if(!(absen>=1 && absen<=CONFIG.MAKS_ABSEN)) m = 'Nomor absen harus antara 1 dan '+CONFIG.MAKS_ABSEN+'.';
+    else if(!CONFIG.KELAS.includes(kelas)) m = 'Pilih kelas VIII A sampai VIII F.';
+    if(m){ err.textContent = m; err.style.display='flex'; return; }
+    err.style.display='none';
+    S.siswa = {nama, absen, kelas, id: idSiswa(kelas, absen)};
+    store.set('pai2_siswa', S.siswa);
+    renderHome(); show('v-home');
+  });
+}
+function keluar(){
+  if(asatAktif){ toast('Selesaikan ASAT terlebih dahulu.'); return; }
+  modal('<h3>Ganti siswa?</h3><p class="muted">Kamu akan kembali ke halaman identitas. Data yang sudah tersimpan tidak hilang.</p>',
+    [{t:'Batal',cls:'sec'},{t:'Ya, ganti',fn:()=>{ store.del('pai2_siswa'); const old=S.siswa; S.siswa=null; $('#in-nama').value=''; $('#in-absen').value=''; $('#in-kelas').value=''; show('v-login'); }}]);
+}
+
+/* =====================================================================
+   HOME
+   ===================================================================== */
+function renderHome(){
+  const s = S.siswa, prog = store.get(kProg(), {});
+  $('#h-salam').textContent = "Assalamu'alaikum, " + s.nama.split(' ')[0];
+  $('#h-info').textContent = s.nama + ' · ' + s.kelas + ' · No. absen ' + s.absen;
+  let ban = '';
+  if(!apiAktif()) ban += '<div class="banner warn">⚠️ <div>Mode lokal: aplikasi belum terhubung ke Google Spreadsheet. Nilai hanya tersimpan di perangkat ini. Guru perlu mengisi <b>API_URL</b>.</div></div>';
+  const qn = getQueue().length;
+  if(qn) ban += '<div class="banner warn">⏳ <div>' + qn + ' hasil belum terkirim ke Spreadsheet. <button class="btn sec" style="min-height:34px;padding:2px 12px;margin-left:6px" data-act="kirimulang">Kirim sekarang</button></div></div>';
+  const st = store.get(kAsatState(), null);
+  if(st && !store.get(kAsatDone(), null)) ban += '<div class="banner info">📝 <div>ASAT kamu sedang berlangsung. <button class="btn gold" style="min-height:36px;padding:4px 14px;margin-left:6px" data-act="asatlanjut">Lanjutkan</button></div></div>';
+  $('#h-banners').innerHTML = ban;
+  $('#h-exp').innerHTML = expCardHTML();
+  expFlush();
+  $('#h-bab').innerHTML = BAB.map(b => {
+    const p = prog[b.id];
+    const lb = p ? `<span class="badge gold">Terbaik ${fmt(p.best)} · ${p.tries}× latihan</span>` : `<span class="badge">10 soal HOTS</span>`;
+    return `<button class="card babcard" data-act="bab" data-id="${b.id}"><span class="ikon">${b.ikon}</span>
+      <span><span class="nm">Bab ${b.id}. ${esc(b.judul)}</span><br>${lb}</span></button>`;
+  }).join('');
+}
+
+const ayOpen = {};
+function ayatHTML(Q, rev){
+  if(!Q.ayat) return '';
+  return '<div class="ayatbox" role="group" aria-label="Ayat Al-Qur\'an">' + Q.ayat.map((x, i) => {
+    const k = Q.id + '-' + i;
+    return `<div class="ar" lang="ar" dir="rtl">${x.ar.replace(/\s*\u06DD\s*/g, ' • ')}</div><div class="ref">${esc(x.ref)}</div>
+      <details data-ay="${k}" ${rev || ayOpen[k] ? 'open' : ''}><summary>Lihat terjemah</summary><p>${esc(x.id)}</p></details>`;
+  }).join('<hr>') + '</div>';
+}
+document.addEventListener('toggle', e => { const d = e.target; if(d && d.dataset && d.dataset.ay) ayOpen[d.dataset.ay] = d.open; }, true);
+
+/* =====================================================================
+   EXP, LEVEL, SINKRONISASI SUPABASE
+   EXP soal = EXP maksimum jenis soal x skor soal (0..1), diberikan SEKALI
+   per soal (mengulang tidak menambah). Hanya naik, tidak pernah turun.
+   Server (Supabase) memegang total yang dipakai leaderboard; salinan lokal
+   dipakai untuk tampilan cepat dan bekerja saat offline.
+   ===================================================================== */
+const EXPMAX = {PG:10, PGK:15, SA:15, JD:20, IS:15};
+const LEVELS = [{min:0, n:'Pemula'}, {min:100, n:'Pencari Ilmu'}, {min:250, n:'Penjaga Amanah'}, {min:450, n:'Cendekia'}, {min:700, n:'Ahli Hikmah'}, {min:1000, n:'Bintang Hikmah'}];
+const kExp  = () => 'pai2_exp_' + S.siswa.id;      // {idSoal: exp}
+const kExpQ = () => 'pai2_expq_' + S.siswa.id;     // {idSoal: skor 0..1} belum terkirim
+const kRank = () => 'pai2_rank_' + S.siswa.id;     // {rank, total}
+const sbAktif = () => /^https:\/\/[a-z0-9]{10,}\.supabase\.co$/.test(CONFIG.SUPABASE_URL || '') && String(CONFIG.SUPABASE_KEY || '').length > 20;
+const sbHead = () => ({apikey:CONFIG.SUPABASE_KEY, Authorization:'Bearer ' + CONFIG.SUPABASE_KEY});
+
+function expTotal(){ const m = store.get(kExp(), {}); return Object.keys(m).reduce((a, k) => a + (m[k] || 0), 0); }
+function levelInfo(x){
+  let i = 0; LEVELS.forEach((l, k) => { if(x >= l.min) i = k; });
+  const cur = LEVELS[i], nx = LEVELS[i + 1];
+  return {no:i + 1, nama:cur.n, next:nx ? nx.min : null, pct:nx ? Math.min(100, (x - cur.min) / (nx.min - cur.min) * 100) : 100};
+}
+/* Catat EXP lokal untuk satu soal. Hasil: EXP baru yang diperoleh (0 bila sudah pernah). */
+function expTambah(qid, frac){
+  const Q = QID[qid]; if(!Q) return 0;
+  const mx = EXPMAX[Q.tipe], e = Math.round(mx * Math.max(0, Math.min(1, frac || 0)));
+  const m = store.get(kExp(), {}), lama = m[qid] || 0;
+  if(e <= lama) return 0;
+  const sebelum = expTotal();
+  m[qid] = e; store.set(kExp(), m);
+  const q = store.get(kExpQ(), {}); q[qid] = e / mx; store.set(kExpQ(), q);
+  const a = levelInfo(sebelum), b = levelInfo(sebelum + e - lama);
+  if(b.no > a.no) setTimeout(() => toast('🎉 Naik ke Level ' + b.no + ': ' + b.nama + '!'), 600);
+  return e - lama;
+}
+function expChip(gain, frac){
+  if(gain > 0) return `<div class="expchip">⭐ +${gain} EXP</div>`;
+  if(frac > 0) return '<div class="expchip nol">EXP soal ini sudah kamu ambil sebelumnya</div>';
+  return '';
+}
+function expHasilHTML(g){
+  const tot = expTotal(), lv = levelInfo(tot);
+  return `<div class="expchip big">⭐ ${g > 0 ? '+' + g + ' EXP' : 'Tidak ada EXP baru'} · Total ${tot} EXP · Level ${lv.no} ${esc(lv.nama)}</div>
+    <div class="actions" style="justify-content:center;margin-top:8px"><button class="btn sec" data-act="lb">🏆 Lihat Peringkat</button></div>`;
+}
+function expCardHTML(){
+  const tot = expTotal(), lv = levelInfo(tot), rk = store.get(kRank(), null), tunda = Object.keys(store.get(kExpQ(), {})).length;
+  const sisa = lv.next != null ? (lv.next - tot) + ' EXP lagi ke level berikutnya' : 'Level tertinggi. Pertahankan!';
+  const sync = !sbAktif() ? '' : (tunda ? ` · <span title="Akan dikirim otomatis">⏳ ${tunda} soal menunggu sinkron</span>` : ' · ☁️ tersinkron');
+  return `<div class="card expcard"><div class="lvl"><div><small>LEVEL</small>${lv.no}</div></div>
+    <div style="flex:1;min-width:190px"><b>${esc(lv.nama)}</b> · <b>${tot}</b> EXP${rk ? ' · Peringkat #' + rk.rank : ''}
+    <div class="progress" style="margin:6px 0"><i style="width:${lv.pct}%"></i></div>
+    <span class="muted" style="font-size:.82rem">${sisa}${sync}</span></div>
+    <button class="btn gold" data-act="lb">🏆 Peringkat</button></div>`;
+}
+
+let expFlushing = false, expRetryN = 0, expRetryT = null;
+async function expFlush(){
+  if(!sbAktif() || !S.siswa || expFlushing) return;
+  expFlushing = true;
+  try{
+    for(let putaran = 0; putaran < 5; putaran++){
+      const q = store.get(kExpQ(), {}), ids = Object.keys(q).slice(0, 40);
+      if(!ids.length) break;
+      const items = ids.map(id => ({id, f:q[id]}));
+      const ctrl = new AbortController(), t = setTimeout(() => ctrl.abort(), 15000);
+      let r;
+      try{
+        r = await fetch(CONFIG.SUPABASE_URL + '/rest/v1/rpc/catat_exp', {method:'POST', signal:ctrl.signal,
+          headers:Object.assign({'Content-Type':'application/json'}, sbHead()),
+          body:JSON.stringify({p_nama:S.siswa.nama, p_kelas:S.siswa.kelas, p_absen:S.siswa.absen, p_items:items})});
+      } finally { clearTimeout(t); }
+      if(!r.ok) throw new Error('HTTP ' + r.status);
+      const j = await r.json();
+      const q2 = store.get(kExpQ(), {}); items.forEach(it => { if(q2[it.id] === it.f) delete q2[it.id]; }); store.set(kExpQ(), q2);
+      if(j && typeof j.rank === 'number') store.set(kRank(), {rank:j.rank, total:j.total_exp});
+      expRetryN = 0;
+    }
+  }catch(e){
+    expRetryN++; clearTimeout(expRetryT);
+    if(expRetryN <= 6) expRetryT = setTimeout(expFlush, Math.min(60000, 4000 * Math.pow(2, expRetryN - 1)));
+  } finally {
+    expFlushing = false;
+    if(S.siswa && $('#v-home').classList.contains('on')) $('#h-exp').innerHTML = expCardHTML();
+  }
+}
+window.addEventListener('online', () => { expRetryN = 0; expFlush(); });
+
+/* =====================================================================
+   LEADERBOARD (podium + daftar), realtime lewat Supabase
+   ===================================================================== */
+let lbKelas = 'all', lbData = [], lbErr = '', lbMuatPernah = false, lbLive = false, lbCh = null, lbPoll = null, sbClient = null, lbReq = 0;
+const inisial = n => esc(String(n || '?').trim().charAt(0).toUpperCase());
+
+function lbBuka(){
+  lbKelas = 'all'; lbData = []; lbErr = ''; lbMuatPernah = false;
+  show('v-lb'); lbRender(); lbMuat(); lbStart(); expFlush();
+}
+async function lbMuat(){
+  if(!sbAktif()){ lbErr = 'Leaderboard belum dihubungkan ke Supabase. Guru perlu mengisi SUPABASE_URL dan SUPABASE_KEY.'; lbMuatPernah = true; lbRender(); return; }
+  const my = ++lbReq, ctrl = new AbortController(), t = setTimeout(() => ctrl.abort(), 15000);
+  try{
+    let u = CONFIG.SUPABASE_URL + '/rest/v1/siswa_lb?select=id,nama,kelas,total_exp,soal_benar&total_exp=gt.0&order=total_exp.desc,updated_at.asc&limit=100';
+    if(lbKelas !== 'all') u += '&kelas=eq.' + encodeURIComponent(lbKelas);
+    const r = await fetch(u, {headers:sbHead(), signal:ctrl.signal});
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json();
+    if(my !== lbReq) return;
+    lbData = Array.isArray(d) ? d : []; lbErr = '';
+  }catch(e){ if(my !== lbReq) return; lbErr = 'Gagal memuat peringkat. Periksa koneksi, lalu coba lagi.'; }
+  finally { clearTimeout(t); }
+  lbMuatPernah = true; lbRender();
+}
+function muatSbLib(){
+  if(window.supabase && window.supabase.createClient) return Promise.resolve();
+  return new Promise((ok, no) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js';
+    s.onload = ok; s.onerror = no; document.head.appendChild(s); setTimeout(no, 10000);
+  });
+}
+function lbStart(){
+  lbStop();
+  lbPoll = setInterval(lbMuat, 15000);                 // cadangan bila realtime belum tersambung
+  if(!sbAktif()) return;
+  muatSbLib().then(() => {
+    if(!$('#v-lb').classList.contains('on')) return;
+    sbClient = sbClient || window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_KEY, {auth:{persistSession:false, autoRefreshToken:false}});
+    let deb = null;
+    lbCh = sbClient.channel('lb-live')
+      .on('postgres_changes', {event:'*', schema:'public', table:'siswa_lb'}, () => { clearTimeout(deb); deb = setTimeout(lbMuat, 400); })
+      .subscribe(st => {
+        lbLive = st === 'SUBSCRIBED';
+        if(lbLive){ clearInterval(lbPoll); lbPoll = setInterval(lbMuat, 60000); }
+        const b = $('#lb-live'); if(b) b.outerHTML = lbBadge();
+      });
+  }).catch(() => {});
+}
+function lbStop(){
+  clearInterval(lbPoll); lbPoll = null;
+  if(lbCh && sbClient){ try{ sbClient.removeChannel(lbCh); }catch(e){} }
+  lbCh = null; lbLive = false;
+}
+const lbBadge = () => `<span id="lb-live" class="live ${lbLive ? 'on' : ''}">● ${lbLive ? 'Realtime' : 'Segar otomatis'}</span>`;
+function lbPodium(top){
+  const slot = (rank, cls, medali) => {
+    const x = top[rank - 1];
+    if(!x) return `<div class="pd ${cls} kosong"><div class="av">?</div><div class="pn">Belum ada</div><div class="bar"><b>${rank}</b></div></div>`;
+    return `<div class="pd ${cls}">${rank === 1 ? '<div class="crown" aria-hidden="true">👑</div>' : ''}<div class="av">${inisial(x.nama)}</div>
+      <div class="pn">${esc(x.nama)}</div><div class="pk">${esc(x.kelas)}</div>
+      <div class="bar"><span aria-hidden="true">${medali}</span><b>${rank}</b><span>${x.total_exp} EXP</span></div></div>`;
+  };
+  return `<div class="podium" role="group" aria-label="Juara 1, 2, dan 3">${slot(2, 'p2', '🥈')}${slot(1, 'p1', '🥇')}${slot(3, 'p3', '🥉')}</div>`;
+}
+function lbRender(){
+  const el = $('#lb-isi'); if(!el || !$('#v-lb').classList.contains('on')) return;
+  const me = S.siswa ? S.siswa.id : '', kelasku = S.siswa ? S.siswa.kelas : '';
+  let h = `<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h2 style="margin:0">🏆 Papan Peringkat</h2>${lbBadge()}</div>
+    <p class="muted" style="margin:4px 0 10px">Peringkat berdasarkan total EXP. Jika EXP sama, yang lebih dulu mencapainya di atas.</p>
+    <div class="filters"><button class="${lbKelas === 'all' ? 'on' : ''}" data-act="lb-kelas" data-k="all">Semua kelas</button><button class="${lbKelas !== 'all' ? 'on' : ''}" data-act="lb-kelas" data-k="${esc(kelasku)}">Kelas saya (${esc(kelasku)})</button></div>`;
+  if(!lbMuatPernah) h += '<p class="muted" style="text-align:center;padding:30px 0">Memuat peringkat…</p>';
+  else if(lbErr) h += `<div class="banner warn">⚠️ <div>${esc(lbErr)} <button class="btn sec" style="min-height:34px;padding:2px 12px;margin-left:6px" data-act="lb-ulang">Coba lagi</button></div></div>`;
+  else if(!lbData.length) h += '<p class="muted" style="text-align:center;padding:30px 0">Belum ada yang mengumpulkan EXP. Jadilah yang pertama! 💪</p>';
+  else {
+    h += lbPodium(lbData.slice(0, 3));
+    const sisa = lbData.slice(3);
+    if(sisa.length) h += '<ol class="lbl" start="4">' + sisa.map((x, i) =>
+      `<li class="lbrow ${x.id === me ? 'me' : ''}"><span class="no">${i + 4}</span><span class="av">${inisial(x.nama)}</span>
+       <span class="nm">${esc(x.nama)}${x.id === me ? ' <b>(kamu)</b>' : ''}<small>${esc(x.kelas)} · Level ${levelInfo(x.total_exp).no}</small></span><span class="xp">${x.total_exp} EXP</span></li>`).join('') + '</ol>';
+    const idx = lbData.findIndex(x => x.id === me);
+    if(idx < 0 && lbKelas === 'all'){
+      const rk = store.get(kRank(), null);
+      if(rk) h += `<div class="lbrow me"><span class="no">#${rk.rank}</span><span class="nm">Posisimu<small>${esc(S.siswa.nama)}</small></span><span class="xp">${rk.total} EXP</span></div>`;
+    } else if(idx >= 0 && idx < 3) h += `<p class="hint" style="text-align:center;margin-top:8px">Kamu ada di podium. Selamat! 🎉</p>`;
+  }
+  el.innerHTML = h;
+}
+
+/* =====================================================================
+   BAB & LATIHAN
+   ===================================================================== */
+let CTX = 'lat';   // konteks soal aktif: 'lat' (latihan) atau 'asat'
+function bukaBab(id){
+  const b = BAB.find(x => x.id === id);
+  $('#bab-isi').innerHTML = b.materi + `<div class="actions"><button class="btn gold" data-act="lat-mulai" data-id="${id}">✏️ Mulai Latihan HOTS 10 Soal</button><button class="btn sec" data-act="home">Kembali</button></div>`;
+  show('v-bab');
+}
+function mulaiLatihan(id){
+  const b = BAB.find(x => x.id === id);
+  const qs = b.latihan.map((it,i) => { const qid = `L${id}-${pad2(i+1)}`; return {id:qid, opt:bangunOpsi(QID[qid])}; });
+  L = {bab:id, qs, idx:0, jawab:Array(qs.length).fill(null), cek:Array(qs.length).fill(false), expGain:Array(qs.length).fill(0), mulai:Date.now(), sub:uid(), selesai:false};
+  CTX = 'lat'; renderLatQ(); show('v-lat');
+}
+function renderLatQ(){
+  const b = BAB.find(x => x.id === L.bab), q = L.qs[L.idx], Q = QID[q.id], n = L.qs.length;
+  const v = L.jawab[L.idx], rev = L.cek[L.idx], last = L.idx === n-1;
+  const nr = rev ? nilaiSoal(Q, v, q.opt) : null;
+  const fb = rev ? fbHTML(Q, nr) + expChip(L.expGain[L.idx], nr.frac) : '';
+  const aksi = rev
+    ? `<button class="btn" data-act="lat-next">${last ? 'Lihat Hasil 🏁' : 'Soal Berikutnya ➜'}</button>`
+    : `<button class="btn" id="btn-cek" data-act="lat-cek" ${terjawab(Q, v) ? '' : 'disabled'}>Periksa Jawaban</button>`;
+  $('#lat-isi').innerHTML = `
+    <div class="qno"><span>Bab ${b.id} · ${TIPE[Q.tipe]}</span><span>Soal ${L.idx+1} dari ${n}</span></div>
+    <div class="progress"><i style="width:${(L.idx + (rev ? 1 : 0))/n*100}%"></i></div>
+    ${soalHTML(Q, q.opt, v, rev)}${fb}
+    <div class="actions">${aksi}</div>`;
+}
+function ctxState(){
+  if(CTX === 'asat'){
+    if(!A) return null;
+    const id = A.order[A.cur];
+    return {Q:QID[id], opt:A.opt[id], ans:A.ans[id], locked:false, set:v => { A.ans[id] = v; }};
+  }
+  if(!L) return null;
+  const q = L.qs[L.idx];
+  return {Q:QID[q.id], opt:q.opt, ans:L.jawab[L.idx], locked:L.cek[L.idx], set:v => { L.jawab[L.idx] = v; }};
+}
+function rerenderSoal(){ if(CTX === 'asat') renderAsatQ(); else renderLatQ(); }
+function ringan(){
+  if(CTX === 'asat'){ simpanAsat(); return; }
+  const s = ctxState(), bt = $('#btn-cek');
+  if(s && bt) bt.disabled = !terjawab(s.Q, s.ans);
+}
+function pilihJawab(k){
+  const s = ctxState(); if(!s || s.locked) return;
+  if(s.Q.tipe === 'PGK'){
+    const a = Array.isArray(s.ans) ? s.ans.slice() : [], i = a.indexOf(k);
+    if(i >= 0) a.splice(i,1); else a.push(k);
+    s.set(a);
+  } else s.set(k);
+  rerenderSoal();
+}
+function ubahJD(i, p){
+  const s = ctxState(); if(!s || s.locked) return;
+  const a = Array.isArray(s.ans) ? s.ans.slice() : Array(s.Q.it.l.length).fill(-1);
+  a[i] = p; s.set(a); ringan();
+}
+function ubahIS(val){
+  const s = ctxState(); if(!s || s.locked) return;
+  s.set(val); ringan();
+}
+function latCek(){
+  const s = ctxState(); if(!s || s.locked || !terjawab(s.Q, s.ans)) return;
+  const r = nilaiSoal(s.Q, s.ans, s.opt);
+  L.expGain[L.idx] = expTambah(L.qs[L.idx].id, r.frac);
+  L.cek[L.idx] = true; renderLatQ();
+}
+function latNext(){
+  if(!L.cek[L.idx]) return;
+  if(L.idx < L.qs.length-1){ L.idx++; renderLatQ(); window.scrollTo({top:0}); }
+  else selesaiLatihan();
+}
+function latKeluar(){
+  expFlush();
+  if(L && !L.selesai && L.jawab.some(x => x !== null)){
+    modal('<h3>Keluar dari latihan?</h3><p class="muted">Soal yang sudah diperiksa tetap menambah EXP, tetapi nilai latihan tidak dicatat.</p>', [{t:'Lanjut latihan',cls:'sec'},{t:'Keluar',cls:'danger',fn:() => { L = null; renderHome(); show('v-home'); }}]);
+  } else { L = null; renderHome(); show('v-home'); }
+}
+function selesaiLatihan(){
+  if(L.selesai) return; L.selesai = true;
+  const b = BAB.find(x => x.id === L.bab), n = L.qs.length;
+  const detail = L.qs.map((q,i) => {
+    const Q = QID[q.id], r = nilaiSoal(Q, L.jawab[i], q.opt);
+    return {no:i+1, id:q.id, bab:L.bab, tipe:Q.tipe, soal:soalTeks(Q, q.opt), jawaban:r.jaw, kunci:r.kunci,
+      status:r.status, poin:r2(r.frac * 10), e:Q.it.e};
+  });
+  const benar = detail.filter(d => d.status === 'Benar').length, sebagian = detail.filter(d => d.status === 'Sebagian').length;
+  const nilai = Math.round(detail.reduce((s,d) => s + d.poin, 0) * 10) / 10;
+  const prog = store.get(kProg(), {}), p = prog[L.bab] || {best:0, tries:0};
+  prog[L.bab] = {best:Math.max(p.best, nilai), last:nilai, tries:p.tries+1};
+  store.set(kProg(), prog);
+  const payload = {type:'latihan', submissionId:L.sub, siswa:{nama:S.siswa.nama, absen:S.siswa.absen, kelas:S.siswa.kelas},
+    bab:b.id, namaBab:b.judul, benar, jumlah:n, nilai, durasiDetik:Math.round((Date.now()-L.mulai)/1000),
+    detail: detail.map(({e,...d}) => d)};
+  antrekan(payload);
+  expFlush();
+  const pesan = nilai >= 80 ? 'Masyaallah, sangat baik! Pertahankan.' : nilai >= 60 ? 'Bagus. Pelajari lagi pembahasan agar makin mantap.' : 'Ayo baca ringkasan materi lagi, lalu coba latihan ulang.';
+  $('#lat-hasil-isi').innerHTML = `
+    <h2 style="text-align:center">Hasil Latihan Bab ${b.id}</h2>
+    <div class="score" style="--p:${nilai}"><div><div><strong>${fmt(nilai)}</strong><br><span>dari 100</span></div></div></div>
+    <p style="text-align:center;margin:6px 0 0"><b>${benar}</b> benar penuh · <b>${sebagian}</b> sebagian · dari ${n} soal</p>
+    <p class="muted" style="text-align:center">${pesan}</p>
+    ${expHasilHTML(L.expGain.reduce((a, b) => a + b, 0))}
+    ${kirimEl(L.sub)}
+    <div class="actions" style="justify-content:center">
+      <button class="btn gold" data-act="lat-mulai" data-id="${b.id}">🔁 Ulangi Latihan</button>
+      <button class="btn sec" data-act="bab" data-id="${b.id}">📖 Baca Materi</button>
+      <button class="btn sec" data-act="home">Beranda</button></div>`;
+  paintSend($('#lat-hasil-isi .kirim'));
+  $('#lat-review').innerHTML = '<h3 style="margin:20px 0 0;color:var(--g1)">Pembahasan</h3>' + detail.map(reviewHTML).join('');
+  show('v-lat-hasil');
+}
+function reviewHTML(d){
+  const c = {Benar:'b', Salah:'s', Sebagian:'p', Kosong:'k'}[d.status] || 'k';
+  const soal = esc(d.soal).replace(/ \| /g, '<br>');
+  return `<div class="rv ${c}"><span class="tag ${c}">${d.status}</span><span class="tag t">${TIPE[d.tipe] || d.tipe}</span><b>Soal ${d.no}</b> <span class="muted">· ${fmt(d.poin)} poin</span>
+    <div style="margin:6px 0;font-weight:500">${soal}</div>
+    <div class="kv">Jawabanmu: <b>${d.jawaban ? esc(d.jawaban) : '(kosong)'}</b></div>
+    <div class="kv">Kunci: <b>${esc(d.kunci)}</b></div>
+    <div class="pb">💡 ${esc(d.e || (QID[d.id] && QID[d.id].it.e) || '')}</div></div>`;
+}
+
+/* =====================================================================
+   ASAT
+   ===================================================================== */
+async function asatIntro(){
+  const done = store.get(kAsatDone(), null);
+  const st = store.get(kAsatState(), null);
+  $('#asat-intro-isi').innerHTML = '<p class="muted">Memeriksa status ASAT…</p>';
+  show('v-asat-intro');
+  if(done){ return renderAsatIntro({selesai:true, nilai:done.nilai}); }
+  if(st){ return renderAsatIntro({lanjut:true}); }
+  let server = store.get('pai2_asat_server_'+S.siswa.id, null);
+  if(!server && apiAktif()){
+    try{
+      const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 12000);
+      const r = await fetch(CONFIG.API_URL + '?action=status&id=' + encodeURIComponent(S.siswa.id), {signal:ctrl.signal});
+      clearTimeout(t); const j = await r.json();
+      if(j && j.ok && j.asatDone){ server = {nilai:j.nilai}; store.set('pai2_asat_server_'+S.siswa.id, server); }
+    }catch(e){ /* offline: tetap boleh mulai; server akan menolak ganda */ }
+  }
+  if(server) return renderAsatIntro({server:true, nilai:server.nilai});
+  renderAsatIntro({});
+}
+function renderAsatIntro(o){
+  let aksi = '', info = '';
+  if(o.selesai){
+    info = `<div class="banner info">✅ <div>Kamu sudah menyelesaikan ASAT. Nilai: <b>${fmt(o.nilai)}</b>. ASAT hanya dapat dikerjakan satu kali.</div></div>`;
+    aksi = `<button class="btn" data-act="asat-lihat">Lihat Hasil &amp; Pembahasan</button><button class="btn sec" data-act="home">Beranda</button>`;
+  } else if(o.server){
+    info = `<div class="banner info">✅ <div>ASAT kamu sudah tercatat di Spreadsheet${o.nilai != null ? ' dengan nilai <b>'+fmt(o.nilai)+'</b>' : ''}. Tidak dapat mengulang. Hubungi guru bila ada kendala.</div></div>`;
+    aksi = `<button class="btn sec" data-act="home">Beranda</button>`;
+  } else if(o.lanjut){
+    info = `<div class="banner warn">⏱ <div>Ada ASAT yang sedang berjalan. Waktu tetap berjalan walaupun halaman ditutup.</div></div>`;
+    aksi = `<button class="btn gold" data-act="asatlanjut">Lanjutkan ASAT</button>`;
+  } else {
+    aksi = `<button class="btn gold" data-act="asat-mulai">Mulai ASAT Sekarang ➜</button><button class="btn sec" data-act="home">Nanti dulu</button>`;
+  }
+  $('#asat-intro-isi').innerHTML = `
+    <h2>📝 Simulasi ASAT PAI Kelas VIII</h2>
+    <p class="muted">${esc(S.siswa.nama)} · ${esc(S.siswa.kelas)} · No. ${S.siswa.absen}</p>
+    <table class="tb"><tr><th>Jenis soal</th><th>Jumlah × bobot</th></tr>
+      <tr><td>Pilihan ganda (HOTS)</td><td>20 × 2</td></tr>
+      <tr><td>Pilihan ganda kompleks</td><td>5 × 3</td></tr>
+      <tr><td>Sebab–akibat</td><td>5 × 3</td></tr>
+      <tr><td>Menjodohkan</td><td>5 × 4</td></tr>
+      <tr><td>Isian singkat berbasis argumen</td><td>5 × 2</td></tr>
+      <tr><td><b>Total</b></td><td><b>40 soal = 100 poin</b></td></tr></table>
+    <table class="tb"><tr><th>Ketentuan</th><th>Keterangan</th></tr>
+      <tr><td>Cakupan</td><td>Bab 1–5 (8 soal per bab)</td></tr>
+      <tr><td>Waktu</td><td>${CONFIG.ASAT_MENIT} menit</td></tr>
+      <tr><td>Kesempatan</td><td>1 kali</td></tr></table>
+    <h4>Petunjuk</h4>
+    <ul class="materi" style="padding-left:1.2em">
+      <li>Baca doa dan niat belajar, kerjakan dengan jujur.</li>
+      <li>Jawaban tersimpan otomatis. Kamu dapat berpindah soal dan menandai soal ragu-ragu.</li>
+      <li>Pilihan ganda kompleks, menjodohkan, dan isian dapat mendapat nilai sebagian. Pada pilihan ganda kompleks, pilihan yang salah mengurangi skor.</li>
+      <li>Isian singkat: tulis satu frasa atau kalimat pendek yang memuat alasan utama. Huruf besar/kecil tidak berpengaruh.</li>
+      <li>Jika waktu habis, jawaban dikumpulkan otomatis.</li>
+      <li>Jangan menutup atau menyegarkan halaman tanpa perlu. Waktu terus berjalan.</li></ul>
+    ${info}<div class="actions">${aksi}</div>`;
+}
+function bangunAsat(){
+  const ids = [];
+  BAB.forEach(b => b.asat.forEach((it,i) => ids.push(`A${b.id}-${pad2(i+1)}`)));
+  const order = [];
+  Object.keys(TIPE).forEach(t => order.push(...shuffle(ids.filter(id => QID[id].tipe === t))));
+  const opt = {}; order.forEach(id => { const o = bangunOpsi(QID[id]); if(o) opt[id] = o; });
+  return {v:2, sub:uid(), start:Date.now(), order, opt, ans:{}, flag:{}, cur:0};
+}
+function mulaiAsat(){
+  if(store.get(kAsatDone(), null)){ toast('ASAT sudah dikerjakan.'); return; }
+  A = store.get(kAsatState(), null) || bangunAsat();
+  store.set(kAsatState(), A);
+  jalankanAsat();
+}
+function lanjutAsat(){
+  A = store.get(kAsatState(), null);
+  if(!A){ renderHome(); show('v-home'); return; }
+  jalankanAsat();
+}
+function jalankanAsat(){
+  asatAktif = true; CTX = 'asat';
+  window.onbeforeunload = e => { e.preventDefault(); e.returnValue = ''; return ''; };
+  show('v-asat'); renderAsatQ();
+  clearInterval(timerH); tick(); timerH = setInterval(tick, 1000);
+}
+function sisaMs(){ return A.start + CONFIG.ASAT_MENIT*60000 - Date.now(); }
+function tick(){
+  if(!A) return;
+  const ms = sisaMs();
+  if(ms <= 0){ $('#tm').textContent = '0:00'; selesaiAsat('Waktu habis'); return; }
+  const s = Math.floor(ms/1000), h = Math.floor(s/3600), m = Math.floor(s%3600/60), d = s%60;
+  $('#tm').textContent = h ? `${h}:${pad2(m)}:${pad2(d)}` : `${m}:${pad2(d)}`;
+  $('#asat-timer').classList.toggle('low', ms < 10*60000);
+}
+function jawabCount(){ return A.order.filter(id => terjawab(QID[id], A.ans[id])).length; }
+function simpanAsat(){ store.set(kAsatState(), A); $('#tm-ans').textContent = jawabCount() + '/' + A.order.length; }
+function renderAsatQ(){
+  const id = A.order[A.cur], Q = QID[id], n = A.order.length, v = A.ans[id];
+  const flagged = !!A.flag[id];
+  $('#asat-isi').innerHTML = `
+    <div class="qno"><span>${TIPE[Q.tipe]}</span><span>Soal ${A.cur+1} dari ${n}</span></div>
+    <div class="progress"><i style="width:${(A.cur+1)/n*100}%"></i></div>
+    ${soalHTML(Q, A.opt[id], v, false)}
+    <div class="actions">
+      <button class="btn sec" data-act="asat-flag">${flagged ? '🚩 Hapus tanda ragu' : '🏳️ Ragu-ragu'}</button>
+    </div>
+    <div class="actions" style="justify-content:space-between">
+      <button class="btn sec" data-act="asat-prev" ${A.cur === 0 ? 'disabled' : ''}>← Sebelumnya</button>
+      ${A.cur === n-1 ? '<button class="btn gold" data-act="asat-selesai">Selesai &amp; Kumpulkan ✔</button>' : '<button class="btn" data-act="asat-next">Berikutnya →</button>'}
+    </div>`;
+  simpanAsat();
+}
+function asatGo(i){ A.cur = Math.max(0, Math.min(A.order.length-1, i)); store.set(kAsatState(), A); renderAsatQ(); window.scrollTo({top:0}); }
+function asatNav(){
+  const btns = A.order.map((id,i) => {
+    const done = terjawab(QID[id], A.ans[id]);
+    return `<button class="${done ? 'done' : ''} ${A.flag[id] ? 'flag' : ''} ${i === A.cur ? 'cur' : ''}" data-act="asat-go" data-i="${i}">${i+1}</button>`;
+  }).join('');
+  modal(`<h3>Daftar Soal</h3><div class="navgrid">${btns}</div>
+    <div class="legend"><span><i style="background:var(--g3);border-color:var(--g2)"></i>Terjawab</span><span><i style="background:var(--warnbg);border-color:var(--gold)"></i>Ragu-ragu</span><span><i></i>Belum</span></div>`,
+    [{t:'Tutup',cls:'sec'},{t:'Kumpulkan ASAT',cls:'gold',fn:asatKonfirmasi}]);
+}
+function asatKonfirmasi(){
+  const n = A.order.length, kosong = n - jawabCount(), ragu = Object.keys(A.flag).filter(k => A.flag[k]).length;
+  let msg = `<p>Kamu menjawab <b>${n-kosong}</b> dari ${n} soal.</p>`;
+  if(kosong) msg += `<p style="color:var(--bad)"><b>${kosong}</b> soal belum dijawab.</p>`;
+  if(ragu) msg += `<p style="color:var(--warn)"><b>${ragu}</b> soal masih ditandai ragu-ragu.</p>`;
+  msg += '<p class="muted">Setelah dikumpulkan, jawaban tidak dapat diubah.</p>';
+  modal('<h3>Kumpulkan ASAT sekarang?</h3>' + msg, [{t:'Periksa lagi',cls:'sec'},{t:'Ya, kumpulkan',cls:'gold',fn:() => selesaiAsat('Selesai manual')}]);
+}
+function hitungAsat(st){
+  const detail = st.order.map((id,i) => {
+    const Q = QID[id], opt = st.opt[id] || null, r = nilaiSoal(Q, st.ans[id], opt);
+    return {no:i+1, id, bab:Q.bab, tipe:Q.tipe, soal:soalTeks(Q, opt), jawaban:r.jaw, kunci:r.kunci,
+      status:r.status, poin:r2(r.frac * CONFIG.POIN[Q.tipe])};
+  });
+  const jml = s => detail.filter(d => d.status === s).length;
+  const nilai = r2(detail.reduce((s,d) => s + d.poin, 0));
+  const perTipe = Object.keys(TIPE).map(t => {
+    const ds = detail.filter(d => d.tipe === t);
+    return {tipe:t, skor:r2(ds.reduce((s,d) => s + d.poin, 0)), maks:ds.length * CONFIG.POIN[t]};
+  });
+  const perBab = BAB.map(b => {
+    const ds = detail.filter(d => d.bab === b.id);
+    return {bab:b.id, skor:r2(ds.reduce((s,d) => s + d.poin, 0)), maks:ds.reduce((s,d) => s + CONFIG.POIN[d.tipe], 0)};
+  });
+  return {detail, nilai, perTipe, perBab, benar:jml('Benar'), sebagian:jml('Sebagian'), salah:jml('Salah'), kosong:jml('Kosong')};
+}
+let asatSelesaiBerjalan = false;
+function selesaiAsat(cara){
+  if(!A || asatSelesaiBerjalan) return;
+  asatSelesaiBerjalan = true;
+  clearInterval(timerH); timerH = null; closeModal();
+  window.onbeforeunload = null; asatAktif = false;
+  const st = A, h = hitungAsat(st);
+  let expGain = 0; h.detail.forEach(d => { expGain += expTambah(d.id, d.poin / CONFIG.POIN[d.tipe]); });
+  const durasi = Math.min(CONFIG.ASAT_MENIT, Math.max(1, Math.round((Math.min(Date.now(), st.start + CONFIG.ASAT_MENIT*60000) - st.start)/60000)));
+  const rec = {v:2, exp:expGain, sub:st.sub, nilai:h.nilai, benar:h.benar, sebagian:h.sebagian, salah:h.salah, kosong:h.kosong,
+    perTipe:h.perTipe, perBab:h.perBab, detail:h.detail, cara, durasi, waktu:Date.now()};
+  store.set(kAsatDone(), rec);
+  store.del(kAsatState());
+  A = null; asatSelesaiBerjalan = false;
+  const payload = {type:'asat', submissionId:st.sub, siswa:{nama:S.siswa.nama, absen:S.siswa.absen, kelas:S.siswa.kelas},
+    cara, durasiMenit:durasi, nilai:h.nilai, detail:h.detail};
+  antrekan(payload);
+  expFlush();
+  tampilHasilAsat(rec);
+}
+function tampilHasilAsat(rec){
+  const bab = rec.perBab.map(p => { const b = BAB.find(x => x.id === p.bab); return `<tr><td>Bab ${b.id}. ${esc(b.judul)}</td><td>${fmt(p.skor)}/${p.maks}</td></tr>`; }).join('');
+  const tipe = rec.perTipe.map(p => `<tr><td>${TIPE[p.tipe]}</td><td>${fmt(p.skor)}/${p.maks}</td></tr>`).join('');
+  $('#asat-hasil-isi').innerHTML = `
+    <h2 style="text-align:center">Hasil Simulasi ASAT PAI</h2>
+    <p class="muted" style="text-align:center">${esc(S.siswa.nama)} · ${esc(S.siswa.kelas)} · No. ${S.siswa.absen}</p>
+    <div class="score" style="--p:${rec.nilai}"><div><div><strong>${fmt(rec.nilai)}</strong><br><span>dari 100</span></div></div></div>
+    <div class="stat"><div><b>${rec.benar}</b><small>Benar</small></div><div><b>${rec.sebagian}</b><small>Sebagian</small></div><div><b>${rec.salah}</b><small>Salah</small></div><div><b>${rec.kosong}</b><small>Kosong</small></div></div>
+    <p class="muted" style="text-align:center">${esc(rec.cara)}</p>
+    ${rec.exp != null ? expHasilHTML(rec.exp) : ''}
+    ${kirimEl(rec.sub)}
+    <h4>Rincian per jenis soal</h4><table class="tb"><tr><th>Jenis</th><th>Skor</th></tr>${tipe}</table>
+    <h4>Rincian per bab</h4><table class="tb"><tr><th>Bab</th><th>Skor</th></tr>${bab}</table>
+    <div class="actions"><button class="btn sec" data-act="home">Beranda</button><button class="btn sec" data-act="cetak">🖨️ Cetak / Simpan PDF</button></div>`;
+  paintSend($('#asat-hasil-isi .kirim'));
+  $('#asat-review').innerHTML = `<h3 style="margin:22px 0 0;color:var(--g1)">Pembahasan</h3>
+    <div class="filters" id="flt"><button class="on" data-act="flt" data-f="all">Semua</button><button data-act="flt" data-f="x">Belum penuh</button><button data-act="flt" data-f="b">Benar</button></div>
+    <div id="rv-list"></div>`;
+  window._rec = rec; filterReview('all');
+  show('v-asat-hasil');
+}
+function filterReview(f){
+  const rec = window._rec; if(!rec) return;
+  $$('#flt button').forEach(b => b.classList.toggle('on', b.dataset.f === f));
+  const list = rec.detail.filter(d => f === 'all' || (f === 'b' ? d.status === 'Benar' : d.status !== 'Benar'));
+  $('#rv-list').innerHTML = list.length ? list.map(reviewHTML).join('') : '<div class="card muted">Tidak ada soal pada kategori ini.</div>';
+}
+function lihatAsat(){
+  const rec = store.get(kAsatDone(), null);
+  if(!rec){ toast('Data hasil tidak ditemukan.'); return; }
+  tampilHasilAsat(rec);
+}
+
+/* =====================================================================
+   EVENT
+   ===================================================================== */
+const ACT = {
+  'keluar': keluar,
+  'home': () => { renderHome(); show('v-home'); },
+  'tema': gantiTema,
+  'lb': lbBuka,
+  'lb-kelas': d => { lbKelas = d.k; lbMuatPernah = false; lbRender(); lbMuat(); },
+  'lb-ulang': () => { lbMuatPernah = false; lbRender(); lbMuat(); },
+  'bab': d => bukaBab(+d.id),
+  'lat-mulai': d => mulaiLatihan(+d.id),
+  'q-pick': d => pilihJawab(+d.k),
+  'lat-cek': latCek,
+  'lat-next': latNext,
+  'lat-keluar': latKeluar,
+  'asatintro': asatIntro,
+  'asat-mulai': mulaiAsat,
+  'asatlanjut': lanjutAsat,
+  'asat-flag': () => { const id = A.order[A.cur]; A.flag[id] = !A.flag[id]; if(!A.flag[id]) delete A.flag[id]; renderAsatQ(); },
+  'asat-next': () => asatGo(A.cur+1),
+  'asat-prev': () => asatGo(A.cur-1),
+  'asat-go': d => { closeModal(); asatGo(+d.i); },
+  'asat-nav': asatNav,
+  'asat-selesai': asatKonfirmasi,
+  'asat-lihat': lihatAsat,
+  'flt': d => filterReview(d.f),
+  'cetak': () => window.print(),
+  'kirimulang': () => { retryN = 0; toast('Mengirim ulang…'); flushQueue(); }
+};
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]');
+  if(!b || b.disabled) return;
+  const f = ACT[b.dataset.act];
+  if(f) f(b.dataset, b);
+});
+document.addEventListener('change', e => {
+  const t = e.target;
+  if(t.dataset && t.dataset.chg === 'jd') ubahJD(+t.dataset.i, +t.value);
+});
+document.addEventListener('input', e => {
+  const t = e.target;
+  if(t.dataset && t.dataset.chg === 'is') ubahIS(t.value);
+});
+$('#ov').addEventListener('click', e => { if(e.target.id === 'ov') closeModal(); });
+
+/* =====================================================================
+   START
+   ===================================================================== */
+(function init(){
+  initLogin();
+  const s = store.get('pai2_siswa', null);
+  if(s && s.nama && s.kelas && s.absen){
+    S.siswa = s; renderHome(); show('v-home');
+    const st = store.get(kAsatState(), null);
+    if(st && !store.get(kAsatDone(), null)){
+      A = st;
+      if(sisaMs() <= 0) selesaiAsat('Waktu habis');
+      else jalankanAsat();
+    }
+  } else show('v-login');
+  flushQueue();
+})();
+</script>
+</body>
+</html>
