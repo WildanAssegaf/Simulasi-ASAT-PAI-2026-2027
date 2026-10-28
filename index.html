@@ -279,12 +279,20 @@ textarea:focus{outline:none;border-color:var(--g2);box-shadow:0 0 0 3px var(--ri
   </div>
   <div id="h-banners"></div>
   <div id="h-exp"></div>
-  <h3 style="margin:20px 0 0;color:var(--g1)">Latihan per Bab</h3>
+  <h3 style="margin:20px 0 0;color:var(--g1)">Semester 1 · Latihan per Bab</h3>
   <div class="grid" id="h-bab"></div>
+  <h3 style="margin:24px 0 0;color:var(--g1)">Semester 2 · Latihan per Bab</h3>
+  <div class="grid" id="h-bab2"></div>
   <h3 style="margin:24px 0 0;color:var(--g1)">Simulasi Akhir</h3>
-  <div class="grid"><button class="card babcard asatcard wide" data-act="asatintro">
+  <div class="grid">
+  <button class="card babcard asatcard wide" data-act="asatintro" data-sem="1">
     <span class="ikon">📝</span>
-    <span><span class="nm">Simulasi ASAT PAI Kelas VIII</span><br>
+    <span><span class="nm">Simulasi ASAT Semester 1 · Bab 1–5</span><br>
+    <span class="badge">40 soal</span> <span class="badge">5 jenis soal</span> <span class="badge">90 menit</span> <span class="badge">Nilai maks. 100</span></span>
+  </button>
+  <button class="card babcard asatcard wide" data-act="asatintro" data-sem="2">
+    <span class="ikon">📝</span>
+    <span><span class="nm">Simulasi ASAT Semester 2 · Bab 7–11</span><br>
     <span class="badge">40 soal</span> <span class="badge">5 jenis soal</span> <span class="badge">90 menit</span> <span class="badge">Nilai maks. 100</span></span>
   </button></div>
   <footer>Semoga ilmu yang dipelajari bermanfaat dan berkah. Aamiin.</footer>
@@ -942,8 +950,607 @@ const BAB = [
       "Karena ilmu dari Yunani, Persia, dan India dapat dipelajari lalu dikembangkan.",
       "Karya bangsa lain diterjemahkan, dipelajari, dan dikembangkan oleh ilmuwan Muslim.")
   ]
+},
+{
+  id:7, ikon:"🌟", judul:"Meneladani Sifat-Sifat Mulia Para Rasul Allah Swt.",
+  materi:`
+<h2>Bab 7 — Meneladani Sifat-Sifat Mulia Para Rasul Allah Swt.</h2>
+<h4>1. Rasul sebagai teladan</h4>
+<p>Rasul adalah manusia pilihan yang menerima wahyu dari Allah dan diperintahkan menyampaikannya. Beriman kepada rasul termasuk rukun iman. Allah menyebut Rasulullah saw. sebagai <b>suri teladan yang baik</b> (Q.S. Al-Ahzab/33:21).</p>
+<h4>2. Sifat wajib bagi rasul</h4>
+<table class="tb"><tr><th>Sifat</th><th>Arti</th><th>Contoh teladan</th></tr>
+<tr><td><b>Siddiq</b></td><td>Benar dan jujur</td><td>Tidak pernah berdusta; dijuluki <i>ash-Shadiq</i>.</td></tr>
+<tr><td><b>Amanah</b></td><td>Dapat dipercaya</td><td>Dijuluki <i>al-Amin</i>; dipercaya menjaga barang titipan.</td></tr>
+<tr><td><b>Tabligh</b></td><td>Menyampaikan wahyu</td><td>Menyampaikan seluruh ajaran, termasuk dalam khutbah wada'.</td></tr>
+<tr><td><b>Fathanah</b></td><td>Cerdas</td><td>Menyelesaikan perselisihan peletakan Hajar Aswad dengan menaruhnya di atas kain yang dipegang bersama.</td></tr></table>
+<h4>3. Sifat mustahil bagi rasul</h4>
+<p>Sifat mustahil adalah lawan dari sifat wajib. Rasul tidak mungkin bersifat:</p>
+<ul>
+<li><b>Kidzib</b> (bohong), lawan siddiq.</li>
+<li><b>Khianat</b> (tidak dapat dipercaya), lawan amanah.</li>
+<li><b>Kitman</b> (menyembunyikan wahyu), lawan tabligh.</li>
+<li><b>Baladah</b> (bodoh atau lemah akal), lawan fathanah.</li>
+</ul>
+<h4>4. Sifat jaiz bagi rasul</h4>
+<p>Sifat jaiz adalah sifat manusiawi yang boleh ada pada rasul dan tidak mengurangi kemuliaan kerasulan, misalnya makan, minum, tidur, menikah, bekerja atau berdagang, dan sakit. Hikmahnya: karena rasul adalah manusia, ajarannya dapat dicontoh oleh manusia.</p>
+<h4>5. Rasul Ulul Azmi</h4>
+<p><b>Ulul Azmi</b> berarti rasul yang memiliki keteguhan hati dan kesabaran luar biasa. Allah memerintahkan Nabi Muhammad saw. bersabar seperti mereka (Q.S. Al-Ahqaf/46:35).</p>
+<table class="tb"><tr><th>Rasul</th><th>Keteguhan hati</th></tr>
+<tr><td>Nabi Nuh a.s.</td><td>Berdakwah sekitar 950 tahun (Q.S. Al-'Ankabut/29:14) meski dicemooh dan pengikutnya sedikit.</td></tr>
+<tr><td>Nabi Ibrahim a.s.</td><td>Menolak berhala dan tetap teguh ketika dibakar; Allah menjadikan api dingin dan menyelamatkannya (Q.S. Al-Anbiya'/21:68–69). Taat pada perintah menyembelih Ismail.</td></tr>
+<tr><td>Nabi Musa a.s.</td><td>Berani menghadapi Firaun yang berkuasa dan sombong; menerima kitab Taurat.</td></tr>
+<tr><td>Nabi Isa a.s.</td><td>Sabar menghadapi penolakan dan permusuhan kaumnya; menerima kitab Injil.</td></tr>
+<tr><td>Nabi Muhammad saw.</td><td>Sabar menghadapi tekanan Quraisy, penolakan di Tha'if, dan berhijrah; penutup para nabi dan penerima Al-Qur'an.</td></tr></table>
+<h4>6. Cara meneladani</h4>
+<ul>
+<li>Jujur dalam ucapan dan tindakan (siddiq).</li>
+<li>Menjaga titipan dan tanggung jawab (amanah).</li>
+<li>Menyampaikan ilmu dan kebaikan yang benar (tabligh).</li>
+<li>Belajar sungguh-sungguh dan berpikir cerdas (fathanah).</li>
+<li>Sabar dan tidak mudah putus asa seperti rasul Ulul Azmi.</li>
+</ul>
+<div class="kotak"><b>Ingat:</b> Sifat wajib, mustahil, dan jaiz berkaitan dengan <i>kerasulan</i>. Sifat jaiz tidak pernah berarti rasul boleh berdusta atau menyembunyikan wahyu.</div>`,
+  latihan:[
+   PG("Rina menemukan dompet berisi uang di kantin lalu menyerahkannya kepada guru piket tanpa mengambil sedikit pun. Sifat rasul yang ia teladani paling tepat adalah ...",
+      "amanah, karena ia menjaga barang yang bukan miliknya dan mengembalikannya kepada yang berhak",
+      ["tabligh, karena ia menyampaikan sesuatu kepada guru","fathanah, karena ia cerdas memilih tempat menyerahkan","jaiz, karena menemukan barang termasuk sifat manusiawi"],
+      "Menjaga dan mengembalikan barang yang bukan haknya adalah cerminan amanah."),
+   PG("Dika mengerti cara cepat mencari KPK dari buku. Ia mengajarkannya kepada teman-teman yang kesulitan tanpa meminta bayaran. Sifat rasul yang paling sesuai dengan perilaku Dika adalah ...",
+      "tabligh, karena menyampaikan ilmu yang bermanfaat kepada orang lain",
+      ["siddiq, karena ia tidak pernah berbohong","amanah, karena ia menjaga barang titipan","fathanah, karena ia hanya pandai berhitung"],
+      "Tabligh berarti menyampaikan. Dika menyampaikan ilmu yang ia pahami secara benar dan bermanfaat."),
+   PG("Seorang penceramah hanya menyampaikan ajaran yang mudah diterima pendengarnya dan sengaja menyembunyikan ajaran yang dianggap berat. Perilaku ini mirip dengan sifat mustahil rasul yang bernama ...",
+      "kitman",
+      ["kidzib","khianat","baladah"],
+      "Kitman adalah menyembunyikan wahyu. Rasul wajib bersifat tabligh, yaitu menyampaikan seluruh wahyu."),
+   PG("Allah menyebut Rasulullah saw. sebagai suri teladan yang baik (Q.S. Al-Ahzab/33:21). Padahal beliau makan, tidur, menikah, dan pernah sakit. Penjelasan yang paling tepat adalah ...",
+      "sifat jaiz membuktikan rasul adalah manusia sehingga ajarannya dapat dicontoh tanpa mengurangi kemuliaannya",
+      ["sifat jaiz menunjukkan rasul kurang sempurna dalam menyampaikan wahyu","sifat jaiz menunjukkan rasul boleh tidak jujur sesekali","sifat jaiz menunjukkan rasul bukan utusan Allah"],
+      "Sifat jaiz adalah sifat manusiawi. Karena rasul manusia, umatnya bisa meneladani beliau secara nyata."),
+   PG("Sinta tiga kali gagal dalam lomba pidato, tetapi ia terus berlatih dan memperbaiki naskahnya. Berdasarkan ayat di atas dan kisah Nabi Nuh, sikap Sinta paling tepat dinilai sebagai ...",
+      "meneladani kesabaran dan kegigihan rasul Ulul Azmi yang tidak mudah putus asa",
+      ["kurang tepat, karena sebaiknya berhenti setelah gagal tiga kali","kurang tepat, karena hasil lomba hanya ditentukan keberuntungan","tepat, tetapi hanya jika ia pasti menang pada percobaan berikutnya"],
+      "Ulul Azmi teguh menghadapi cobaan. Nabi Nuh berdakwah sangat lama tanpa menyerah."),
+   PGK("Pilihlah SEMUA perilaku yang meneladani sifat wajib rasul!",
+      ["Melaporkan kembalian kantin yang berlebih kepada penjual","Menyontek karena nilai teman lebih tinggi","Menyampaikan informasi pelajaran yang benar kepada teman yang tidak hadir","Mencari cara cerdas menyelesaikan masalah dengan belajar dan bertanya","Menyembunyikan pesan guru agar teman tidak tahu tugas"],
+      [0,2,3],
+      "Jujur/amanah (melaporkan kembalian), tabligh (menyampaikan informasi benar), dan fathanah (berpikir cerdas). Menyontek dan menyembunyikan pesan bertentangan dengan siddiq dan tabligh."),
+   PGK("Pilihlah SEMUA pernyataan yang benar tentang rasul Ulul Azmi!",
+      ["Nabi Nuh berdakwah sekitar 950 tahun","Allah menyelamatkan Nabi Ibrahim dari api","Nabi Isa menerima kitab Zabur","Nabi Musa menghadapi Firaun","Nabi Muhammad saw. tidak termasuk Ulul Azmi"],
+      [0,1,3],
+      "Nabi Isa menerima Injil (Zabur diterima Nabi Daud). Nabi Muhammad saw. termasuk Ulul Azmi."),
+   SA("Nabi Muhammad saw. dijuluki Al-Amin sejak sebelum menjadi rasul.",
+      "Sifat amanah membuat masyarakat Makkah percaya menitipkan barang kepada beliau.",
+      0,
+      "Pernyataan dan alasan benar. Al-Amin berarti yang dapat dipercaya, dan karena itulah barang titipan dipercayakan kepada beliau."),
+   JD("Jodohkan perilaku di sebelah kiri dengan sifat rasul yang paling tepat di sebelah kanan!",
+      ["Menyampaikan ajaran Islam dalam khutbah wada'","Menyelesaikan sengketa Hajar Aswad dengan kain","Dijuluki Al-Amin","Tidak pernah berdusta"],
+      ["Tabligh","Fathanah","Amanah","Siddiq","Kitman"],
+      [0,1,2,3],
+      "Khutbah wada' adalah tabligh. Cara menaruh Hajar Aswad di atas kain adalah kecerdasan (fathanah). Al-Amin berarti amanah. Tidak berdusta adalah siddiq."),
+   IS("Seorang teman berkata, “Rasul makan, minum, dan menikah, berarti sama saja dengan manusia biasa, jadi tidak perlu diteladani.” Tulis satu istilah sifat rasul dan satu alasan untuk membantah pendapat itu!",
+      [["jaiz","manusiawi","manusia"],["wahyu","teladan","diteladani","dicontoh","contoh","ditiru","utusan"]],
+      "Itu sifat jaiz (manusiawi). Rasul tetap menerima wahyu dan menjadi teladan terbaik.",
+      "Makan, minum, dan menikah adalah sifat jaiz. Sifat ini tidak mengurangi kerasulan; rasul tetap menerima wahyu dan menjadi teladan.")
+  ],
+  asat:[
+   PG("Saat ujian, Fajar menemukan kunci jawaban yang bocor. Ia menolak memakainya dan melaporkannya kepada guru. Sifat rasul yang paling kuat tercermin dari tindakan Fajar adalah ...",
+      "siddiq dan amanah, karena ia menolak kecurangan dan menjaga kepercayaan",
+      ["tabligh saja, karena ia menyampaikan sesuatu kepada guru","fathanah saja, karena ia cerdas menemukan kunci jawaban","jaiz, karena ujian adalah urusan manusiawi"],
+      "Menolak kecurangan mencerminkan kejujuran (siddiq) dan menjaga kepercayaan (amanah)."),
+   PG("Bendahara kelompok mengubah catatan agar kekurangan uang kas tidak diketahui anggota. Sifat mustahil rasul yang paling sesuai dengan perilaku itu adalah ...",
+      "khianat, karena merusak kepercayaan atas tanggung jawab yang dipegang",
+      ["baladah, karena ia tidak bisa menghitung","kitman, karena ia tidak menyampaikan wahyu","jaiz, karena kesalahan catatan hal yang wajar"],
+      "Khianat adalah lawan amanah. Mengubah catatan untuk menutupi kekurangan melanggar kepercayaan."),
+   PG("Nabi Ibrahim tetap teguh saat dibakar, dan Nabi Musa berani menghadapi Firaun. Pelajaran yang paling tepat dari dua kisah ini adalah ...",
+      "keteguhan iman dan keyakinan pada pertolongan Allah membuat mereka tidak mundur walau ancamannya besar",
+      ["keselamatan diperoleh dengan menghindari dakwah","mukjizat membuat usaha dan kesabaran tidak diperlukan","kekuasaan penguasa menentukan benar atau salahnya ajaran"],
+      "Keduanya menunjukkan keteguhan hati dan tawakal kepada Allah di tengah ancaman."),
+   PG("Menurut Q.S. Al-Ahqaf/46:35, lima rasul disebut Ulul Azmi karena ...",
+      "kesabaran dan keteguhan hati mereka yang luar biasa dalam menghadapi cobaan dakwah",
+      ["hanya mereka yang menerima wahyu","hanya mereka yang hidup paling lama","hanya mereka yang memiliki mukjizat"],
+      "Ulul Azmi berarti pemilik keteguhan hati. Semua rasul menerima wahyu dan memiliki mukjizat."),
+   PGK("Pilihlah SEMUA contoh yang termasuk sifat jaiz bagi rasul!",
+      ["Rasul makan di pagi hari","Rasul tidur setelah lelah berdakwah","Rasul menyembunyikan wahyu","Rasul menikah dan berkeluarga","Rasul berbohong demi menyenangkan kaumnya"],
+      [0,1,3],
+      "Makan, tidur, dan menikah adalah sifat manusiawi (jaiz). Menyembunyikan wahyu (kitman) dan berbohong (kidzib) adalah sifat mustahil."),
+   SA("Sifat jaiz berarti rasul boleh berbohong karena rasul juga manusia.",
+      "Sifat jaiz adalah sifat manusiawi yang tidak mengurangi kemuliaan rasul.",
+      3,
+      "Pernyataan salah: rasul tidak mungkin berbohong (kidzib mustahil). Alasan benar: sifat jaiz hanya mencakup hal manusiawi seperti makan dan tidur."),
+   JD("Jodohkan perilaku di sebelah kiri dengan sifat mustahil rasul yang paling tepat di sebelah kanan!",
+      ["Memakai titipan orang lain untuk kepentingan sendiri","Tidak mampu memahami pesan yang seharusnya disampaikan","Mengaku menerima wahyu padahal tidak","Menyimpan sebagian wahyu agar tidak diketahui orang"],
+      ["Kidzib","Khianat","Kitman","Baladah","Siddiq"],
+      [1,3,0,2],
+      "Memakai titipan adalah khianat. Tidak mampu memahami pesan adalah baladah. Mengaku menerima wahyu padahal tidak adalah kidzib. Menyimpan wahyu adalah kitman."),
+   IS("Seorang siswa berhenti belajar membaca Al-Qur'an setelah beberapa kali salah. Tulis satu nama rasul Ulul Azmi dan satu sikap dari rasul itu yang dapat ia teladani!",
+      [["nuh","ibrahim","musa","isa","muhammad"],["sabar","teguh","gigih","tabah","tidak menyerah","pantang menyerah","tekun","tidak putus asa"]],
+      "Nabi Nuh; sabar dan tidak menyerah dalam berdakwah, sehingga siswa itu terus berlatih.",
+      "Rasul Ulul Azmi memiliki kesabaran dan keteguhan hati. Siswa dapat meneladaninya dengan terus berlatih tanpa putus asa.")
+  ]
+},
+{
+  id:8, ikon:"🚫", judul:"Menghindari Khamr, Judi, dan Pertengkaran",
+  materi:`
+<h2>Bab 8 — Menghindari Khamr, Judi, dan Pertengkaran</h2>
+<h4>1. Pengertian</h4>
+<ul>
+<li><b>Khamr</b>: minuman atau zat yang memabukkan dan menutup akal. Hadis menyebut, “Setiap yang memabukkan adalah khamr, dan setiap khamr haram” (HR. Muslim). Termasuk di dalamnya minuman keras dan narkoba.</li>
+<li><b>Judi (<i>maisir</i>)</b>: permainan atau taruhan yang bergantung pada untung-untungan, dan keuntungan satu pihak berasal dari kerugian pihak lain. Contohnya judi kartu, taruhan pertandingan, dan judi daring (<i>online</i>).</li>
+<li><b>Pertengkaran dan permusuhan</b>: perselisihan yang disertai kebencian, ejekan, atau kekerasan, misalnya tawuran dan saling menjelekkan.</li>
+</ul>
+<h4>2. Dalil</h4>
+<ul>
+<li><b>Q.S. Al-Ma'idah/5:90</b> — khamr, judi, berhala, dan undian dengan anak panah adalah kotor dan perbuatan setan; perintahnya: “jauhilah”.</li>
+<li><b>Q.S. Al-Ma'idah/5:91</b> — setan ingin menimbulkan permusuhan dan kebencian lewat khamr dan judi, serta menghalangi dari zikir dan salat.</li>
+<li><b>Hadis</b> — “Apa yang banyaknya memabukkan, maka sedikitnya pun haram” (HR. Abu Dawud dan at-Tirmidzi).</li>
+<li><b>Q.S. Al-Hujurat/49:10</b> — orang beriman bersaudara; damaikanlah dua saudara yang berselisih.</li>
+<li><b>Q.S. Al-Anfal/8:46</b> — jangan berselisih, nanti kamu gagal dan kekuatanmu hilang; bersabarlah.</li>
+<li><b>Hadis</b> — tidak halal seorang muslim mendiamkan saudaranya lebih dari tiga hari (HR. Bukhari dan Muslim).</li>
+</ul>
+<h4>3. Bahaya bagi diri sendiri</h4>
+<ul>
+<li>Khamr: merusak kesehatan, menghilangkan kendali diri dan akal, menimbulkan kecanduan.</li>
+<li>Judi: menguras uang, menimbulkan utang, ketagihan, dan mendorong berbohong atau mencuri.</li>
+<li>Pertengkaran: menyimpan dendam, stres, dan kehilangan teman.</li>
+</ul>
+<h4>4. Bahaya bagi masyarakat</h4>
+<ul>
+<li>Kecelakaan, kriminalitas, dan kekerasan dalam rumah tangga akibat orang yang kehilangan kendali.</li>
+<li>Kemiskinan dan retaknya keluarga akibat judi.</li>
+<li>Tawuran, perpecahan, dan hilangnya rasa aman akibat permusuhan.</li>
+</ul>
+<h4>5. Cara menghindari dan menyelesaikan</h4>
+<ul>
+<li>Berani berkata “tidak”, menjauhi tempat dan ajakan yang mendekatkan pada khamr atau judi.</li>
+<li>Memilih teman yang baik dan mengisi waktu dengan kegiatan bermanfaat.</li>
+<li>Menasihati teman dengan santun dan melibatkan orang tua atau guru bila perlu.</li>
+<li>Menyelesaikan pertengkaran dengan <b>tabayyun</b> (mencari kejelasan), <b>islah</b> (berdamai), dan <b>saling memaafkan</b>.</li>
+</ul>
+<div class="kotak"><b>Ingat:</b> Perintah “jauhilah” lebih luas daripada “jangan minum atau jangan bermain”: kita juga menjauhi sebab, tempat, dan ajakan yang menuju ke sana.</div>`,
+  latihan:[
+   PG("Beni diajak temannya mencoba “minuman penambah berani” yang ternyata mengandung alkohol. Tindakan yang paling tepat adalah ...",
+      "menolak dengan tegas karena yang memabukkan haram, lalu mengajak teman melakukan kegiatan positif",
+      ["mencoba sedikit saja karena belum tentu memabukkan","ikut agar tidak dikucilkan teman","pura-pura menolak lalu meminumnya diam-diam"],
+      "Hadis menyebut sesuatu yang banyaknya memabukkan, sedikitnya pun haram. Menolak dan mengajak ke hal positif adalah langkah tepat."),
+   PG("Q.S. Al-Ma'idah/5:90 menyebut khamr dan judi sebagai perbuatan keji dan memerintahkan “fajtanibuhu” (jauhilah). Makna perintah itu yang paling tepat adalah ...",
+      "tidak hanya tidak memakainya, tetapi juga menjauhi sebab, tempat, dan ajakan yang mendekatkan kepadanya",
+      ["hanya melarang orang yang sudah mabuk","hanya berlaku saat sedang beribadah","hanya melarang meminum, sedangkan menjual dibolehkan"],
+      "Kata “jauhilah” bermakna menjauh sepenuhnya, termasuk dari sebab dan jalan menuju perbuatan itu."),
+   PG("Perhatikan diagram simulasi taruhan 10 siswa. Masing-masing menaruh Rp10.000 dan seluruh uang Rp100.000 diambil satu pemenang. Kesimpulan yang paling tepat adalah ...",
+      "ini termasuk maisir: keuntungan satu orang berasal dari kerugian sembilan orang lain dan bergantung pada untung-untungan",
+      ["bukan judi karena semua peserta setuju","judi hanya jika uang taruhannya sangat besar","bukan judi karena dilakukan sesama teman sekelas"],
+      "Ciri maisir: taruhan, untung-untungan, dan satu pihak untung karena pihak lain rugi. Nilai kecil atau persetujuan peserta tidak mengubah hukumnya."),
+   PG("Setelah kalah, Dimas meminjam uang kepada banyak teman untuk “balik modal” di judi daring. Pola ini berbahaya terutama karena ...",
+      "kerugian mendorong taruhan yang lebih besar sehingga menimbulkan utang dan masalah keluarga",
+      ["kerugian kecil pasti tertutup oleh kemenangan berikutnya","meminjam uang membuat judi menjadi halal","judi daring tidak termasuk judi karena tidak bertemu langsung"],
+      "Judi menimbulkan ketagihan dan spiral kerugian. Medianya daring tidak mengubah hakikatnya sebagai maisir."),
+   PG("Dua kelas bertengkar karena saling mengejek setelah pertandingan futsal. Sebagai ketua OSIS, langkah yang paling sesuai dengan Q.S. Al-Hujurat/49:10 adalah ...",
+      "mendengarkan kedua pihak lalu mendamaikan mereka dengan adil serta mengingatkan agar bertakwa",
+      ["memihak kelasnya sendiri agar solid","membiarkan sampai mereda sendiri","membalas ejekan di media sosial"],
+      "Ayat memerintahkan mendamaikan saudara yang berselisih (islah) dan bertakwa kepada Allah."),
+   PGK("Pilihlah SEMUA dampak minuman keras bagi masyarakat!",
+      ["Kecelakaan lalu lintas akibat pengemudi mabuk","Meningkatnya kekerasan dalam rumah tangga","Perekonomian keluarga menjadi lebih kuat","Kriminalitas akibat hilangnya kendali diri","Hubungan antartetangga menjadi lebih akrab"],
+      [0,1,3],
+      "Mabuk menghilangkan kendali sehingga memicu kecelakaan, kekerasan, dan kejahatan. Ekonomi dan keakraban tidak menguat karenanya."),
+   PGK("Pilihlah SEMUA langkah menyelesaikan pertengkaran yang sesuai ajaran Islam!",
+      ["Menanyakan duduk perkara dengan jelas (tabayyun)","Mencari dukungan teman untuk mengeroyok lawan","Meminta maaf dan memaafkan","Melibatkan penengah yang adil seperti guru","Menyebarkan keburukan lawan agar ia malu"],
+      [0,2,3],
+      "Tabayyun, saling memaafkan, dan penengah yang adil menyelesaikan masalah. Mengeroyok dan menyebar aib memperburuk permusuhan."),
+   SA("Pelajar yang bermain kartu dengan taruhan uang kecil tetap termasuk berjudi.",
+      "Judi dinilai dari adanya taruhan dan untung-untungan, bukan dari besar kecilnya nilai.",
+      0,
+      "Pernyataan dan alasan benar, serta berhubungan: taruhan dan untung-untungan menjadikan sesuatu maisir meski nilainya kecil."),
+   JD("Jodohkan peristiwa di sebelah kiri dengan masalah atau dalil yang paling tepat di sebelah kanan!",
+      ["Uang saku habis dan berutang karena taruhan","Dua sahabat tidak bertegur sapa berminggu-minggu","Orang yang mabuk berbuat kasar tanpa sadar","Khamr dan judi menghalangi dari zikir dan salat"],
+      ["Khamr: merusak akal dan kendali diri","Judi: merugikan harta dan memicu utang","Pertengkaran: merenggangkan persaudaraan","Al-Ma'idah/5:91: tujuan setan","Infak: membersihkan harta"],
+      [1,2,0,3],
+      "Taruhan merugikan harta. Tidak bertegur sapa merenggangkan persaudaraan. Mabuk merusak kendali diri. Al-Ma'idah/5:91 menjelaskan tujuan setan."),
+   IS("Temanmu berkata, “Minum satu teguk saja tidak apa-apa, kan tidak sampai mabuk.” Tulis satu argumen untuk membantahnya!",
+      [["memabukkan","khamr","haram","sedikit"],["kebiasaan","kecanduan","ketagihan","menjauhi","jauhi","semakin","bertambah","lama lama"]],
+      "Sesuatu yang banyaknya memabukkan, sedikitnya pun haram, dan bisa menjadi kebiasaan yang makin bertambah.",
+      "Hadis menegaskan yang banyaknya memabukkan, sedikitnya pun haram. Selain itu, mencoba sedikit sering berlanjut menjadi kebiasaan.")
+  ],
+  asat:[
+   PG("Pada sebuah acara, panitia menyuguhkan minuman tanpa label dan seorang pelajar mencium bau alkohol darinya. Tindakan yang paling tepat adalah ...",
+      "tidak meminumnya, memberi tahu panitia atau guru, dan mengajak teman lain menolak",
+      ["meminumnya sedikit untuk memastikan rasanya","membiarkannya karena itu urusan panitia","membawanya pulang untuk dicoba bersama teman"],
+      "Menjauhi khamr mencakup menolak dan mencegah orang lain dari bahaya, dengan cara yang baik."),
+   PG("Seorang ayah berjudi Rp1.000.000 tiap pekan dengan alasan “modal usaha”. Penilaian yang paling tepat adalah ...",
+      "judi bukan investasi karena hasilnya untung-untungan dan sering merugikan keluarga",
+      ["judi boleh jika niatnya untuk modal usaha","judi boleh jika dilakukan di rumah sendiri","judi tidak merugikan jika uangnya milik sendiri"],
+      "Niat baik tidak menghalalkan maisir. Usaha yang sah memiliki barang atau jasa dan risiko usaha, bukan taruhan."),
+   PG("Q.S. Al-Ma'idah/5:91 menyebut setan ingin menimbulkan permusuhan dan kebencian lewat khamr dan judi. Hubungan yang paling masuk akal adalah ...",
+      "hilangnya akal dan kerugian harta memicu emosi, pertengkaran, dan retaknya hubungan",
+      ["khamr dan judi membuat orang lebih sabar","permusuhan hanya terjadi di tempat judi","keduanya tidak berpengaruh pada hubungan sosial"],
+      "Orang yang mabuk atau terlilit utang mudah marah dan berselisih sehingga merusak persaudaraan."),
+   PG("Wirda menyebarkan cerita buruk tentang Salsa, dan Salsa ingin membalas. Langkah yang paling sesuai ajaran Islam bagi Salsa adalah ...",
+      "menahan diri, menemui Wirda atau meminta penengah, lalu menyelesaikan dan memaafkan",
+      ["membalas dengan cerita yang lebih buruk","menjauhi Wirda selamanya tanpa bicara","mengajak teman-teman memusuhi Wirda"],
+      "Islah dan memaafkan menyelesaikan pertengkaran. Membalas dan menjauhi selamanya menambah permusuhan."),
+   PGK("Pilihlah SEMUA yang termasuk bentuk judi!",
+      ["Taruhan uang pada hasil pertandingan","Judi daring dengan menyetor uang","Lomba kebersihan kelas berhadiah dari sekolah tanpa biaya peserta","Membeli kupon berbayar yang hanya sedikit pemenangnya","Menabung rutin di koperasi sekolah"],
+      [0,1,3],
+      "Taruhan, setoran judi daring, dan kupon berbayar berunsur untung-untungan. Lomba tanpa biaya dan menabung bukan judi."),
+   SA("Orang yang tidak pernah meminum khamr, tetapi menjual atau mengantarkannya, tidak berdosa.",
+      "Larangan khamr hanya ditujukan kepada orang yang meminumnya.",
+      4,
+      "Keduanya salah. Perintah “jauhilah” mencakup menjauhi khamr dalam semua bentuk keterlibatan, termasuk memperjualbelikan."),
+   JD("Jodohkan situasi di sebelah kiri dengan sikap yang paling tepat di sebelah kanan!",
+      ["Teman mengajak bertaruh skor pertandingan","Dua teman bermusuhan karena salah paham pesan","Orang asing menawarkan minuman keras gratis","Teman dekat kecanduan judi daring"],
+      ["Tabayyun lalu berdamai","Menolak dan menjauh dari tawaran itu","Menasihati dengan baik dan melibatkan orang dewasa yang dipercaya","Menolak karena taruhan termasuk maisir","Ikut dahulu agar tidak dijauhi"],
+      [3,0,1,2],
+      "Taruhan ditolak karena maisir. Salah paham diselesaikan dengan tabayyun. Tawaran miras ditolak dan dijauhi. Teman kecanduan dinasihati dan dibantu orang dewasa."),
+   IS("Seorang remaja berkata, “Judi daring cuma hiburan, uangnya kan uangku sendiri.” Tulis satu istilah atau hukum dan satu dampak untuk membantahnya!",
+      [["maisir","judi","taruhan","untung untungan","haram","dilarang"],["rugi","merugikan","utang","kecanduan","candu","boros","habis","keluarga","permusuhan"]],
+      "Itu maisir yang dilarang, dan dampaknya merugikan, bisa menimbulkan utang serta kecanduan.",
+      "Judi daring tetap maisir (haram) walau uang milik sendiri, dan dampaknya berupa kerugian harta, utang, dan kecanduan.")
+  ]
+},
+{
+  id:9, ikon:"💼", judul:"Menjadi Pribadi yang Dapat Dipercaya dan Bebas dari Riba",
+  materi:`
+<h2>Bab 9 — Menjadi Pribadi yang Dapat Dipercaya dan Bebas dari Riba</h2>
+<h4>1. Integritas dan amanah</h4>
+<p><b>Integritas</b> berarti perkataan sesuai dengan perbuatan, baik saat diawasi maupun tidak. Orang berintegritas dapat dipercaya (<i>amanah</i>). Allah memerintahkan menunaikan amanah kepada yang berhak (Q.S. An-Nisa'/4:58).</p>
+<ul>
+<li>Menepati janji dan tepat waktu.</li>
+<li>Mengembalikan barang pinjaman dan melunasi utang.</li>
+<li>Jujur dalam melaporkan uang, nilai, dan tugas.</li>
+<li>Menjaga rahasia dan titipan.</li>
+</ul>
+<h4>2. Jujur dalam jual beli</h4>
+<ul>
+<li>Tidak mengurangi takaran dan timbangan.</li>
+<li>Menjelaskan cacat barang dan tidak menipu.</li>
+<li>Tidak menimbun barang agar harga naik.</li>
+</ul>
+<p>Pedagang yang jujur dan amanah akan bersama para nabi, orang-orang siddiq, dan para syuhada (HR. at-Tirmidzi).</p>
+<h4>3. Pengertian dan larangan riba</h4>
+<p><b>Riba</b> adalah tambahan yang disyaratkan atas utang, atau kelebihan dalam pertukaran barang sejenis, tanpa imbalan yang dibenarkan. Allah menghalalkan jual beli dan mengharamkan riba (Q.S. Al-Baqarah/2:275). Rasulullah saw. melaknat pemakan riba, pemberinya, pencatatnya, dan dua saksinya (HR. Muslim).</p>
+<h4>4. Jual beli berbeda dengan riba</h4>
+<table class="tb"><tr><th></th><th>Jual beli</th><th>Riba</th></tr>
+<tr><td>Dasar</td><td>Pertukaran barang atau jasa</td><td>Tambahan dari utang tanpa imbalan</td></tr>
+<tr><td>Risiko</td><td>Penjual menanggung risiko usaha</td><td>Pemberi utang pasti untung, peminjam menanggung beban</td></tr>
+<tr><td>Contoh</td><td>Membeli sepeda Rp1.000.000, menjual Rp1.100.000 dengan harga sepakat</td><td>Meminjamkan Rp1.000.000, syarat mengembalikan Rp1.200.000</td></tr>
+<tr><td>Hukum</td><td>Halal</td><td>Haram</td></tr></table>
+<h4>5. Jenis riba secara ringkas</h4>
+<ul>
+<li><b>Riba dalam utang piutang</b>: tambahan yang disyaratkan atas pinjaman atau karena penundaan pembayaran.</li>
+<li><b>Riba dalam jual beli</b>: kelebihan atau penundaan pada pertukaran barang sejenis, misalnya emas dengan emas yang berbeda berat.</li>
+</ul>
+<p><b>Catatan:</b> bila saat melunasi seseorang memberi kelebihan secara sukarela tanpa disyaratkan sebelumnya, hal itu dibolehkan dan termasuk berbuat baik.</p>
+<h4>6. Dampak riba dan solusinya</h4>
+<ul>
+<li>Utang membengkak dan menyengsarakan peminjam; yang lemah makin terbebani.</li>
+<li>Hubungan tolong-menolong melemah dan harta tidak berkah.</li>
+<li>Solusi: <i>qardhul hasan</i> (pinjaman kebajikan tanpa tambahan), jual beli yang jujur, menabung, infak, dan menghindari pinjaman berbunga tinggi.</li>
+</ul>
+<div class="kotak"><b>Ingat:</b> Persetujuan kedua pihak tidak menghalalkan riba. Yang menentukan adalah ada atau tidaknya tambahan yang disyaratkan atas utang.</div>`,
+  latihan:[
+   PG("Tika dititipi uang kas kelas. Ia ingin “meminjam sebentar” untuk jajan dan berniat menggantinya besok. Penilaian yang paling tepat adalah ...",
+      "tetap tidak sesuai amanah karena uang kas bukan miliknya dan dipakai tanpa izin yang berhak",
+      ["boleh karena akan diganti besok","boleh karena jumlahnya sedikit","boleh karena tidak ada yang tahu"],
+      "Amanah wajib dijaga. Memakai titipan tanpa izin adalah pelanggaran kepercayaan, walau berniat mengganti."),
+   PG("Pak Ali menjual jam tangan dan menjelaskan kepada pembeli bagian yang sudah rusak. Sikap Pak Ali menunjukkan ...",
+      "integritas yang membawa keberkahan dan kepercayaan dalam jual beli",
+      ["sikap yang merugikan sehingga tidak dianjurkan","sikap yang tidak perlu karena pembeli wajib memeriksa sendiri","sikap yang hanya perlu dilakukan jika pembeli bertanya"],
+      "Menjelaskan cacat barang adalah kejujuran. Pedagang jujur dijanjikan kedudukan mulia dan keberkahan."),
+   PG("Seseorang berkata, “Jual beli sama saja dengan riba karena sama-sama mencari untung.” Bantahan yang paling tepat berdasarkan ayat di atas adalah ...",
+      "Allah menghalalkan jual beli dan mengharamkan riba; jual beli ada barang atau jasa dan risiko usaha, riba adalah tambahan dari utang tanpa imbalan",
+      ["keduanya sama sehingga hukumnya sama","riba hanya haram bila jumlahnya besar","jual beli haram karena mengambil keuntungan"],
+      "Q.S. Al-Baqarah/2:275 membedakan jual beli (halal) dan riba (haram)."),
+   PG("Rani meminjam Rp1.000.000 dan peminjam mensyaratkan pengembalian Rp1.200.000 bulan depan (lihat diagram). Penilaian yang paling tepat adalah ...",
+      "termasuk riba karena tambahan Rp200.000 disyaratkan atas utang",
+      ["bukan riba karena bunganya kecil","bukan riba karena kedua pihak setuju","bukan riba karena yang meminta tetangga sendiri"],
+      "Tambahan yang disyaratkan atas utang adalah riba. Kecilnya jumlah dan persetujuan tidak mengubah hukum."),
+   PG("Dedi melunasi utang Rp500.000 dengan Rp520.000 karena ingin berterima kasih. Tambahan itu tidak pernah disyaratkan. Penilaian yang paling tepat adalah ...",
+      "boleh karena kelebihan itu sukarela dan tidak disyaratkan sebelumnya",
+      ["haram karena setiap kelebihan adalah riba","haram karena lebih dari 5 persen","boleh hanya jika pemberi utang memintanya"],
+      "Riba adalah tambahan yang disyaratkan. Kelebihan sukarela saat melunasi termasuk berbuat baik."),
+   PGK("Pilihlah SEMUA perilaku yang mencerminkan pribadi yang dapat dipercaya!",
+      ["Datang tepat waktu sesuai janji","Mengembalikan barang pinjaman dalam keadaan baik","Menyampaikan pesan guru apa adanya","Melupakan janji karena dianggap sepele","Mengubah laporan agar terlihat baik"],
+      [0,1,2],
+      "Menepati janji, menjaga pinjaman, dan menyampaikan pesan apa adanya adalah amanah. Mengabaikan janji dan memalsukan laporan melanggar kepercayaan."),
+   PGK("Pilihlah SEMUA dampak buruk riba!",
+      ["Utang peminjam membengkak","Pihak yang lemah makin terbebani","Hubungan tolong-menolong melemah","Kerja sama yang adil makin kuat","Harta menjadi lebih berkah"],
+      [0,1,2],
+      "Riba memberatkan peminjam dan merusak solidaritas. Kerja sama yang adil dan keberkahan justru hilang."),
+   SA("Menunda pembayaran utang padahal mampu bertentangan dengan sifat amanah.",
+      "Utang adalah tanggungan yang harus ditunaikan tepat waktu.",
+      0,
+      "Pernyataan dan alasan benar. Karena utang adalah tanggungan, menunda tanpa uzur melanggar amanah."),
+   JD("Jodohkan transaksi di sebelah kiri dengan penilaian yang paling tepat di sebelah kanan!",
+      ["Meminjamkan Rp2.000.000 dengan syarat kembali Rp2.400.000","Menjual barang sambil menyembunyikan cacatnya","Membeli sepeda Rp1.000.000 lalu menjualnya Rp1.100.000 dengan harga sepakat","Meminjamkan uang tanpa tambahan dan memberi keringanan saat peminjam kesulitan"],
+      ["Jual beli halal karena ada barang dan laba usaha","Riba dalam utang piutang","Curang dan tidak jujur","Pinjaman kebajikan yang berpahala","Hibah wajib"],
+      [1,2,0,3],
+      "Tambahan yang disyaratkan adalah riba. Menyembunyikan cacat adalah curang. Membeli lalu menjual dengan harga sepakat adalah jual beli halal. Pinjaman tanpa tambahan adalah kebajikan."),
+   IS("Temanmu berkata, “Tidak apa-apa ada bunga, kan kedua pihak sudah setuju.” Tulis satu hukum dan satu alasan untuk membantahnya!",
+      [["haram","dilarang","allah mengharamkan","riba"],["tambahan","kelebihan","bunga","merugikan","menyengsarakan","membebani","menindas","zalim","tidak adil"]],
+      "Itu riba yang haram; tambahan atas utang membebani peminjam walau keduanya setuju.",
+      "Riba tetap haram walau disetujui, karena tambahan yang disyaratkan atas utang membebani dan merugikan peminjam.")
+  ],
+  asat:[
+   PG("Pak Dedi berkata kepada pembeli, “Barang ini asli,” padahal ia tahu barang itu tiruan. Penilaian yang paling tepat adalah ...",
+      "melanggar kejujuran dan amanah dalam jual beli sehingga keuntungannya tidak berkah",
+      ["tidak masalah selama pembeli tidak mengeluh","tidak masalah karena semua pedagang melakukannya","tepat karena tujuan dagang adalah untung sebesar-besarnya"],
+      "Menipu dalam jual beli melanggar kejujuran. Keuntungan dari penipuan tidak membawa keberkahan."),
+   PG("Koperasi sekolah menjual alat tulis dengan keuntungan 10 persen dari harga beli, dan daftar harga diumumkan terbuka. Penilaian yang paling tepat adalah ...",
+      "jual beli yang halal karena keuntungan berasal dari usaha menjual barang dengan harga terbuka",
+      ["riba karena ada tambahan dari harga beli","riba karena ada keuntungan","haram karena pembeli tidak dapat menawar"],
+      "Keuntungan dari jual beli barang yang jelas dan terbuka berbeda dengan tambahan atas utang."),
+   PG("Sebuah pinjaman mensyaratkan denda yang bertambah setiap hari karena terlambat membayar. Penilaian yang paling tepat adalah ...",
+      "mengandung riba karena tambahan atas penundaan pembayaran disyaratkan",
+      ["bukan riba karena namanya denda","bukan riba karena peminjam sudah terlambat","bukan riba karena nilai tambahnya kecil"],
+      "Tambahan atas utang karena penundaan yang disyaratkan termasuk riba, apa pun namanya."),
+   PG("Ketua kelompok menerima iuran Rp300.000 untuk kegiatan dan membuat laporan penggunaan yang terbuka. Dikaitkan dengan Q.S. An-Nisa'/4:58, sikap ini ...",
+      "menunaikan amanah dan mencegah fitnah serta perselisihan",
+      ["tidak perlu karena iuran jumlah kecil","hanya perlu bila ada yang menagih","membuat anggota kehilangan kepercayaan"],
+      "Amanah ditunaikan dengan jujur dan transparan sehingga kepercayaan terjaga."),
+   PGK("Pilihlah SEMUA pernyataan yang benar tentang riba!",
+      ["Allah menghalalkan jual beli dan mengharamkan riba","Riba hanya haram jika jumlahnya besar","Tambahan yang disyaratkan atas pinjaman uang termasuk riba","Hadis melaknat pemakan, pemberi, pencatat, dan dua saksi riba","Riba boleh bila peminjam setuju"],
+      [0,2,3],
+      "Riba haram berapa pun jumlahnya dan tidak menjadi halal karena persetujuan."),
+   SA("Janji tidak perlu ditepati bila hanya diucapkan kepada anak kecil.",
+      "Menepati janji termasuk sikap amanah.",
+      3,
+      "Pernyataan salah: janji kepada siapa pun wajib ditepati. Alasan benar."),
+   JD("Jodohkan istilah di sebelah kiri dengan artinya di sebelah kanan!",
+      ["Integritas","Qardhul hasan","Riba","Amanah"],
+      ["Tambahan yang disyaratkan atas utang","Menjaga dan menunaikan titipan","Perkataan sesuai dengan perbuatan","Pinjaman kebajikan tanpa tambahan","Menimbun barang"],
+      [2,3,0,1],
+      "Integritas: perkataan sesuai perbuatan. Qardhul hasan: pinjaman tanpa tambahan. Riba: tambahan yang disyaratkan atas utang. Amanah: menjaga titipan."),
+   IS("Seorang pedagang berkata, “Aku menaikkan harga karena pembeli tidak tahu harga sebenarnya.” Tulis penilaianmu beserta satu alasan!",
+      [["tidak jujur","curang","menipu","zalim","tidak adil","tidak amanah","khianat","salah"],["merugikan","kepercayaan","berkah","saling rela","rida","terbuka"]],
+      "Itu curang; merugikan pembeli dan merusak kepercayaan.",
+      "Memanfaatkan ketidaktahuan pembeli adalah curang. Jual beli harus saling rida dan terbuka agar berkah.")
+  ]
+},
+{
+  id:10, ikon:"📱", judul:"Adab Memanfaatkan Media Sosial dan Akhlak Terpuji",
+  materi:`
+<h2>Bab 10 — Adab Memanfaatkan Media Sosial dan Akhlak Terpuji</h2>
+<h4>1. Akhlak terpuji berlaku juga di dunia maya</h4>
+<p>Setiap unggahan, komentar, dan pesan meninggalkan <b>jejak digital</b> dan akan dimintai pertanggungjawaban. Allah melarang mengikuti sesuatu tanpa pengetahuan, karena pendengaran, penglihatan, dan hati akan ditanya (Q.S. Al-Isra'/17:36). Nabi saw. bersabda, “Barang siapa beriman kepada Allah dan hari akhir, hendaklah ia berkata baik atau diam” (HR. Bukhari dan Muslim).</p>
+<h4>2. Tabayyun: memeriksa berita</h4>
+<p>Allah memerintahkan meneliti kebenaran berita agar tidak mencelakakan orang karena kebodohan lalu menyesal (Q.S. Al-Hujurat/49:6). Langkah tabayyun:</p>
+<ul>
+<li>Periksa <b>sumber</b>: siapa yang membuat dan apakah lembaga tepercaya.</li>
+<li>Periksa <b>tanggal dan konteks</b>: foto atau video lama sering dipakai ulang.</li>
+<li>Bandingkan dengan beberapa sumber resmi atau tanyakan kepada ahli.</li>
+<li>Berhenti sebelum membagikan: jika belum yakin, jangan sebarkan.</li>
+</ul>
+<p>Ciri berita yang perlu diwaspadai: judul provokatif, tanpa sumber, memaksa “sebarkan segera”, dan memakai gambar yang tidak sesuai kejadian. Nabi saw. bersabda, “Cukuplah seseorang dianggap berdusta bila ia menceritakan semua yang ia dengar” (HR. Muslim).</p>
+<h4>3. Hal yang dilarang</h4>
+<ul>
+<li><b>Hoaks dan fitnah</b>: menyebar kabar bohong atau tuduhan tanpa bukti.</li>
+<li><b>Ghibah</b>: membicarakan keburukan orang lain; <b>namimah</b>: mengadu domba.</li>
+<li><b>Perundungan siber (<i>cyberbullying</i>)</b> dan ujaran kebencian.</li>
+<li>Membuka aib atau data pribadi orang lain tanpa izin.</li>
+<li>Konten tidak pantas dan membuang waktu sampai melalaikan ibadah dan belajar.</li>
+</ul>
+<p>Sebagian perbuatan ini juga dapat berakibat hukum, misalnya menurut UU ITE.</p>
+<h4>4. Menyebarkan kebaikan</h4>
+<ul>
+<li>Membagikan ilmu, doa, dan informasi yang benar dan jelas sumbernya.</li>
+<li>Menggalang donasi hanya lewat lembaga yang jelas dan dapat dipertanggungjawabkan.</li>
+<li>Menyemangati dan menghibur teman dengan bahasa santun.</li>
+</ul>
+<p>Barang siapa menunjukkan pada kebaikan, ia mendapat pahala seperti pelakunya (HR. Muslim).</p>
+<h4>5. Etika praktis</h4>
+<ul>
+<li>Izin dahulu sebelum mengunggah foto atau video orang lain.</li>
+<li>Santun saat berbeda pendapat; kritik tanpa menghina.</li>
+<li>Sebutkan sumber saat mengutip dan hormati karya orang lain.</li>
+<li>Atur waktu layar agar tidak kecanduan.</li>
+</ul>
+<div class="kotak"><b>Ingat:</b> Pikir dulu sebelum mengunggah: <i>benarkah, bermanfaatkah, dan santunkah?</i> Jika salah satu tidak terpenuhi, tahan jarimu.</div>`,
+  latihan:[
+   PG("Grup kelas menerima pesan berantai, “Air kemasan merek X berbahaya, sebarkan segera!” tanpa sumber. Langkah pertama yang paling tepat adalah ...",
+      "tabayyun: memeriksa sumber resmi dan membandingkan beberapa informasi sebelum memutuskan",
+      ["menyebarkannya agar yang lain selamat","menyebarkannya sambil menulis “belum tentu benar”","menandai pengirim sebagai pembohong"],
+      "Berita tanpa sumber wajib diperiksa dulu. Menyebarkan sebelum memeriksa dapat merugikan orang lain."),
+   PG("Menurut Q.S. Al-Hujurat/49:6, akibat tidak melakukan tabayyun atas kabar dari orang yang tidak dapat dipercaya adalah ...",
+      "dapat mencelakakan orang lain karena kecerobohan sehingga akhirnya menyesal",
+      ["selalu mendapat keuntungan","tidak berakibat apa pun","hanya merugikan pembuat berita"],
+      "Ayat menegaskan agar tidak mencelakakan suatu kaum karena ketidaktahuan lalu menyesal."),
+   PG("Foto teman yang tertidur di kelas diunggah dengan keterangan mengejek, lalu banyak yang menertawakan di komentar. Penilaian yang paling tepat adalah ...",
+      "termasuk perundungan siber yang melukai kehormatan, dan yang mengunggah serta ikut mengejek turut bertanggung jawab",
+      ["tidak masalah karena hanya bercanda","tidak masalah karena foto diambil di tempat umum","hanya yang mengunggah yang bertanggung jawab"],
+      "Mengejek di ruang publik melukai kehormatan dan dapat berdampak pada korban. Yang ikut mengejek juga bersalah."),
+   PG("Kamu kesal pada unggahan seorang teman. Sejalan dengan hadis “berkata baik atau diam”, langkah yang paling tepat adalah ...",
+      "menahan diri, lalu memberi kritik yang santun atau memilih tidak berkomentar",
+      ["menulis komentar pedas agar ia jera","membuat akun palsu untuk menyindirnya","menyebarkan tangkapan layar unggahannya"],
+      "Hadis menuntun memilih ucapan baik atau diam. Kritik harus santun dan tidak menyerang pribadi."),
+   PG("Diagram simulasi di atas membandingkan penyebaran pesan yang dibagikan tanpa dicek dengan pesan yang dicek dulu. Kesimpulan yang paling tepat adalah ...",
+      "kebiasaan membagikan tanpa memeriksa mempercepat meluasnya informasi salah, sedangkan tabayyun menahan penyebarannya",
+      ["makin cepat dibagikan, makin benar informasinya","jumlah penerima tidak berkaitan dengan kebiasaan memeriksa","memeriksa berita membuat informasi menyebar lebih luas"],
+      "Diagram contoh menunjukkan pesan tanpa pemeriksaan menjangkau jauh lebih banyak orang, termasuk bila isinya salah."),
+   PGK("Pilihlah SEMUA perilaku yang bijak dalam bermedia sosial!",
+      ["Meminta izin sebelum mengunggah foto teman","Memeriksa tanggal dan sumber berita","Membagikan berita karena judulnya heboh","Membagikan ilmu atau info kegiatan sosial yang jelas sumbernya","Membuat akun palsu untuk mengomentari lawan"],
+      [0,1,3],
+      "Izin, memeriksa sumber, dan membagikan hal bermanfaat yang jelas sumbernya adalah akhlak terpuji."),
+   PGK("Pilihlah SEMUA ciri berita yang perlu diwaspadai!",
+      ["Judul provokatif dengan huruf kapital semua","Tidak mencantumkan sumber atau penulis","Dimuat lembaga resmi dengan tautan data asli","Memaksa “sebarkan sebelum dihapus”","Menjelaskan waktu dan tempat kejadian beserta sumbernya"],
+      [0,1,3],
+      "Judul provokatif, tanpa sumber, dan paksaan menyebar adalah ciri hoaks. Sumber resmi yang jelas lebih dapat dipercaya."),
+   SA("Menyebarkan berita yang belum diperiksa dapat tergolong berdusta walau pengirimnya bukan pembuat berita.",
+      "Hadis menyebut cukup seseorang dianggap berdusta bila ia menceritakan semua yang ia dengar.",
+      0,
+      "Pernyataan dan alasan benar. Meneruskan tanpa memeriksa membuat seseorang ikut menyebarkan kebohongan."),
+   JD("Jodohkan perilaku di sebelah kiri dengan istilah yang paling tepat di sebelah kanan!",
+      ["Meneruskan pesan setelah memeriksa sumber resmi","Menulis tuduhan palsu tentang teman","Mengejek teman berulang kali di kolom komentar","Membagikan info donasi dari lembaga tepercaya"],
+      ["Menyebarkan kebaikan","Fitnah","Perundungan siber","Tabayyun","Ghibah"],
+      [3,1,2,0],
+      "Memeriksa sebelum meneruskan adalah tabayyun. Tuduhan palsu adalah fitnah. Mengejek berulang adalah perundungan siber. Info donasi tepercaya adalah menyebarkan kebaikan."),
+   IS("Temanmu berkata, “Ini kan cuma status, bebas dong mau menulis apa saja.” Tulis satu alasan untuk membantahnya!",
+      [["jejak digital","dipertanggungjawabkan","pertanggungjawaban","dimintai","dicatat","tercatat","malaikat","akhlak"],["menyakiti","melukai","merugikan","orang lain","kehormatan","hak orang","berdosa"]],
+      "Setiap tulisan tercatat sebagai jejak digital dan dimintai pertanggungjawaban; bisa menyakiti orang lain.",
+      "Tulisan di media sosial tetap dipertanggungjawabkan dan dapat melukai orang lain. Bebas tidak berarti tanpa akhlak.")
+  ],
+  asat:[
+   PG("Admin grup menerima tangkapan layar percakapan seorang guru yang tampak buruk, tanpa tanggal. Langkah yang paling tepat adalah ...",
+      "tabayyun: menanyakan kepada pihak terkait dan memeriksa keasliannya sebelum menyebarkan, karena tangkapan layar mudah dimanipulasi",
+      ["langsung menyebarkan agar semua orang waspada","menyebarkan sambil menambahkan komentar kritik","mempercayainya karena berbentuk gambar"],
+      "Bukti digital dapat diubah. Memeriksa keaslian mencegah fitnah."),
+   PG("Sebuah video anak terjatuh viral dengan keterangan yang menyalahkan orang tuanya. Sikap yang paling tepat adalah ...",
+      "menahan diri dari menghakimi dan menyebarkan karena kejadian lengkap belum diketahui dan anak perlu dijaga privasinya",
+      ["ikut menyebarkan agar orang tua diberi pelajaran","menulis komentar kasar untuk menegur","mengunduh dan mengunggah ulang di akunnya"],
+      "Menghakimi tanpa mengetahui kejadian dan menyebarkan identitas dapat melukai dan melanggar privasi."),
+   PG("Sinta membuat kanal ringkasan materi PAI dan doa harian lengkap dengan rujukan. Dikaitkan dengan hadis tentang menunjukkan kebaikan, penilaian yang paling tepat adalah ...",
+      "ia dapat memperoleh pahala seperti pelaku kebaikan itu, selama isinya benar dan sumbernya jelas",
+      ["tidak bernilai karena hanya di dunia maya","bernilai walaupun isinya belum diperiksa kebenarannya","bernilai hanya bila ada banyak pengikut"],
+      "Menunjukkan kebaikan berpahala, dengan syarat isinya benar dan bertanggung jawab."),
+   PG("Q.S. Al-Isra'/17:36 melarang mengikuti sesuatu yang tidak diketahui dan menyebut pendengaran, penglihatan, serta hati akan dimintai pertanggungjawaban. Prinsip yang paling relevan ketika menanggapi kabar viral adalah ...",
+      "tidak mengikuti atau menyebarkan hal yang belum jelas kebenarannya",
+      ["membagikan dahulu, memeriksa kemudian","percaya pada kabar yang paling banyak dibagikan","menilai kebenaran dari banyaknya komentar"],
+      "Ayat menuntun kita memeriksa dahulu sebelum mengikuti atau menyebarkan sesuatu."),
+   PGK("Pilihlah SEMUA yang termasuk akhlak terpuji di media sosial!",
+      ["Memakai bahasa santun saat berbeda pendapat","Mengunggah alamat rumah teman","Menyebut sumber saat mengutip","Mengatur waktu agar tidak melalaikan ibadah dan belajar","Membalas ejekan dengan ejekan"],
+      [0,2,3],
+      "Santun, jujur menyebut sumber, dan mengatur waktu adalah akhlak terpuji. Membuka alamat dan membalas ejekan tidak."),
+   SA("Mengunggah foto orang lain sebaiknya didahului izin.",
+      "Islam tidak melindungi privasi sehingga siapa pun boleh mengunggah foto orang lain.",
+      2,
+      "Pernyataan benar. Alasan salah: Islam menjaga kehormatan dan privasi seseorang."),
+   JD("Jodohkan dalil di sebelah kiri dengan pesan pokoknya di sebelah kanan!",
+      ["Q.S. Al-Hujurat/49:6","Q.S. Al-Isra'/17:36","Hadis “berkata baik atau diam”","Hadis “menunjukkan kebaikan seperti pelakunya”"],
+      ["Menjaga ucapan, termasuk komentar","Tabayyun terhadap berita","Larangan mengikuti sesuatu tanpa ilmu","Pahala bagi penyebar kebaikan","Menumpuk harta"],
+      [1,2,0,3],
+      "Al-Hujurat/49:6 tentang tabayyun. Al-Isra'/17:36 melarang mengikuti tanpa ilmu. Hadis pertama tentang menjaga ucapan. Hadis kedua tentang pahala menunjukkan kebaikan."),
+   IS("Kamu menerima kabar dari akun tak dikenal bahwa sebuah panti asuhan membutuhkan donasi mendesak. Tulis dua langkah yang kamu lakukan sebelum menyalurkan atau membagikan!",
+      [["periksa","memeriksa","cek","mengecek","verifikasi","tabayyun","konfirmasi","pastikan","cari tahu"],["sumber","resmi","alamat","kontak","panti","pengurus","yayasan","lembaga","tanya"]],
+      "Periksa kebenaran kabar dengan menghubungi pengurus panti atau lembaga resmi sebelum membagikan.",
+      "Tabayyun: periksa kebenaran lewat sumber resmi atau pengurus panti, lalu bagikan hanya bila sudah jelas.")
+  ]
+},
+{
+  id:11, ikon:"🕌", judul:"Sejarah Perkembangan Islam di Nusantara",
+  materi:`
+<h2>Bab 11 — Sejarah Perkembangan Islam di Nusantara</h2>
+<h4>1. Awal masuknya Islam</h4>
+<p>Islam masuk ke Nusantara secara <b>bertahap dan damai</b> melalui pedagang muslim dari Arab, Persia, dan Gujarat yang singgah di pelabuhan-pelabuhan. Para sejarawan berbeda pendapat tentang waktu dan asal pastinya, tetapi bukti-bukti menunjukkan komunitas muslim sudah ada jauh sebelum abad ke-15, misalnya:</p>
+<ul>
+<li>Batu nisan Fatimah binti Maimun di Leran, Gresik (berangka tahun 475 H atau sekitar 1082 M).</li>
+<li>Batu nisan Sultan Malik as-Saleh di Samudra Pasai (wafat 696 H atau sekitar 1297 M).</li>
+</ul>
+<h4>2. Jalur penyebaran</h4>
+<ul>
+<li><b>Perdagangan</b>: pedagang muslim berdagang dengan jujur dan adil sehingga menarik simpati penduduk.</li>
+<li><b>Sosial dan perkawinan</b>: pedagang atau ulama menikah dengan penduduk setempat sehingga terbentuk keluarga dan komunitas muslim.</li>
+<li><b>Pendidikan</b>: pesantren, surau, dan dayah mendidik kader dai.</li>
+<li><b>Seni dan budaya</b>: wayang, gamelan, tembang, dan arsitektur masjid dipakai menyampaikan nilai Islam.</li>
+<li><b>Tasawuf</b>: pendekatan yang lembut dan sesuai dengan budaya setempat.</li>
+<li><b>Politik</b>: berdirinya kerajaan Islam memperkuat dakwah dan pendidikan.</li>
+</ul>
+<h4>3. Kerajaan Islam di Nusantara</h4>
+<table class="tb"><tr><th>Kerajaan</th><th>Wilayah</th></tr>
+<tr><td>Samudra Pasai dan Aceh Darussalam</td><td>Sumatra bagian utara</td></tr>
+<tr><td>Demak, Mataram Islam, Banten, Cirebon</td><td>Jawa</td></tr>
+<tr><td>Banjar</td><td>Kalimantan Selatan</td></tr>
+<tr><td>Gowa-Tallo</td><td>Sulawesi Selatan</td></tr>
+<tr><td>Ternate dan Tidore</td><td>Maluku Utara</td></tr></table>
+<h4>4. Peran ulama</h4>
+<ul>
+<li><b>Wali Songo</b> (sembilan wali) di Jawa: Maulana Malik Ibrahim, Sunan Ampel, Sunan Bonang, Sunan Drajat, Sunan Giri, Sunan Kalijaga, Sunan Kudus, Sunan Muria, dan Sunan Gunung Jati.
+  <ul>
+  <li>Sunan Ampel mendirikan pesantren di Ampel Denta dan mendidik banyak kader dai.</li>
+  <li>Sunan Kalijaga dan Sunan Bonang berdakwah lewat wayang, tembang, dan gamelan.</li>
+  <li>Sunan Kudus dikenal menghormati warga Hindu dengan tidak menyembelih sapi.</li>
+  </ul></li>
+<li><b>Ulama Aceh</b>: Hamzah Fansuri, Nuruddin ar-Raniri, dan Abdurrauf as-Singkili menulis kitab dan mengajar.</li>
+<li><b>Syekh Yusuf al-Makassari</b> dan <b>Syekh Muhammad Arsyad al-Banjari</b> (penulis <i>Sabilal Muhtadin</i>) mengajarkan Islam di Sulawesi dan Kalimantan.</li>
+</ul>
+<h4>5. Mengapa Islam mudah diterima?</h4>
+<ul>
+<li>Ajarannya sederhana dan menekankan persamaan derajat manusia.</li>
+<li>Disampaikan dengan damai, akhlak baik, dan tanpa paksaan (Q.S. Al-Baqarah/2:256).</li>
+<li>Menghargai budaya setempat yang tidak bertentangan dengan akidah.</li>
+</ul>
+<h4>6. Meneladani para penyebar Islam</h4>
+<p>Berdakwah dengan santun, menghargai perbedaan, menguasai ilmu, dan menjaga warisan budaya yang baik.</p>
+<div class="kotak"><b>Ingat:</b> Islam berkembang di Nusantara terutama karena akhlak, ilmu, dan dakwah yang damai, bukan karena paksaan.</div>`,
+  latihan:[
+   PG("Para saudagar muslim berdagang dengan jujur dan harga adil di pelabuhan, sehingga penduduk tertarik pada akhlak mereka. Jalur penyebaran Islam yang tergambar adalah ...",
+      "perdagangan, karena akhlak pedagang menjadi teladan dakwah",
+      ["peperangan, karena Islam disebarkan dengan penaklukan","pendidikan di pesantren, karena pedagang mengajar di sekolah","kesenian wayang, karena pedagang menampilkan pertunjukan"],
+      "Pedagang muslim berdakwah lewat keteladanan, yaitu kejujuran dan keadilan berdagang."),
+   PG("Seorang pedagang muslim menikah dengan putri bangsawan setempat, lalu keluarganya banyak yang memeluk Islam. Jalur yang paling tampak adalah ...",
+      "sosial melalui perkawinan",
+      ["politik melalui peperangan","pendidikan melalui pesantren","seni melalui gamelan"],
+      "Perkawinan membentuk keluarga dan komunitas muslim di tengah masyarakat."),
+   PG("Sunan Kalijaga memakai pertunjukan wayang untuk menyelipkan nilai tauhid dan akhlak. Penilaian yang paling tepat adalah ...",
+      "dakwah memanfaatkan budaya setempat yang tidak bertentangan dengan akidah sehingga mudah diterima",
+      ["menghapus seluruh budaya lama","mengubah akidah demi hiburan","bertentangan dengan Islam karena memakai seni"],
+      "Wali Songo mengisi budaya setempat dengan nilai Islam tanpa mengorbankan akidah."),
+   PG("Pada garis waktu di atas, kerajaan Islam paling awal adalah Samudra Pasai, lalu muncul Malaka dan Demak yang letaknya dekat pelabuhan. Kesimpulan yang paling tepat adalah ...",
+      "Islam berkembang pesat di pelabuhan penting jalur perdagangan karena banyak pertemuan antarbangsa",
+      ["Islam hanya berkembang di pedalaman yang terpencil","kerajaan Islam muncul tanpa kaitan dengan perdagangan","Islam baru masuk setelah semua kerajaan itu runtuh"],
+      "Pelabuhan adalah pusat pertemuan pedagang sehingga menjadi pintu masuk dan pusat perkembangan Islam."),
+   PG("Sunan Kudus tidak menyembelih sapi karena menghormati warga Hindu di sekitarnya. Pelajaran yang paling tepat adalah ...",
+      "dakwah yang santun dan toleran membuat ajaran Islam diterima dengan damai",
+      ["akidah boleh dikompromikan demi disukai orang","dakwah harus menghindari bergaul dengan pemeluk agama lain","menghormati orang lain adalah tanda kelemahan"],
+      "Toleransi tidak mengubah akidah, tetapi menunjukkan akhlak mulia yang menarik simpati."),
+   PGK("Pilihlah SEMUA jalur yang menjadi sarana penyebaran Islam di Nusantara!",
+      ["Perdagangan","Kesenian seperti wayang dan gamelan","Pendidikan melalui pesantren dan surau","Pemaksaan dengan ancaman","Pembakaran karya budaya setempat"],
+      [0,1,2],
+      "Islam menyebar secara damai melalui perdagangan, seni, dan pendidikan, bukan paksaan dan perusakan budaya."),
+   PGK("Pilihlah SEMUA pernyataan yang benar!",
+      ["Samudra Pasai termasuk kerajaan Islam awal di Nusantara","Demak adalah kerajaan Islam di Jawa","Wali Songo berarti tujuh wali","Gowa-Tallo adalah kerajaan Islam di Sulawesi","Islam baru masuk Nusantara pada abad ke-20"],
+      [0,1,3],
+      "Wali Songo berarti sembilan wali. Islam sudah ada di Nusantara jauh sebelum abad ke-20."),
+   SA("Islam mudah diterima oleh masyarakat Nusantara.",
+      "Ajaran Islam menekankan persamaan derajat manusia dan disampaikan dengan cara damai.",
+      0,
+      "Pernyataan dan alasan benar, dan alasan menjelaskan mengapa banyak orang tertarik memeluk Islam."),
+   JD("Jodohkan tokoh di sebelah kiri dengan perannya di sebelah kanan!",
+      ["Raden Patah","Sunan Kalijaga","Sultan Malik as-Saleh","Syekh Muhammad Arsyad al-Banjari"],
+      ["Berdakwah dengan wayang dan tembang","Pendiri Kesultanan Demak","Raja pertama Samudra Pasai","Ulama Banjar penulis Sabilal Muhtadin","Penulis kitab Bustanus Salatin"],
+      [1,0,2,3],
+      "Raden Patah mendirikan Demak. Sunan Kalijaga berdakwah lewat wayang. Sultan Malik as-Saleh adalah raja pertama Samudra Pasai. Syekh Arsyad al-Banjari menulis Sabilal Muhtadin."),
+   IS("Temanmu berkata, “Islam datang ke Nusantara dengan kekerasan.” Tulis satu jalur penyebaran dan satu sikap dakwah yang menunjukkan bahwa pendapat itu keliru!",
+      [["perdagangan","pedagang","perkawinan","pernikahan","pendidikan","pesantren","wayang","seni","budaya"],["damai","santun","tidak memaksa","tanpa paksaan","tanpa kekerasan","toleran","toleransi","sukarela"]],
+      "Islam menyebar lewat perdagangan dan pendidikan dengan cara damai dan tanpa paksaan.",
+      "Islam menyebar lewat perdagangan, perkawinan, pendidikan, dan seni, dengan dakwah yang damai dan tanpa paksaan.")
+  ],
+  asat:[
+   PG("Dua batu nisan, Fatimah binti Maimun (475 H) di Gresik dan Sultan Malik as-Saleh (696 H) di Pasai, ditemukan sebagai bukti sejarah. Kesimpulan yang paling tepat adalah ...",
+      "komunitas muslim telah hadir di Nusantara jauh sebelum abad ke-15",
+      ["Islam baru masuk setelah abad ke-17","Islam hanya ada di satu pulau","nisan tidak dapat dipakai sebagai bukti sejarah"],
+      "Batu nisan berangka tahun menunjukkan kehadiran dan perkembangan komunitas muslim sejak lama."),
+   PG("Sunan Ampel mendirikan pesantren di Ampel Denta, dan murid-muridnya kemudian berdakwah ke berbagai daerah. Mengapa pesantren efektif sebagai sarana dakwah?",
+      "karena melahirkan kader yang berdakwah dengan ilmu dan keteladanan ke banyak daerah",
+      ["karena pesantren hanya mengajarkan keterampilan dagang","karena pesantren menutup diri dari masyarakat","karena pesantren dilarang menerima murid dari luar daerah"],
+      "Pendidikan menyiapkan dai yang berilmu dan berakhlak sehingga dakwah meluas."),
+   PG("Aceh Darussalam menjadi pusat ilmu dengan ulama seperti Hamzah Fansuri, Nuruddin ar-Raniri, dan Abdurrauf as-Singkili. Peran mereka yang paling tepat adalah ...",
+      "menulis kitab dan mengajar sehingga ilmu Islam berkembang di Nusantara",
+      ["menaklukkan kerajaan tetangga","membangun pelabuhan dagang","menghapus tradisi menulis"],
+      "Ulama menyebarkan Islam melalui karya tulis dan pengajaran."),
+   PG("Di sekolahmu ada teman beragama lain. Seorang teman muslim mengejek tradisi mereka. Cara meneladani para penyebar Islam di Nusantara yang paling tepat adalah ...",
+      "menghargai perbedaan dan menunjukkan akhlak baik, sesuai semangat Al-Hujurat/49:13",
+      ["membalas ejekan agar mereka meninggalkan tradisinya","menjauhi mereka agar tidak bergaul","membiarkan ejekan karena tidak penting"],
+      "Para penyebar Islam berdakwah dengan santun dan menghargai perbedaan."),
+   PGK("Pilihlah SEMUA yang termasuk Wali Songo!",
+      ["Sunan Ampel","Sunan Giri","Sunan Gunung Jati","Sultan Agung","Raden Patah"],
+      [0,1,2],
+      "Sultan Agung adalah raja Mataram Islam dan Raden Patah pendiri Demak; keduanya bukan anggota Wali Songo."),
+   SA("Kerajaan Islam banyak muncul di daerah pesisir dan pelabuhan.",
+      "Pelabuhan sepi dari pertemuan antarpedagang sehingga mudah dikuasai.",
+      2,
+      "Pernyataan benar. Alasan salah: pelabuhan ramai oleh pedagang antarbangsa sehingga menjadi pusat perkembangan Islam."),
+   JD("Jodohkan kerajaan Islam di sebelah kiri dengan wilayahnya di sebelah kanan!",
+      ["Gowa-Tallo","Samudra Pasai","Ternate","Demak"],
+      ["Sulawesi Selatan","Maluku Utara","Pesisir utara Jawa Tengah","Aceh bagian utara (Sumatra)","Kalimantan Barat"],
+      [0,3,1,2],
+      "Gowa-Tallo di Sulawesi Selatan, Samudra Pasai di Aceh bagian utara, Ternate di Maluku Utara, dan Demak di pesisir utara Jawa Tengah."),
+   IS("Sebutkan satu jalur dakwah di Nusantara dan satu alasan mengapa jalur itu efektif!",
+      [["perdagangan","pedagang","perkawinan","pernikahan","pendidikan","pesantren","seni","budaya","wayang","politik"],["diterima","mudah","damai","akhlak","teladan","jujur","dekat","menarik","santun","tertarik"]],
+      "Perdagangan, karena pedagang muslim jujur dan adil sehingga penduduk tertarik.",
+      "Contoh: perdagangan efektif karena akhlak pedagang yang jujur menjadi teladan. Jalur lain juga boleh bila alasannya tepat.")
+  ]
 }
 ];
+BAB.forEach(b => { b.sem = b.id <= 5 ? 1 : 2; });
 
 /* =====================================================================
    UTIL
@@ -1141,6 +1748,54 @@ const PETUNJUK = {
   JD:'Pasangkan setiap butir di kiri dengan satu pilihan di kanan lewat menu pilihan.',
   IS:'Tulis jawaban singkat (satu frasa atau satu kalimat pendek) yang memuat alasan utama.'
 };
+/* ---- Media tambahan Semester 2 ---- */
+Object.assign(AY, {
+  ahz21:  {ref:"Q.S. Al-Ahzab/33:21", ar:"لَّقَدْ كَانَ لَكُمْ فِى رَسُولِ ٱللَّهِ أُسْوَةٌ حَسَنَةٌ لِّمَن كَانَ يَرْجُوا۟ ٱللَّهَ وَٱلْيَوْمَ ٱلْـَٔاخِرَ وَذَكَرَ ٱللَّهَ كَثِيرًا",
+           id:"Sungguh, telah ada pada (diri) Rasulullah itu suri teladan yang baik bagimu, (yaitu) bagi orang yang mengharap (rahmat) Allah dan (kedatangan) hari Kiamat dan yang banyak mengingat Allah."},
+  ahq35:  {ref:"Q.S. Al-Ahqaf/46:35 (potongan)", ar:"فَٱصْبِرْ كَمَا صَبَرَ أُو۟لُوا۟ ٱلْعَزْمِ مِنَ ٱلرُّسُلِ وَلَا تَسْتَعْجِل لَّهُمْ",
+           id:"Maka bersabarlah engkau (Muhammad) sebagaimana kesabaran rasul-rasul yang memiliki keteguhan hati dan janganlah engkau meminta agar (azab) disegerakan untuk mereka."},
+  mai90:  {ref:"Q.S. Al-Ma'idah/5:90", ar:"يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِنَّمَا ٱلْخَمْرُ وَٱلْمَيْسِرُ وَٱلْأَنصَابُ وَٱلْأَزْلَٰمُ رِجْسٌ مِّنْ عَمَلِ ٱلشَّيْطَٰنِ فَٱجْتَنِبُوهُ لَعَلَّكُمْ تُفْلِحُونَ",
+           id:"Wahai orang-orang yang beriman! Sesungguhnya minuman keras, berjudi, (berkurban untuk) berhala, dan mengundi nasib dengan anak panah, adalah perbuatan keji dan termasuk perbuatan setan. Maka jauhilah (perbuatan-perbuatan) itu agar kamu beruntung."},
+  mai91:  {ref:"Q.S. Al-Ma'idah/5:91", ar:"إِنَّمَا يُرِيدُ ٱلشَّيْطَٰنُ أَن يُوقِعَ بَيْنَكُمُ ٱلْعَدَٰوَةَ وَٱلْبَغْضَآءَ فِى ٱلْخَمْرِ وَٱلْمَيْسِرِ وَيَصُدَّكُمْ عَن ذِكْرِ ٱللَّهِ وَعَنِ ٱلصَّلَوٰةِ ۖ فَهَلْ أَنتُم مُّنتَهُونَ",
+           id:"Dengan minuman keras dan judi itu, setan hanyalah bermaksud menimbulkan permusuhan dan kebencian di antara kamu, dan menghalang-halangi kamu dari mengingat Allah dan melaksanakan salat, maka tidakkah kamu mau berhenti?"},
+  huj10:  {ref:"Q.S. Al-Hujurat/49:10", ar:"إِنَّمَا ٱلْمُؤْمِنُونَ إِخْوَةٌ فَأَصْلِحُوا۟ بَيْنَ أَخَوَيْكُمْ ۚ وَٱتَّقُوا۟ ٱللَّهَ لَعَلَّكُمْ تُرْحَمُونَ",
+           id:"Orang-orang beriman itu sesungguhnya bersaudara, karena itu damaikanlah antara kedua saudaramu dan bertakwalah kepada Allah agar kamu mendapat rahmat."},
+  baq275: {ref:"Q.S. Al-Baqarah/2:275 (potongan)", ar:"وَأَحَلَّ ٱللَّهُ ٱلْبَيْعَ وَحَرَّمَ ٱلرِّبَوٰا۟",
+           id:"... Allah telah menghalalkan jual beli dan mengharamkan riba."},
+  huj6:   {ref:"Q.S. Al-Hujurat/49:6", ar:"يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِن جَآءَكُمْ فَاسِقٌۢ بِنَبَإٍ فَتَبَيَّنُوٓا۟ أَن تُصِيبُوا۟ قَوْمًۢا بِجَهَٰلَةٍ فَتُصْبِحُوا۟ عَلَىٰ مَا فَعَلْتُمْ نَٰدِمِينَ",
+           id:"Wahai orang-orang yang beriman! Jika seorang fasik datang kepadamu membawa suatu berita, maka telitilah kebenarannya, agar kamu tidak mencelakakan suatu kaum karena kebodohan (kecerobohan), yang akhirnya kamu menyesali perbuatanmu itu."},
+  isra36: {ref:"Q.S. Al-Isra'/17:36 (potongan)", ar:"وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِۦ عِلْمٌ ۚ إِنَّ ٱلسَّمْعَ وَٱلْبَصَرَ وَٱلْفُؤَادَ كُلُّ أُو۟لَٰٓئِكَ كَانَ عَنْهُ مَسْـُٔولًا",
+           id:"Dan janganlah engkau mengikuti sesuatu yang tidak ada pengetahuanmu tentangnya. Karena pendengaran, penglihatan, dan hati nurani, semua itu akan diminta pertanggungjawabannya."}
+});
+
+/* Garis waktu umum: ev = [[label atas, keterangan], ...] (maks. 5 titik). */
+function svgTimelineGen(ev, judul, cap){
+  let s = `<line x1="24" y1="105" x2="396" y2="105" class="sv-ray" style="stroke-dasharray:none;stroke-width:3"/>`;
+  ev.forEach((e, i) => {
+    const x = 62 + i * 74, up = i % 2 === 0, y = up ? 40 : 146;
+    s += `<line x1="${x}" y1="105" x2="${x}" y2="${up ? 84 : 126}" class="sv-grid" style="stroke-width:2"/><circle cx="${x}" cy="105" r="8" fill="#0f7a5a" style="stroke:var(--card);stroke-width:3"/>
+      <text x="${x}" y="${y}" text-anchor="middle" class="sv-v">${esc(e[0])}</text>`;
+    const w = e[1].split(' ');
+    const l1 = w.length > 2 ? w.slice(0, 2).join(' ') : e[1], l2 = w.length > 2 ? w.slice(2).join(' ') : '';
+    s += `<text x="${x}" y="${y + 16}" text-anchor="middle" class="sv-t">${esc(l1)}</text>` + (l2 ? `<text x="${x}" y="${y + 30}" text-anchor="middle" class="sv-t">${esc(l2)}</text>` : '');
+  });
+  return svgFig(judul, '0 0 420 200', s, cap);
+}
+
+Object.assign(AYAT, {
+  'L7-04':[AY.ahz21], 'L7-05':[AY.ahq35], 'A7-04':[AY.ahq35],
+  'L8-02':[AY.mai90], 'L8-05':[AY.huj10], 'A8-03':[AY.mai91],
+  'L9-03':[AY.baq275], 'A9-04':[AY.nis58],
+  'L10-02':[AY.huj6], 'A10-04':[AY.isra36],
+  'A11-04':[AY.huj13]
+});
+Object.assign(GAMBAR, {
+  'L8-03': chartBar('Simulasi taruhan 10 siswa (ribu rupiah)', ['Peserta kalah (9 orang)', 'Pemenang (1 orang)'], [{n:'Uang yang ditaruhkan', v:[10, 10]}, {n:'Uang diterima', v:[0, 100]}], 100, 'Contoh simulasi: setiap siswa menaruh Rp10.000 dan seluruh Rp100.000 diambil satu pemenang.'),
+  'L9-04': chartBar('Pinjaman Rani (ribu rupiah)', ['Dipinjam', 'Harus dikembalikan'], [{n:'Jumlah', v:[1000, 1200]}], 1400, 'Tambahan Rp200.000 disyaratkan oleh pemberi pinjaman.'),
+  'L10-05': chartBar('Contoh simulasi: penerima pesan setelah 3 jam', ['Dibagikan tanpa dicek', 'Dicek dulu'], [{n:'Jumlah penerima', v:[450, 12]}], 500, 'Data ini simulasi untuk latihan berpikir, bukan data hasil penelitian.'),
+  'L11-04': svgTimelineGen([['Abad 13', 'Samudra Pasai'], ['Abad 15', 'Malaka'], ['Abad 15–16', 'Demak'], ['Abad 16', 'Aceh Darussalam'], ['Abad 16–17', 'Mataram Islam']], 'Garis waktu kerajaan Islam di Nusantara dan sekitarnya: Samudra Pasai abad ke-13, Malaka abad ke-15, Demak abad ke-15 sampai 16, Aceh Darussalam abad ke-16, Mataram Islam abad ke-16 sampai 17', 'Garis waktu perkiraan munculnya kerajaan Islam (angka abad bersifat perkiraan).')
+});
+
 const QID = {};
 BAB.forEach(b => {
   b.latihan.forEach((it,i) => { const id = `L${b.id}-${pad2(i+1)}`; QID[id] = {id, bab:b.id, tipe:it.t.toUpperCase(), it, ayat:AYAT[id] || null, gbr:GAMBAR[id] || ''}; });
@@ -1272,8 +1927,12 @@ let asatAktif = false;
 
 const idSiswa = (kelas, absen) => kelas.replace(/\s+/g,'') + '-' + pad2(absen);
 const kProg = () => 'pai2_prog_' + S.siswa.id;
-const kAsatState = () => 'pai2_asat_state_' + S.siswa.id;
-const kAsatDone = () => 'pai2_asat_done_' + S.siswa.id;
+let ASEM = 1;                // semester ASAT yang sedang dibuka (1 atau 2)
+const sfx = sem => sem === 2 ? '_s2' : '';   // semester 1 memakai kunci lama agar data lama tetap terbaca
+const kAsatState = (sem = ASEM) => 'pai2_asat_state_' + S.siswa.id + sfx(sem);
+const kAsatDone = (sem = ASEM) => 'pai2_asat_done_' + S.siswa.id + sfx(sem);
+const kAsatSrv = (sem = ASEM, id = S.siswa.id) => 'pai2_asat_server_' + id + sfx(sem);
+const babSem = sem => BAB.filter(b => b.sem === sem);
 
 function show(id){
   if(id !== 'v-lb') lbStop();
@@ -1342,7 +2001,7 @@ async function flushQueue(){
         removeFromQueue(p.submissionId);
         if(r.status === 'sudah_ada'){
           setSend(p.submissionId,'ditolak',r);
-          if(p.type==='asat'){ const sid = idSiswa(p.siswa.kelas, p.siswa.absen); store.set('pai2_asat_server_'+sid, {nilai:r.nilai}); }
+          if(p.type==='asat'){ const sid = idSiswa(p.siswa.kelas, p.siswa.absen); store.set(kAsatSrv(p.semester === 2 ? 2 : 1, sid), {nilai:r.nilai}); }
         } else setSend(p.submissionId,'ok',r);
         retryN = 0;
       } else if(r && r.status === 'validasi'){
@@ -1399,17 +2058,21 @@ function renderHome(){
   if(!apiAktif()) ban += '<div class="banner warn">⚠️ <div>Mode lokal: aplikasi belum terhubung ke Google Spreadsheet. Nilai hanya tersimpan di perangkat ini. Guru perlu mengisi <b>API_URL</b>.</div></div>';
   const qn = getQueue().length;
   if(qn) ban += '<div class="banner warn">⏳ <div>' + qn + ' hasil belum terkirim ke Spreadsheet. <button class="btn sec" style="min-height:34px;padding:2px 12px;margin-left:6px" data-act="kirimulang">Kirim sekarang</button></div></div>';
-  const st = store.get(kAsatState(), null);
-  if(st && !store.get(kAsatDone(), null)) ban += '<div class="banner info">📝 <div>ASAT kamu sedang berlangsung. <button class="btn gold" style="min-height:36px;padding:4px 14px;margin-left:6px" data-act="asatlanjut">Lanjutkan</button></div></div>';
+  [1, 2].forEach(sm => {
+    const st = store.get(kAsatState(sm), null);
+    if(st && !store.get(kAsatDone(sm), null)) ban += '<div class="banner info">📝 <div>ASAT Semester ' + sm + ' kamu sedang berlangsung. <button class="btn gold" style="min-height:36px;padding:4px 14px;margin-left:6px" data-act="asatlanjut" data-sem="' + sm + '">Lanjutkan</button></div></div>';
+  });
   $('#h-banners').innerHTML = ban;
   $('#h-exp').innerHTML = expCardHTML();
   expFlush();
-  $('#h-bab').innerHTML = BAB.map(b => {
+  const kartuBab = b => {
     const p = prog[b.id];
     const lb = p ? `<span class="badge gold">Terbaik ${fmt(p.best)} · ${p.tries}× latihan</span>` : `<span class="badge">10 soal HOTS</span>`;
     return `<button class="card babcard" data-act="bab" data-id="${b.id}"><span class="ikon">${b.ikon}</span>
       <span><span class="nm">Bab ${b.id}. ${esc(b.judul)}</span><br>${lb}</span></button>`;
-  }).join('');
+  };
+  $('#h-bab').innerHTML = babSem(1).map(kartuBab).join('');
+  $('#h-bab2').innerHTML = babSem(2).map(kartuBab).join('');
 }
 
 const ayOpen = {};
@@ -1431,7 +2094,7 @@ document.addEventListener('toggle', e => { const d = e.target; if(d && d.dataset
    dipakai untuk tampilan cepat dan bekerja saat offline.
    ===================================================================== */
 const EXPMAX = {PG:10, PGK:15, SA:15, JD:20, IS:15};
-const LEVELS = [{min:0, n:'Pemula'}, {min:100, n:'Pencari Ilmu'}, {min:250, n:'Penjaga Amanah'}, {min:450, n:'Cendekia'}, {min:700, n:'Ahli Hikmah'}, {min:1000, n:'Bintang Hikmah'}];
+const LEVELS = [{min:0, n:'Pemula'}, {min:100, n:'Pencari Ilmu'}, {min:250, n:'Penjaga Amanah'}, {min:450, n:'Cendekia'}, {min:700, n:'Ahli Hikmah'}, {min:1000, n:'Bintang Hikmah'}, {min:1400, n:'Teladan Umat'}, {min:1900, n:'Pewaris Hikmah'}];
 const kExp  = () => 'pai2_exp_' + S.siswa.id;      // {idSoal: exp}
 const kExpQ = () => 'pai2_expq_' + S.siswa.id;     // {idSoal: skor 0..1} belum terkirim
 const kRank = () => 'pai2_rank_' + S.siswa.id;     // {rank, total}
@@ -1727,20 +2390,21 @@ function reviewHTML(d){
 /* =====================================================================
    ASAT
    ===================================================================== */
-async function asatIntro(){
+async function asatIntro(d){
+  ASEM = d && +d.sem === 2 ? 2 : 1;
   const done = store.get(kAsatDone(), null);
   const st = store.get(kAsatState(), null);
   $('#asat-intro-isi').innerHTML = '<p class="muted">Memeriksa status ASAT…</p>';
   show('v-asat-intro');
   if(done){ return renderAsatIntro({selesai:true, nilai:done.nilai}); }
   if(st){ return renderAsatIntro({lanjut:true}); }
-  let server = store.get('pai2_asat_server_'+S.siswa.id, null);
+  let server = store.get(kAsatSrv(), null);
   if(!server && apiAktif()){
     try{
       const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 12000);
-      const r = await fetch(CONFIG.API_URL + '?action=status&id=' + encodeURIComponent(S.siswa.id), {signal:ctrl.signal});
+      const r = await fetch(CONFIG.API_URL + '?action=status&id=' + encodeURIComponent(S.siswa.id) + '&sem=' + ASEM, {signal:ctrl.signal});
       clearTimeout(t); const j = await r.json();
-      if(j && j.ok && j.asatDone){ server = {nilai:j.nilai}; store.set('pai2_asat_server_'+S.siswa.id, server); }
+      if(j && j.ok && j.asatDone){ server = {nilai:j.nilai}; store.set(kAsatSrv(), server); }
     }catch(e){ /* offline: tetap boleh mulai; server akan menolak ganda */ }
   }
   if(server) return renderAsatIntro({server:true, nilai:server.nilai});
@@ -1756,12 +2420,12 @@ function renderAsatIntro(o){
     aksi = `<button class="btn sec" data-act="home">Beranda</button>`;
   } else if(o.lanjut){
     info = `<div class="banner warn">⏱ <div>Ada ASAT yang sedang berjalan. Waktu tetap berjalan walaupun halaman ditutup.</div></div>`;
-    aksi = `<button class="btn gold" data-act="asatlanjut">Lanjutkan ASAT</button>`;
+    aksi = `<button class="btn gold" data-act="asatlanjut" data-sem="${ASEM}">Lanjutkan ASAT</button>`;
   } else {
     aksi = `<button class="btn gold" data-act="asat-mulai">Mulai ASAT Sekarang ➜</button><button class="btn sec" data-act="home">Nanti dulu</button>`;
   }
   $('#asat-intro-isi').innerHTML = `
-    <h2>📝 Simulasi ASAT PAI Kelas VIII</h2>
+    <h2>📝 Simulasi ASAT PAI Kelas VIII · Semester ${ASEM}</h2>
     <p class="muted">${esc(S.siswa.nama)} · ${esc(S.siswa.kelas)} · No. ${S.siswa.absen}</p>
     <table class="tb"><tr><th>Jenis soal</th><th>Jumlah × bobot</th></tr>
       <tr><td>Pilihan ganda (HOTS)</td><td>20 × 2</td></tr>
@@ -1771,7 +2435,7 @@ function renderAsatIntro(o){
       <tr><td>Isian singkat berbasis argumen</td><td>5 × 2</td></tr>
       <tr><td><b>Total</b></td><td><b>40 soal = 100 poin</b></td></tr></table>
     <table class="tb"><tr><th>Ketentuan</th><th>Keterangan</th></tr>
-      <tr><td>Cakupan</td><td>Bab 1–5 (8 soal per bab)</td></tr>
+      <tr><td>Cakupan</td><td>${ASEM === 2 ? 'Bab 7–11' : 'Bab 1–5'} (8 soal per bab)</td></tr>
       <tr><td>Waktu</td><td>${CONFIG.ASAT_MENIT} menit</td></tr>
       <tr><td>Kesempatan</td><td>1 kali</td></tr></table>
     <h4>Petunjuk</h4>
@@ -1786,11 +2450,11 @@ function renderAsatIntro(o){
 }
 function bangunAsat(){
   const ids = [];
-  BAB.forEach(b => b.asat.forEach((it,i) => ids.push(`A${b.id}-${pad2(i+1)}`)));
+  babSem(ASEM).forEach(b => b.asat.forEach((it,i) => ids.push(`A${b.id}-${pad2(i+1)}`)));
   const order = [];
   Object.keys(TIPE).forEach(t => order.push(...shuffle(ids.filter(id => QID[id].tipe === t))));
   const opt = {}; order.forEach(id => { const o = bangunOpsi(QID[id]); if(o) opt[id] = o; });
-  return {v:2, sub:uid(), start:Date.now(), order, opt, ans:{}, flag:{}, cur:0};
+  return {v:2, sem:ASEM, sub:uid(), start:Date.now(), order, opt, ans:{}, flag:{}, cur:0};
 }
 function mulaiAsat(){
   if(store.get(kAsatDone(), null)){ toast('ASAT sudah dikerjakan.'); return; }
@@ -1798,12 +2462,14 @@ function mulaiAsat(){
   store.set(kAsatState(), A);
   jalankanAsat();
 }
-function lanjutAsat(){
+function lanjutAsat(d){
+  if(d && d.sem) ASEM = +d.sem === 2 ? 2 : 1;
   A = store.get(kAsatState(), null);
   if(!A){ renderHome(); show('v-home'); return; }
   jalankanAsat();
 }
 function jalankanAsat(){
+  ASEM = A.sem === 2 ? 2 : 1;
   asatAktif = true; CTX = 'asat';
   window.onbeforeunload = e => { e.preventDefault(); e.returnValue = ''; return ''; };
   show('v-asat'); renderAsatQ();
@@ -1866,7 +2532,7 @@ function hitungAsat(st){
     const ds = detail.filter(d => d.tipe === t);
     return {tipe:t, skor:r2(ds.reduce((s,d) => s + d.poin, 0)), maks:ds.length * CONFIG.POIN[t]};
   });
-  const perBab = BAB.map(b => {
+  const perBab = babSem(st.sem === 2 ? 2 : 1).map(b => {
     const ds = detail.filter(d => d.bab === b.id);
     return {bab:b.id, skor:r2(ds.reduce((s,d) => s + d.poin, 0)), maks:ds.reduce((s,d) => s + CONFIG.POIN[d.tipe], 0)};
   });
@@ -1881,12 +2547,12 @@ function selesaiAsat(cara){
   const st = A, h = hitungAsat(st);
   let expGain = 0; h.detail.forEach(d => { expGain += expTambah(d.id, d.poin / CONFIG.POIN[d.tipe]); });
   const durasi = Math.min(CONFIG.ASAT_MENIT, Math.max(1, Math.round((Math.min(Date.now(), st.start + CONFIG.ASAT_MENIT*60000) - st.start)/60000)));
-  const rec = {v:2, exp:expGain, sub:st.sub, nilai:h.nilai, benar:h.benar, sebagian:h.sebagian, salah:h.salah, kosong:h.kosong,
+  const rec = {v:2, sem:st.sem === 2 ? 2 : 1, exp:expGain, sub:st.sub, nilai:h.nilai, benar:h.benar, sebagian:h.sebagian, salah:h.salah, kosong:h.kosong,
     perTipe:h.perTipe, perBab:h.perBab, detail:h.detail, cara, durasi, waktu:Date.now()};
   store.set(kAsatDone(), rec);
   store.del(kAsatState());
   A = null; asatSelesaiBerjalan = false;
-  const payload = {type:'asat', submissionId:st.sub, siswa:{nama:S.siswa.nama, absen:S.siswa.absen, kelas:S.siswa.kelas},
+  const payload = {type:'asat', semester:st.sem === 2 ? 2 : 1, submissionId:st.sub, siswa:{nama:S.siswa.nama, absen:S.siswa.absen, kelas:S.siswa.kelas},
     cara, durasiMenit:durasi, nilai:h.nilai, detail:h.detail};
   antrekan(payload);
   expFlush();
@@ -1896,7 +2562,7 @@ function tampilHasilAsat(rec){
   const bab = rec.perBab.map(p => { const b = BAB.find(x => x.id === p.bab); return `<tr><td>Bab ${b.id}. ${esc(b.judul)}</td><td>${fmt(p.skor)}/${p.maks}</td></tr>`; }).join('');
   const tipe = rec.perTipe.map(p => `<tr><td>${TIPE[p.tipe]}</td><td>${fmt(p.skor)}/${p.maks}</td></tr>`).join('');
   $('#asat-hasil-isi').innerHTML = `
-    <h2 style="text-align:center">Hasil Simulasi ASAT PAI</h2>
+    <h2 style="text-align:center">Hasil Simulasi ASAT PAI · Semester ${rec.sem === 2 ? 2 : 1}</h2>
     <p class="muted" style="text-align:center">${esc(S.siswa.nama)} · ${esc(S.siswa.kelas)} · No. ${S.siswa.absen}</p>
     <div class="score" style="--p:${rec.nilai}"><div><div><strong>${fmt(rec.nilai)}</strong><br><span>dari 100</span></div></div></div>
     <div class="stat"><div><b>${rec.benar}</b><small>Benar</small></div><div><b>${rec.sebagian}</b><small>Sebagian</small></div><div><b>${rec.salah}</b><small>Salah</small></div><div><b>${rec.kosong}</b><small>Kosong</small></div></div>
@@ -1941,9 +2607,9 @@ const ACT = {
   'lat-cek': latCek,
   'lat-next': latNext,
   'lat-keluar': latKeluar,
-  'asatintro': asatIntro,
+  'asatintro': (d) => asatIntro(d),
   'asat-mulai': mulaiAsat,
-  'asatlanjut': lanjutAsat,
+  'asatlanjut': (d) => lanjutAsat(d),
   'asat-flag': () => { const id = A.order[A.cur]; A.flag[id] = !A.flag[id]; if(!A.flag[id]) delete A.flag[id]; renderAsatQ(); },
   'asat-next': () => asatGo(A.cur+1),
   'asat-prev': () => asatGo(A.cur-1),
@@ -1979,11 +2645,14 @@ $('#ov').addEventListener('click', e => { if(e.target.id === 'ov') closeModal();
   const s = store.get('pai2_siswa', null);
   if(s && s.nama && s.kelas && s.absen){
     S.siswa = s; renderHome(); show('v-home');
-    const st = store.get(kAsatState(), null);
-    if(st && !store.get(kAsatDone(), null)){
-      A = st;
-      if(sisaMs() <= 0) selesaiAsat('Waktu habis');
-      else jalankanAsat();
+    for(const sm of [1, 2]){
+      const st = store.get(kAsatState(sm), null);
+      if(st && !store.get(kAsatDone(sm), null)){
+        ASEM = sm; A = st;
+        if(sisaMs() <= 0) selesaiAsat('Waktu habis');
+        else jalankanAsat();
+        break;
+      }
     }
   } else show('v-login');
   flushQueue();
