@@ -221,6 +221,9 @@ textarea:focus{outline:none;border-color:var(--g2);box-shadow:0 0 0 3px var(--ri
 .lbrow .nm{flex:1;min-width:0;font-weight:600;overflow-wrap:anywhere}
 .lbrow small{display:block;color:var(--mut);font-weight:400;font-size:.78rem}
 .lbrow .xp{font-weight:800;color:var(--g1);white-space:nowrap}
+.dot{width:14px;height:14px;border-radius:50%;background:var(--mut);opacity:.5;flex:none}
+.dot.on{background:var(--ok);opacity:1;box-shadow:0 0 0 4px var(--okbg)}
+.sth{margin:16px 0 0;color:var(--g1);font-size:1.02rem}
 .tema{padding:6px 10px;min-width:40px;text-align:center;font-size:1rem;line-height:1}
 @media print{header.top,.actions,.filters,.timer,.btn,.crumb,#kirim-asat,#kirim-lat{display:none!important}body{background:var(--card)}.card,.rv{box-shadow:none;break-inside:avoid}}
 </style>
@@ -2038,13 +2041,13 @@ function initLogin(){
     err.style.display='none';
     S.siswa = {nama, absen, kelas, id: idSiswa(kelas, absen)};
     store.set('pai2_siswa', S.siswa);
-    renderHome(); show('v-home');
+    renderHome(); show('v-home'); presensiMulai();
   });
 }
 function keluar(){
   if(asatAktif){ toast('Selesaikan ASAT terlebih dahulu.'); return; }
   modal('<h3>Ganti siswa?</h3><p class="muted">Kamu akan kembali ke halaman identitas. Data yang sudah tersimpan tidak hilang.</p>',
-    [{t:'Batal',cls:'sec'},{t:'Ya, ganti',fn:()=>{ store.del('pai2_siswa'); const old=S.siswa; S.siswa=null; $('#in-nama').value=''; $('#in-absen').value=''; $('#in-kelas').value=''; show('v-login'); }}]);
+    [{t:'Batal',cls:'sec'},{t:'Ya, ganti',fn:()=>{ store.del('pai2_siswa'); const old=S.siswa; pingKirim(false, old, true); presensiStop(); S.siswa=null; $('#in-nama').value=''; $('#in-absen').value=''; $('#in-kelas').value=''; show('v-login'); }}]);
 }
 
 /* =====================================================================
@@ -2138,7 +2141,7 @@ function expCardHTML(){
     <div style="flex:1;min-width:190px"><b>${esc(lv.nama)}</b> · <b>${tot}</b> EXP${rk ? ' · Peringkat #' + rk.rank : ''}
     <div class="progress" style="margin:6px 0"><i style="width:${lv.pct}%"></i></div>
     <span class="muted" style="font-size:.82rem">${sisa}${sync}</span></div>
-    <button class="btn gold" data-act="lb">🏆 Peringkat</button></div>`;
+    <button class="btn gold" data-act="lb">🏆 Peringkat</button><button class="btn sec" data-act="lb-status">🟢 Siapa online?</button></div>`;
 }
 
 let expFlushing = false, expRetryN = 0, expRetryT = null;
@@ -2174,15 +2177,98 @@ async function expFlush(){
 window.addEventListener('online', () => { expRetryN = 0; expFlush(); });
 
 /* =====================================================================
+   PRESENSI: siswa online / offline
+   Aplikasi mengirim "ping" tiap 45 detik selama halaman terlihat. Server menganggap
+   siswa online bila ping terakhir kurang dari 100 detik. Saat tab disembunyikan, halaman
+   ditutup, atau siswa berganti identitas, ping "offline" dikirim. Tidak memakai realtime
+   (hemat kuota sambungan); halaman Status Siswa menyegarkan diri tiap 20 detik.
+   ===================================================================== */
+const PING_MS = 45000;
+let pingT = null;
+function pingKirim(online, siswa, keep){
+  const s = siswa || S.siswa;
+  if(!sbAktif() || !s) return Promise.resolve();
+  try{
+    return fetch(CONFIG.SUPABASE_URL + '/rest/v1/rpc/ping_siswa', {method:'POST', keepalive:!!keep,
+      headers:Object.assign({'Content-Type':'application/json'}, sbHead()),
+      body:JSON.stringify({p_nama:s.nama, p_kelas:s.kelas, p_absen:s.absen, p_online:online !== false})}).catch(() => {});
+  }catch(e){ return Promise.resolve(); }
+}
+function presensiStop(){ clearInterval(pingT); pingT = null; }
+function presensiMulai(){
+  presensiStop();
+  if(!sbAktif() || !S.siswa) return;
+  pingKirim(true);
+  pingT = setInterval(() => { if(!document.hidden) pingKirim(true); }, PING_MS);
+}
+document.addEventListener('visibilitychange', () => {
+  if(!S.siswa || !sbAktif()) return;
+  if(document.hidden){ presensiStop(); pingKirim(false, null, true); } else presensiMulai();
+});
+window.addEventListener('pagehide', () => pingKirim(false, null, true));
+
+/* =====================================================================
    LEADERBOARD (podium + daftar), realtime lewat Supabase
    ===================================================================== */
 let lbKelas = 'all', lbData = [], lbErr = '', lbMuatPernah = false, lbLive = false, lbCh = null, lbPoll = null, sbClient = null, lbReq = 0;
+let lbTab = 'rank', stData = [], stErr = '', stPernah = false, stKelas = 'all', stReq = 0, stPoll = null;
 const inisial = n => esc(String(n || '?').trim().charAt(0).toUpperCase());
 
-function lbBuka(){
+function lbBuka(tab){
+  lbTab = tab === 'status' ? 'status' : 'rank';
   lbKelas = 'all'; lbData = []; lbErr = ''; lbMuatPernah = false;
-  show('v-lb'); lbRender(); lbMuat(); lbStart(); expFlush();
+  stKelas = 'all'; stData = []; stErr = ''; stPernah = false;
+  show('v-lb'); lbRender(); if(lbTab === 'status') stMuat(); else lbMuat(); lbStart(); expFlush();
 }
+function lbGantiTab(t){
+  lbTab = t === 'status' ? 'status' : 'rank';
+  if(lbTab === 'status'){ stPernah = false; lbRender(); stMuat(); } else { lbRender(); lbMuat(); }
+}
+/* Daftar siswa online/offline dari fungsi daftar_status (Supabase). */
+async function stMuat(){
+  if(!sbAktif()){ stErr = 'Status siswa belum dihubungkan ke Supabase. Guru perlu mengisi SUPABASE_URL dan SUPABASE_KEY.'; stPernah = true; lbRender(); return; }
+  const my = ++stReq;
+  if(!stPernah) await pingKirim(true);        // pastikan diri sendiri tercatat online
+  const ctrl = new AbortController(), t = setTimeout(() => ctrl.abort(), 15000);
+  try{
+    const r = await fetch(CONFIG.SUPABASE_URL + '/rest/v1/rpc/daftar_status', {method:'POST', signal:ctrl.signal,
+      headers:Object.assign({'Content-Type':'application/json'}, sbHead()),
+      body:JSON.stringify({p_kelas:stKelas === 'all' ? null : stKelas})});
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json();
+    if(my !== stReq) return;
+    stData = Array.isArray(d) ? d : []; stErr = '';
+  }catch(e){ if(my !== stReq) return; stErr = 'Gagal memuat status siswa. Periksa koneksi, lalu coba lagi.'; }
+  finally { clearTimeout(t); }
+  stPernah = true; lbRender();
+}
+function waktuLalu(d){
+  if(d == null) return 'belum pernah aktif';
+  if(d < 60) return 'baru saja';
+  const m = Math.floor(d / 60); if(m < 60) return m + ' menit lalu';
+  const j = Math.floor(m / 60); if(j < 24) return j + ' jam lalu';
+  return Math.floor(j / 24) + ' hari lalu';
+}
+function stBaris(x, me){
+  const st = x.online ? 'Online' : (x.detik_lalu == null ? 'Belum pernah aktif' : 'Terakhir aktif ' + waktuLalu(x.detik_lalu));
+  return `<li class="lbrow ${x.id === me ? 'me' : ''}"><span class="dot ${x.online ? 'on' : ''}" role="img" aria-label="${x.online ? 'Online' : 'Offline'}"></span><span class="av">${inisial(x.nama)}</span>
+    <span class="nm">${esc(x.nama)}${x.id === me ? ' <b>(kamu)</b>' : ''}<small>${esc(x.kelas)} · No. ${x.absen} · ${st}</small></span></li>`;
+}
+function stHTML(me, kelasku){
+  let h = `<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h2 style="margin:0">🟢 Status Siswa</h2>${lbBadge()}</div>${lbTabs()}
+    <p class="muted" style="margin:4px 0 10px">Online berarti halaman aplikasi sedang dibuka dan terlihat dalam 100 detik terakhir.</p>
+    <div class="filters"><button class="${stKelas === 'all' ? 'on' : ''}" data-act="lb-st-kelas" data-k="all">Semua kelas</button><button class="${stKelas !== 'all' ? 'on' : ''}" data-act="lb-st-kelas" data-k="${esc(kelasku)}">Kelas saya (${esc(kelasku)})</button></div>`;
+  if(!stPernah) return h + '<p class="muted" style="text-align:center;padding:30px 0">Memuat status siswa…</p>';
+  if(stErr) return h + `<div class="banner warn">⚠️ <div>${esc(stErr)} <button class="btn sec" style="min-height:34px;padding:2px 12px;margin-left:6px" data-act="lb-st-ulang">Coba lagi</button></div></div>`;
+  if(!stData.length) return h + '<p class="muted" style="text-align:center;padding:30px 0">Belum ada siswa yang tercatat.</p>';
+  const on = stData.filter(x => x.online).sort((a, b) => String(a.nama).localeCompare(String(b.nama), 'id'));
+  const off = stData.filter(x => !x.online).sort((a, b) => (a.detik_lalu == null) - (b.detik_lalu == null) || (a.detik_lalu || 0) - (b.detik_lalu || 0));
+  h += `<div class="stat"><div><b>${on.length}</b><small>Online</small></div><div><b>${off.length}</b><small>Offline</small></div><div><b>${stData.length}</b><small>Tercatat</small></div></div>`;
+  h += `<h4 class="sth">🟢 Online (${on.length})</h4>` + (on.length ? '<ul class="lbl">' + on.map(x => stBaris(x, me)).join('') + '</ul>' : '<p class="muted">Belum ada yang online.</p>');
+  h += `<h4 class="sth">⚪ Offline (${off.length})</h4>` + (off.length ? '<ul class="lbl">' + off.map(x => stBaris(x, me)).join('') + '</ul>' : '<p class="muted">Semua siswa sedang online.</p>');
+  return h;
+}
+const lbTabs = () => `<div class="filters" role="tablist" style="margin-top:10px"><button class="${lbTab === 'rank' ? 'on' : ''}" data-act="lb-tab" data-t="rank">🏆 Peringkat</button><button class="${lbTab === 'status' ? 'on' : ''}" data-act="lb-tab" data-t="status">🟢 Status Siswa</button></div>`;
 async function lbMuat(){
   if(!sbAktif()){ lbErr = 'Leaderboard belum dihubungkan ke Supabase. Guru perlu mengisi SUPABASE_URL dan SUPABASE_KEY.'; lbMuatPernah = true; lbRender(); return; }
   const my = ++lbReq, ctrl = new AbortController(), t = setTimeout(() => ctrl.abort(), 15000);
@@ -2209,6 +2295,7 @@ function muatSbLib(){
 function lbStart(){
   lbStop();
   lbPoll = setInterval(lbMuat, 15000);                 // cadangan bila realtime belum tersambung
+  stPoll = setInterval(() => { if(lbTab === 'status') stMuat(); }, 20000);   // presensi tidak realtime: segarkan tiap 20 detik
   if(!sbAktif()) return;
   muatSbLib().then(() => {
     if(!$('#v-lb').classList.contains('on')) return;
@@ -2224,11 +2311,11 @@ function lbStart(){
   }).catch(() => {});
 }
 function lbStop(){
-  clearInterval(lbPoll); lbPoll = null;
+  clearInterval(lbPoll); lbPoll = null; clearInterval(stPoll); stPoll = null;
   if(lbCh && sbClient){ try{ sbClient.removeChannel(lbCh); }catch(e){} }
   lbCh = null; lbLive = false;
 }
-const lbBadge = () => `<span id="lb-live" class="live ${lbLive ? 'on' : ''}">● ${lbLive ? 'Realtime' : 'Segar otomatis'}</span>`;
+const lbBadge = () => lbTab === 'status' ? '<span id="lb-live" class="live">● Segar tiap 20 detik</span>' : `<span id="lb-live" class="live ${lbLive ? 'on' : ''}">● ${lbLive ? 'Realtime' : 'Segar otomatis'}</span>`;
 function lbPodium(top){
   const slot = (rank, cls, medali) => {
     const x = top[rank - 1];
@@ -2242,7 +2329,8 @@ function lbPodium(top){
 function lbRender(){
   const el = $('#lb-isi'); if(!el || !$('#v-lb').classList.contains('on')) return;
   const me = S.siswa ? S.siswa.id : '', kelasku = S.siswa ? S.siswa.kelas : '';
-  let h = `<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h2 style="margin:0">🏆 Papan Peringkat</h2>${lbBadge()}</div>
+  if(lbTab === 'status'){ el.innerHTML = stHTML(me, kelasku); return; }
+  let h = `<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h2 style="margin:0">🏆 Papan Peringkat</h2>${lbBadge()}</div>${lbTabs()}
     <p class="muted" style="margin:4px 0 10px">Peringkat berdasarkan total EXP. Jika EXP sama, yang lebih dulu mencapainya di atas.</p>
     <div class="filters"><button class="${lbKelas === 'all' ? 'on' : ''}" data-act="lb-kelas" data-k="all">Semua kelas</button><button class="${lbKelas !== 'all' ? 'on' : ''}" data-act="lb-kelas" data-k="${esc(kelasku)}">Kelas saya (${esc(kelasku)})</button></div>`;
   if(!lbMuatPernah) h += '<p class="muted" style="text-align:center;padding:30px 0">Memuat peringkat…</p>';
@@ -2598,7 +2686,11 @@ const ACT = {
   'keluar': keluar,
   'home': () => { renderHome(); show('v-home'); },
   'tema': gantiTema,
-  'lb': lbBuka,
+  'lb': () => lbBuka('rank'),
+  'lb-status': () => lbBuka('status'),
+  'lb-tab': d => lbGantiTab(d.t),
+  'lb-st-kelas': d => { stKelas = d.k; stPernah = false; lbRender(); stMuat(); },
+  'lb-st-ulang': () => { stPernah = false; lbRender(); stMuat(); },
   'lb-kelas': d => { lbKelas = d.k; lbMuatPernah = false; lbRender(); lbMuat(); },
   'lb-ulang': () => { lbMuatPernah = false; lbRender(); lbMuat(); },
   'bab': d => bukaBab(+d.id),
@@ -2644,7 +2736,7 @@ $('#ov').addEventListener('click', e => { if(e.target.id === 'ov') closeModal();
   initLogin();
   const s = store.get('pai2_siswa', null);
   if(s && s.nama && s.kelas && s.absen){
-    S.siswa = s; renderHome(); show('v-home');
+    S.siswa = s; renderHome(); show('v-home'); presensiMulai();
     for(const sm of [1, 2]){
       const st = store.get(kAsatState(sm), null);
       if(st && !store.get(kAsatDone(sm), null)){
