@@ -137,7 +137,7 @@ table.tb td:last-child,table.tb th:last-child{text-align:right}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
 .filters button{border:2px solid var(--line);background:var(--card);border-radius:99px;padding:7px 14px;font:inherit;font-size:.85rem;cursor:pointer}
 .filters button.on{background:var(--g1);color:var(--on-solid);border-color:var(--g1)}
-.timer{position:sticky;top:64px;z-index:20;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:12px}
+.timer{position:sticky;top:72px;z-index:20;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.08);margin-bottom:12px}
 .timer .tm{font-weight:700;font-size:1.2rem;font-variant-numeric:tabular-nums;color:var(--g1)}
 .timer.low .tm{color:var(--bad);animation:blink 1s infinite}
 @keyframes blink{50%{opacity:.45}}
@@ -161,7 +161,20 @@ table.tb td:last-child,table.tb th:last-child{text-align:right}
 .hint{font-size:.82rem;color:var(--mut);margin-top:6px}
 .pill{display:inline-flex;gap:6px;align-items:center;background:var(--g3);border-radius:99px;padding:4px 12px;font-size:.82rem;color:var(--g1);font-weight:600}
 footer{text-align:center;color:var(--mut);font-size:.78rem;margin-top:30px}
-@media(max-width:420px){.row2{grid-template-columns:1fr}.chip{max-width:38vw}.timer{top:62px}}
+@media(max-width:420px){.row2{grid-template-columns:1fr}}
+/* Ponsel: navbar atas dibuat ringkas (satu baris, tanpa subjudul) agar layar lebih lega */
+@media(max-width:600px){
+  header.top{border-bottom-width:2px;box-shadow:0 1px 6px rgba(0,0,0,.18)}
+  .top-in{padding:6px 10px;gap:8px}
+  .logo{width:30px;height:30px}
+  .ttl b{font-size:.92rem;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ttl small{display:none}
+  .chip{font-size:.72rem;padding:4px 10px;max-width:34vw;min-height:32px}
+  .chip.tema{padding:0;width:34px;height:34px;min-height:34px;display:grid;place-items:center;font-size:1rem;flex:none}
+  .timer{top:52px}
+  main{padding-top:12px}
+}
+@media(max-width:360px){.logo{display:none}.ttl b{font-size:.85rem}.chip{max-width:32vw}}
 textarea{width:100%;font:inherit;padding:13px 14px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);resize:vertical;min-height:90px}
 textarea:focus{outline:none;border-color:var(--g2);box-shadow:0 0 0 3px var(--ring)}
 .opt.pgk .lt{border-radius:8px}
@@ -225,6 +238,38 @@ textarea:focus{outline:none;border-color:var(--g2);box-shadow:0 0 0 3px var(--ri
 .dot.on{background:var(--ok);opacity:1;box-shadow:0 0 0 4px var(--okbg)}
 .sth{margin:16px 0 0;color:var(--g1);font-size:1.02rem}
 .tema{padding:6px 10px;min-width:40px;text-align:center;font-size:1rem;line-height:1}
+.navbar-bar{height:3px;background:rgba(255,255,255,.18)}
+.navbar-bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s}
+.ttl small button.prog{background:none;border:0;color:inherit;font:inherit;padding:0;cursor:pointer;text-align:left;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
+.pgrow{display:flex;align-items:center;gap:10px;padding:9px 12px;border:2px solid var(--line);border-radius:12px;background:var(--card);margin:7px 0}
+.pgrow.ok{border-color:var(--b-ok);background:var(--okbg)}
+.pgrow .no{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--chip-bg);color:var(--tag-ink);flex:none;font-size:.85rem}
+.pgrow.ok .no{background:var(--btn1);color:#fff}
+.pgrow .tx{flex:1;min-width:0;font-weight:600;font-size:.9rem}
+.pgrow .tx small{display:block;color:var(--mut);font-weight:400;font-size:.76rem}
+.gtool{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0}
+.gtool input[type=text]{flex:1;min-width:160px;margin:0}
+.gkelas{margin:20px 0 6px;color:var(--g1);font-size:1.05rem;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.gkelas small{color:var(--mut);font-weight:400;font-size:.8rem}
+.gr{border:2px solid var(--line);border-radius:12px;background:var(--card);padding:10px 12px;margin:8px 0}
+.gr-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.gr-top b{overflow-wrap:anywhere}.gr-top small{color:var(--mut)}
+.gr-exp{margin-left:auto;font-weight:700;color:var(--g1);font-size:.85rem;white-space:nowrap}
+.gr .progress{margin:8px 0 4px;height:8px}
+.gr-info{color:var(--mut);font-size:.78rem}
+.gr-bab{display:flex;gap:4px;flex-wrap:wrap;margin:6px 0}
+.bb{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 4px;border-radius:6px;font-size:.7rem;font-weight:700;border:1px solid var(--line);color:var(--mut);background:var(--card)}
+.bb.on{background:var(--btn1);color:#fff;border-color:transparent}
+.bb.as{background:var(--gold2);color:var(--on-gold);border-color:var(--b-gold)}
+.gr-act{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.gr-act .btn{min-height:36px;padding:4px 12px;font-size:.82rem}
+.gdel{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+.gdel span{flex:1;min-width:140px}
+details.gdh summary{cursor:pointer;font-weight:700;color:var(--g1);padding:8px 0}
+@media(max-width:600px){
+  .ttl small.has-prog{display:block;font-size:.7rem;line-height:1.2}
+  .gr-exp{margin-left:0;width:100%}
+}
 @media print{header.top,.actions,.filters,.timer,.btn,.crumb,#kirim-asat,#kirim-lat{display:none!important}body{background:var(--card)}.card,.rv{box-shadow:none;break-inside:avoid}}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -240,10 +285,11 @@ textarea:focus{outline:none;border-color:var(--g2);box-shadow:0 0 0 3px var(--ri
       <path d="M38 15 A17 17 0 1 0 38 49 A13 13 0 1 1 38 15 Z" fill="#f6ecc4"/>
       <polygon points="46,22 47.8,26.4 52.7,26.7 48.9,29.8 50.1,34.5 46,31.9 41.9,34.5 43.1,29.8 39.3,26.7 44.2,26.4" fill="#f6ecc4"/>
     </svg>
-    <div class="ttl"><b>Simulasi ASAT PAI</b><small>Kelas VIII SMP · Tahun Ajaran 2026/2027</small></div>
+    <div class="ttl"><b>Simulasi ASAT PAI</b><small id="ttl-sub">Kelas VIII SMP · Tahun Ajaran 2026/2027</small></div>
     <button class="chip tema" id="btn-tema" data-act="tema" type="button" aria-label="Ganti tema" title="Ganti tema"></button>
     <button class="chip" id="chip-user" data-act="keluar" style="display:none" title="Ganti siswa"></button>
   </div>
+  <div class="navbar-bar" id="navbar-bar" aria-hidden="true"><i></i></div>
 </header>
 
 <main>
@@ -272,6 +318,7 @@ textarea:focus{outline:none;border-color:var(--g2);box-shadow:0 0 0 3px var(--ri
     <div class="actions"><button class="btn block" type="submit">Masuk &amp; Mulai Belajar ➜</button></div>
     <p class="hint">Pastikan nama, nomor absen, dan kelas benar. Nilai dicatat berdasarkan kelas dan nomor absen.</p>
   </form>
+  <p style="text-align:center;margin:16px 0 0"><button class="btn sec" type="button" data-act="guru-login">👩‍🏫 Masuk sebagai guru</button></p>
 </section>
 
 <!-- ============ HOME ============ -->
@@ -342,6 +389,25 @@ textarea:focus{outline:none;border-color:var(--g2);box-shadow:0 0 0 3px var(--ri
 <section class="view" id="v-lb">
   <div class="crumb"><button data-act="home">← Beranda</button></div>
   <div class="card" id="lb-isi"></div>
+</section>
+
+<!-- ============ GURU ============ -->
+<section class="view" id="v-guru-login">
+  <div class="crumb"><button data-act="guru-batal">← Kembali</button></div>
+  <form class="card" id="form-guru" autocomplete="off" novalidate>
+    <h2 style="margin-top:0">👩‍🏫 Masuk Guru</h2>
+    <p class="muted">Khusus guru. Akun dibuat di Supabase (Authentication). Siswa tidak dapat membuka laman ini.</p>
+    <label for="g-email">Email</label>
+    <input type="text" id="g-email" inputmode="email" autocapitalize="none" autocomplete="username" placeholder="email guru">
+    <label for="g-pass">Password</label>
+    <input type="password" id="g-pass" autocomplete="current-password" placeholder="password">
+    <div class="banner bad" id="err-guru" style="display:none"></div>
+    <div class="actions"><button class="btn block" type="submit" id="btn-guru-masuk">Masuk</button></div>
+  </form>
+</section>
+
+<section class="view" id="v-guru">
+  <div class="card" id="guru-isi"></div>
 </section>
 
 </main>
@@ -1923,6 +1989,7 @@ function fbHTML(Q, r){
    STATE
    ===================================================================== */
 let S = { siswa:null };      // siswa: {nama, absen, kelas, id}
+let G = null;                // sesi guru: {token, email, exp}
 let L = null;                // sesi latihan
 let A = null;                // sesi ASAT
 let timerH = null;
@@ -1942,8 +2009,11 @@ function show(id){
   $$('.view').forEach(v => v.classList.toggle('on', v.id === id));
   window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
   const chip = $('#chip-user');
-  if(S.siswa){ chip.style.display=''; chip.textContent = S.siswa.nama + ' · ' + S.siswa.kelas; }
+  if(G && /^v-guru/.test(id)){ chip.style.display=''; chip.textContent = 'Guru · keluar'; chip.dataset.act = 'guru-keluar'; chip.title = 'Keluar dari laman guru'; }
+  else if(S.siswa){ chip.style.display=''; chip.textContent = S.siswa.nama + ' · ' + S.siswa.kelas; chip.dataset.act = 'keluar'; chip.title = 'Ganti siswa'; }
   else chip.style.display='none';
+  if(id !== 'v-guru') guruStop();
+  renderNav(id);
 }
 
 /* =====================================================================
@@ -2164,6 +2234,7 @@ async function expFlush(){
       const j = await r.json();
       const q2 = store.get(kExpQ(), {}); items.forEach(it => { if(q2[it.id] === it.f) delete q2[it.id]; }); store.set(kExpQ(), q2);
       if(j && typeof j.rank === 'number') store.set(kRank(), {rank:j.rank, total:j.total_exp});
+      cekRespons(j);
       expRetryN = 0;
     }
   }catch(e){
@@ -2191,14 +2262,15 @@ function pingKirim(online, siswa, keep){
   try{
     return fetch(CONFIG.SUPABASE_URL + '/rest/v1/rpc/ping_siswa', {method:'POST', keepalive:!!keep,
       headers:Object.assign({'Content-Type':'application/json'}, sbHead()),
-      body:JSON.stringify({p_nama:s.nama, p_kelas:s.kelas, p_absen:s.absen, p_online:online !== false})}).catch(() => {});
+      body:JSON.stringify({p_nama:s.nama, p_kelas:s.kelas, p_absen:s.absen, p_online:online !== false})})
+      .then(r => keep ? null : r.json()).then(j => { if(j && s === S.siswa) cekRespons(j); }).catch(() => {});
   }catch(e){ return Promise.resolve(); }
 }
 function presensiStop(){ clearInterval(pingT); pingT = null; }
 function presensiMulai(){
   presensiStop();
   if(!sbAktif() || !S.siswa) return;
-  pingKirim(true);
+  pingKirim(true); progSinkronAwal(); progFlush();
   pingT = setInterval(() => { if(!document.hidden) pingKirim(true); }, PING_MS);
 }
 document.addEventListener('visibilitychange', () => {
@@ -2206,6 +2278,274 @@ document.addEventListener('visibilitychange', () => {
   if(document.hidden){ presensiStop(); pingKirim(false, null, true); } else presensiMulai();
 });
 window.addEventListener('pagehide', () => pingKirim(false, null, true));
+
+/* =====================================================================
+   PROGRES SISWA (navbar + sinkron ke Supabase)
+   Progres = bab yang latihannya sudah dikerjakan minimal sekali. "Sampai bab"
+   = nomor bab terbesar yang sudah dikerjakan. Data lokal disinkronkan ke
+   Supabase (catat_progres) agar guru dapat melihatnya.
+   ===================================================================== */
+const kProgQ = () => 'pai2_progq_' + S.siswa.id;      // {kunci: {n, t}} belum terkirim
+const kProgSync = () => 'pai2_progsync_' + S.siswa.id; // penanda sinkron awal
+function progresLokal(){
+  const prog = store.get(kProg(), {}), total = BAB.length;
+  const done = BAB.filter(b => prog[b.id]);
+  const terakhir = done.reduce((m, b) => Math.max(m, b.id), 0);
+  return {prog, done:done.length, total, terakhir, pct:Math.round(done.length / total * 100)};
+}
+function renderNav(id){
+  const sub = $('#ttl-sub'), bar = $('#navbar-bar i');
+  if(!sub) return;
+  const awal = 'Kelas VIII SMP · Tahun Ajaran 2026/2027';
+  if(G && /^v-guru/.test(id || '')){ sub.className = 'has-prog'; sub.textContent = 'Laman Guru'; bar.style.width = '0'; return; }
+  if(!S.siswa){ sub.className = ''; sub.textContent = awal; bar.style.width = '0'; return; }
+  const g = progresLokal();
+  sub.className = 'has-prog';
+  sub.innerHTML = `<button class="prog" type="button" data-act="progres" aria-label="Lihat progres belajar">📘 ${g.terakhir ? 'Sampai Bab ' + g.terakhir : 'Belum mulai'} · ${g.done}/${g.total} bab · ${g.pct}%</button>`;
+  bar.style.width = g.pct + '%';
+}
+function progresModal(){
+  const g = progresLokal(), asat = sm => store.get(kAsatDone(sm), null);
+  const baris = BAB.map(b => {
+    const p = g.prog[b.id];
+    return `<div class="pgrow ${p ? 'ok' : ''}"><span class="no">${p ? '✓' : b.id}</span><span class="tx">Bab ${b.id}. ${esc(b.judul)}<small>${p ? 'Nilai terbaik ' + fmt(p.best) + ' · ' + p.tries + '× latihan' : 'Belum dikerjakan'}</small></span></div>`;
+  }).join('');
+  const as = [1, 2].map(sm => { const d = asat(sm); return `<div class="pgrow ${d ? 'ok' : ''}"><span class="no">${d ? '✓' : '📝'}</span><span class="tx">ASAT Semester ${sm}<small>${d ? 'Nilai ' + fmt(d.nilai) : 'Belum dikerjakan'}</small></span></div>`; }).join('');
+  modal(`<h3>Progres Belajar</h3>
+    <p class="muted" style="margin:0">${g.terakhir ? 'Kamu sudah sampai <b>Bab ' + g.terakhir + '</b>.' : 'Kamu belum mengerjakan latihan.'} ${g.done} dari ${g.total} bab selesai (${g.pct}%).</p>
+    <div class="progress"><i style="width:${g.pct}%"></i></div>
+    <div style="max-height:52vh;overflow:auto">${baris}${as}</div>`, [{t:'Tutup', cls:'sec'}]);
+}
+/* Antre nilai terbaik per kunci (B1..B11, ASAT1, ASAT2) lalu kirim. */
+function progAntre(kunci, nilai, tries){
+  if(!sbAktif() || !S.siswa) return;
+  const q = store.get(kProgQ(), {}), o = q[kunci];
+  q[kunci] = {n:Math.max(nilai, o ? o.n : 0), t:Math.max(tries || 1, o ? o.t : 1)};
+  store.set(kProgQ(), q); progFlush();
+}
+function progSinkronAwal(){
+  if(!sbAktif() || !S.siswa || store.get(kProgSync(), false)) return;
+  const g = progresLokal(), q = store.get(kProgQ(), {});
+  BAB.forEach(b => { const p = g.prog[b.id]; if(p) q['B' + b.id] = {n:p.best, t:p.tries}; });
+  [1, 2].forEach(sm => { const d = store.get(kAsatDone(sm), null); if(d) q['ASAT' + sm] = {n:d.nilai, t:1}; });
+  store.set(kProgQ(), q);
+  progFlush(true);
+}
+let progFlushing = false, progRetryT = null;
+async function progFlush(tandai){
+  if(!sbAktif() || !S.siswa || progFlushing) return;
+  const q = store.get(kProgQ(), {}), ks = Object.keys(q);
+  if(!ks.length){ if(tandai) store.set(kProgSync(), true); return; }
+  progFlushing = true;
+  try{
+    const items = ks.slice(0, 13).map(k => ({k, n:q[k].n, t:q[k].t}));
+    const ctrl = new AbortController(), t = setTimeout(() => ctrl.abort(), 15000);
+    let r; try{ r = await fetch(CONFIG.SUPABASE_URL + '/rest/v1/rpc/catat_progres', {method:'POST', signal:ctrl.signal,
+        headers:Object.assign({'Content-Type':'application/json'}, sbHead()),
+        body:JSON.stringify({p_nama:S.siswa.nama, p_kelas:S.siswa.kelas, p_absen:S.siswa.absen, p_items:items})}); } finally { clearTimeout(t); }
+    if(!r.ok) throw new Error('HTTP ' + r.status);
+    const j = await r.json();
+    const q2 = store.get(kProgQ(), {}); items.forEach(it => { const c = q2[it.k]; if(c && c.n === it.n && c.t === it.t) delete q2[it.k]; }); store.set(kProgQ(), q2);
+    if(tandai || !Object.keys(q2).length) store.set(kProgSync(), true);
+    cekRespons(j);
+  }catch(e){ clearTimeout(progRetryT); progRetryT = setTimeout(() => progFlush(tandai), 20000); }
+  finally { progFlushing = false; }
+}
+/* Jawaban server dapat memuat identitas terbaru (guru mengubah nama/kelas/absen). */
+function cekRespons(j){
+  if(!j || !S.siswa || !j.identitas) return;
+  const n = j.identitas;
+  if(n.nama === S.siswa.nama && n.kelas === S.siswa.kelas && +n.absen === +S.siswa.absen) return;
+  pindahIdentitas(n);
+}
+function pindahIdentitas(n){
+  const lama = S.siswa.id, baru = idSiswa(n.kelas, n.absen);
+  try{
+    if(lama !== baru){
+      Object.keys(localStorage).forEach(k => {
+        if(k.indexOf('pai2_') !== 0) return;
+        [['_' + lama, ''], ['_' + lama + '_s2', '_s2']].forEach(([akhir, sfx]) => {
+          if(k.length > akhir.length && k.slice(-akhir.length) === akhir){
+            const kb = k.slice(0, k.length - akhir.length) + '_' + baru + sfx, v = localStorage.getItem(k);
+            if(v != null && localStorage.getItem(kb) == null) localStorage.setItem(kb, v);
+            localStorage.removeItem(k);
+          }
+        });
+      });
+    }
+  }catch(e){}
+  S.siswa = {nama:n.nama, absen:+n.absen, kelas:n.kelas, id:baru};
+  store.set('pai2_siswa', S.siswa);
+  toast('Guru memperbarui datamu: ' + n.nama + ' · ' + n.kelas + ' · No. ' + n.absen);
+  const chip = $('#chip-user'); if(chip && chip.style.display !== 'none') chip.textContent = S.siswa.nama + ' · ' + S.siswa.kelas;
+  if($('#v-home').classList.contains('on')) renderHome();
+}
+
+/* =====================================================================
+   LAMAN GURU (Supabase Auth + fungsi admin_* yang memeriksa email guru di server)
+   Password tidak pernah disimpan di halaman ini. Token sesi hanya di sessionStorage.
+   ===================================================================== */
+let guruData = [], guruDihapus = [], guruKelas = 'all', guruCari = '', guruErr = '', guruPernah = false, guruPoll = null, guruReq = 0;
+try{ const g = JSON.parse(sessionStorage.getItem('pai2_guru') || 'null'); if(g && g.token && g.exp > Date.now()) G = g; }catch(e){}
+function guruStop(){ clearInterval(guruPoll); guruPoll = null; }
+function guruLogin(){
+  guruStop();
+  if(G){ guruBuka(); return; }
+  $('#err-guru').style.display = 'none'; $('#g-pass').value = '';
+  show('v-guru-login');
+}
+function guruBatal(){ if(S.siswa){ renderHome(); show('v-home'); } else show('v-login'); }
+function guruKeluar(pesan){
+  G = null; try{ sessionStorage.removeItem('pai2_guru'); }catch(e){}
+  guruData = []; guruDihapus = []; guruPernah = false;
+  if(pesan) toast(pesan);
+  guruBatal();
+}
+async function guruApi(fn, body){
+  if(!G) throw new Error('sesi');
+  const r = await fetch(CONFIG.SUPABASE_URL + '/rest/v1/rpc/' + fn, {method:'POST',
+    headers:{'Content-Type':'application/json', apikey:CONFIG.SUPABASE_KEY, Authorization:'Bearer ' + G.token}, body:JSON.stringify(body || {})});
+  if(r.status === 401){ guruKeluar('Sesi guru berakhir. Silakan masuk lagi.'); throw new Error('sesi'); }
+  let j = null; try{ j = await r.json(); }catch(e){}
+  if(!r.ok){ const m = (j && (j.message || j.error)) || ('HTTP ' + r.status); throw new Error(/tidak berwenang/.test(m) ? 'Akun ini bukan akun guru.' : m); }
+  return j;
+}
+async function guruSubmit(e){
+  e.preventDefault();
+  const em = $('#g-email').value.trim(), pw = $('#g-pass').value, err = $('#err-guru'), btn = $('#btn-guru-masuk');
+  const tampil = m => { err.textContent = m; err.style.display = 'flex'; };
+  if(!em || !pw){ tampil('Isi email dan password.'); return; }
+  if(!sbAktif()){ tampil('Supabase belum dihubungkan. Isi SUPABASE_URL dan SUPABASE_KEY pada index.html.'); return; }
+  btn.disabled = true; btn.textContent = 'Memeriksa…'; err.style.display = 'none';
+  try{
+    const r = await fetch(CONFIG.SUPABASE_URL + '/auth/v1/token?grant_type=password', {method:'POST',
+      headers:{'Content-Type':'application/json', apikey:CONFIG.SUPABASE_KEY}, body:JSON.stringify({email:em, password:pw})});
+    const j = await r.json().catch(() => ({}));
+    if(!r.ok || !j.access_token){ tampil(r.status === 400 ? 'Email atau password salah.' : 'Gagal masuk (' + (j.msg || j.error_description || r.status) + ').'); return; }
+    G = {token:j.access_token, email:em, exp:Date.now() + Math.max(60, (j.expires_in || 3600) - 60) * 1000};
+    const ok = await guruApi('is_guru', {});
+    if(ok !== true){ G = null; tampil('Akun ini tidak memiliki akses guru.'); return; }
+    try{ sessionStorage.setItem('pai2_guru', JSON.stringify(G)); }catch(x){}
+    $('#g-pass').value = '';
+    guruBuka();
+  }catch(x){ if(x.message !== 'sesi') tampil('Tidak dapat terhubung. Periksa koneksi, lalu coba lagi.'); }
+  finally { btn.disabled = false; btn.textContent = 'Masuk'; }
+}
+function guruBuka(){
+  guruKelas = 'all'; guruCari = ''; guruErr = ''; guruPernah = false;
+  show('v-guru'); guruRender(); guruMuat();
+  guruStop(); guruPoll = setInterval(() => { if($('#v-guru').classList.contains('on') && !$('#ov').classList.contains('on')) guruMuat(true); }, 20000);
+}
+async function guruMuat(diam){
+  const my = ++guruReq;
+  try{
+    const [d, h] = await Promise.all([guruApi('admin_daftar'), guruApi('admin_daftar_dihapus')]);
+    if(my !== guruReq) return;
+    guruData = Array.isArray(d) ? d : []; guruDihapus = Array.isArray(h) ? h : []; guruErr = '';
+  }catch(e){ if(e.message === 'sesi') return; if(my !== guruReq) return; guruErr = 'Gagal memuat data: ' + e.message; }
+  guruPernah = true;
+  if(diam && $('#guru-list')) guruRenderList(); else guruRender();
+}
+/* ringkasan progres satu siswa dari map progres server */
+function guruHitung(x){
+  const pr = x.progres || {}, ids = BAB.map(b => b.id);
+  const sel = ids.filter(i => pr['B' + i]);
+  const terakhir = sel.reduce((m, i) => Math.max(m, i), 0);
+  return {pr, sel, terakhir, pct:Math.round(sel.length / ids.length * 100),
+    a1:pr.ASAT1 ? pr.ASAT1.n : null, a2:pr.ASAT2 ? pr.ASAT2.n : null};
+}
+function guruRender(){
+  const el = $('#guru-isi'); if(!el || !$('#v-guru').classList.contains('on')) return;
+  const kls = CONFIG.KELAS, cnt = k => guruData.filter(x => k === 'all' || x.kelas === k).length;
+  let h = `<div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center"><h2 style="margin:0">👩‍🏫 Laman Guru</h2><span class="live">${esc(G ? G.email : '')}</span></div>
+    <p class="muted" style="margin:4px 0 0">Kontrol penuh data siswa di Supabase (EXP, progres, status). Nilai di Google Spreadsheet diubah langsung di Spreadsheet.</p>
+    <div class="gtool"><input type="text" id="g-cari" data-chg="gcari" placeholder="Cari nama siswa…" value="${esc(guruCari)}" aria-label="Cari nama siswa">
+      <button class="btn sec" data-act="g-segar" style="min-height:40px">🔄 Segarkan</button>
+      <button class="btn sec" data-act="g-csv" style="min-height:40px">⬇️ CSV</button></div>
+    <div class="filters"><button class="${guruKelas === 'all' ? 'on' : ''}" data-act="g-kelas" data-k="all">Semua (${cnt('all')})</button>${kls.map(k => `<button class="${guruKelas === k ? 'on' : ''}" data-act="g-kelas" data-k="${esc(k)}">${esc(k)} (${cnt(k)})</button>`).join('')}</div>`;
+  if(!guruPernah) h += '<p class="muted" style="text-align:center;padding:30px 0">Memuat data siswa…</p>';
+  else if(guruErr) h += `<div class="banner warn">⚠️ <div>${esc(guruErr)} <button class="btn sec" style="min-height:34px;padding:2px 12px;margin-left:6px" data-act="g-segar">Coba lagi</button></div></div>`;
+  else h += '<div id="guru-list"></div>' + guruDihapusHTML();
+  el.innerHTML = h;
+  if(guruPernah && !guruErr) guruRenderList();
+}
+function guruRenderList(){
+  const box = $('#guru-list'); if(!box) return;
+  const q = guruCari.trim().toLowerCase();
+  const rows = guruData.filter(x => (guruKelas === 'all' || x.kelas === guruKelas) && (!q || String(x.nama).toLowerCase().includes(q)));
+  const on = rows.filter(x => x.online).length, rata = rows.length ? Math.round(rows.reduce((a, x) => a + guruHitung(x).pct, 0) / rows.length) : 0;
+  let h = `<div class="stat"><div><b>${rows.length}</b><small>Siswa</small></div><div><b>${on}</b><small>Online</small></div><div><b>${rata}%</b><small>Rata-rata progres</small></div><div><b>${rows.filter(x => guruHitung(x).a1 != null || guruHitung(x).a2 != null).length}</b><small>Sudah ASAT</small></div></div>`;
+  if(!rows.length){ box.innerHTML = h + '<p class="muted" style="text-align:center;padding:24px 0">Tidak ada siswa yang cocok.</p>'; return; }
+  CONFIG.KELAS.filter(k => rows.some(x => x.kelas === k)).forEach(k => {
+    const g = rows.filter(x => x.kelas === k), o = g.filter(x => x.online).length, r = Math.round(g.reduce((a, x) => a + guruHitung(x).pct, 0) / g.length);
+    h += `<h3 class="gkelas">${esc(k)} <small>${g.length} siswa · ${o} online · rata-rata progres ${r}%</small></h3>` + g.map(guruBaris).join('');
+  });
+  box.innerHTML = h;
+}
+function guruBaris(x){
+  const c = guruHitung(x), lv = levelInfo(x.total_exp || 0);
+  const bab = BAB.map(b => { const p = c.pr['B' + b.id]; return `<span class="bb ${p ? 'on' : ''}" title="Bab ${b.id}${p ? ': nilai ' + fmt(p.n) + ', ' + p.t + 'x' : ': belum'}">${b.id}</span>`; }).join('') +
+    [1, 2].map(sm => { const v = sm === 1 ? c.a1 : c.a2; return `<span class="bb ${v != null ? 'as' : ''}" title="ASAT Semester ${sm}${v != null ? ': ' + fmt(v) : ': belum'}">S${sm}${v != null ? ' ' + fmt(v) : ''}</span>`; }).join('');
+  const st = x.online ? 'Online' : (x.detik_lalu == null ? 'Belum pernah aktif' : 'Terakhir aktif ' + waktuLalu(x.detik_lalu));
+  return `<div class="gr"><div class="gr-top"><span class="dot ${x.online ? 'on' : ''}" role="img" aria-label="${x.online ? 'Online' : 'Offline'}"></span><b>${esc(x.nama)}</b><small>No. ${x.absen}</small><span class="gr-exp">Lv ${lv.no} · ${x.total_exp || 0} EXP</span></div>
+    <div class="progress"><i style="width:${c.pct}%"></i></div>
+    <div class="gr-info">${c.terakhir ? 'Sampai Bab ' + c.terakhir : 'Belum mulai'} · ${c.sel.length}/${BAB.length} bab (${c.pct}%) · ${st}</div>
+    <div class="gr-bab" aria-label="Bab selesai">${bab}</div>
+    <div class="gr-act"><button class="btn sec" data-act="g-edit" data-id="${esc(x.id)}">✏️ Edit</button><button class="btn danger" data-act="g-hapus" data-id="${esc(x.id)}">🗑️ Hapus</button></div></div>`;
+}
+function guruDihapusHTML(){
+  if(!guruDihapus.length) return '';
+  return `<details class="gdh" style="margin-top:20px"><summary>Siswa yang dihapus (${guruDihapus.length})</summary>` + guruDihapus.map(d =>
+    `<div class="gdel"><span><b>${esc(d.nama || d.id)}</b> <small class="muted">${esc(d.kelas || '')} · No. ${d.absen || ''}</small></span><button class="btn sec" style="min-height:34px;padding:2px 12px" data-act="g-pulih" data-id="${esc(d.id)}">↩️ Pulihkan</button></div>`).join('') + '</details>';
+}
+function guruCari_(v){ guruCari = v; guruRenderList(); }
+function guruCari1(id){ return guruData.find(x => x.id === id); }
+function guruEdit(id, pesan, nilai){
+  const x = guruCari1(id); if(!x) return;
+  const v = nilai || {nama:x.nama, kelas:x.kelas, absen:x.absen};
+  modal(`<h3>Edit data siswa</h3>
+    <p class="muted" style="margin:0">${esc(x.nama)} · ${esc(x.kelas)} · No. ${x.absen}</p>
+    <label for="ge-nama">Nama lengkap</label><input type="text" id="ge-nama" maxlength="60" value="${esc(v.nama)}">
+    <div class="row2"><div><label for="ge-absen">Nomor absen</label><input type="number" id="ge-absen" min="1" max="${CONFIG.MAKS_ABSEN}" value="${esc(v.absen)}"></div>
+    <div><label for="ge-kelas">Kelas</label><select id="ge-kelas">${CONFIG.KELAS.map(k => `<option ${k === v.kelas ? 'selected' : ''}>${esc(k)}</option>`).join('')}</select></div></div>
+    <p class="hint">Mengubah kelas atau nomor absen memindahkan seluruh EXP dan progres siswa ke identitas baru. Perangkat siswa akan mengikuti otomatis saat online.</p>
+    ${pesan ? `<div class="banner bad">${esc(pesan)}</div>` : ''}`,
+    [{t:'Batal', cls:'sec'}, {t:'Reset EXP & progres', cls:'danger', fn:() => guruKonfirmReset(id)}, {t:'Simpan', fn:() => guruSimpan(id)}]);
+}
+async function guruSimpan(id){
+  const nama = $('#ge-nama').value.replace(/\s+/g, ' ').trim(), absen = parseInt($('#ge-absen').value, 10), kelas = $('#ge-kelas').value;
+  const kembali = m => guruEdit(id, m, {nama, kelas, absen: isNaN(absen) ? '' : absen});
+  if(nama.length < 3) return kembali('Nama minimal 3 huruf.');
+  if(!/^[A-Za-zÀ-ÿ'’.\- ]+$/.test(nama)) return kembali('Nama hanya boleh berisi huruf, spasi, titik, atau tanda hubung.');
+  if(!(absen >= 1 && absen <= CONFIG.MAKS_ABSEN)) return kembali('Nomor absen harus antara 1 dan ' + CONFIG.MAKS_ABSEN + '.');
+  try{ await guruApi('admin_ubah', {p_id:id, p_nama:nama, p_kelas:kelas, p_absen:absen}); toast('Data siswa disimpan.'); guruMuat(); }
+  catch(e){ if(e.message !== 'sesi') kembali(e.message); }
+}
+function guruKonfirmReset(id){
+  const x = guruCari1(id); if(!x) return;
+  modal(`<h3>Reset EXP dan progres?</h3><p>EXP dan progres bab/ASAT milik <b>${esc(x.nama)}</b> (${esc(x.kelas)}, No. ${x.absen}) di Supabase akan dikosongkan. Identitas siswa tetap. Tindakan ini tidak dapat dibatalkan.</p>`,
+    [{t:'Batal', cls:'sec'}, {t:'Ya, reset', cls:'danger', fn:async () => { try{ await guruApi('admin_reset', {p_id:id}); toast('EXP dan progres direset.'); guruMuat(); }catch(e){ if(e.message !== 'sesi') toast(e.message); } }}]);
+}
+function guruKonfirmHapus(id){
+  const x = guruCari1(id); if(!x) return;
+  modal(`<h3>Hapus data siswa?</h3><p>Data <b>${esc(x.nama)}</b> (${esc(x.kelas)}, No. ${x.absen}) beserta EXP, progres, dan statusnya akan dihapus dari Supabase. Perangkat siswa tidak dapat mengirim data lagi sampai Anda memulihkannya. Nilai di Google Spreadsheet tidak ikut terhapus.</p>`,
+    [{t:'Batal', cls:'sec'}, {t:'Ya, hapus', cls:'danger', fn:async () => { try{ await guruApi('admin_hapus', {p_id:id}); toast('Data siswa dihapus.'); guruMuat(); }catch(e){ if(e.message !== 'sesi') toast(e.message); } }}]);
+}
+async function guruPulih(id){
+  try{ await guruApi('admin_pulihkan', {p_id:id}); toast('Siswa dipulihkan. Data baru dimulai dari kosong.'); guruMuat(); }
+  catch(e){ if(e.message !== 'sesi') toast(e.message); }
+}
+function guruCsv(){
+  const sel = guruData.filter(x => guruKelas === 'all' || x.kelas === guruKelas);
+  const aman = v => { let t = String(v == null ? '' : v); if(/^[=+\-@\t\r]/.test(t)) t = "'" + t; return '"' + t.replace(/"/g, '""') + '"'; };
+  const kol = ['Kelas', 'Absen', 'Nama', 'EXP', 'Bab_selesai', 'Bab_terakhir', 'Progres_persen'].concat(BAB.map(b => 'Bab' + b.id), ['ASAT_S1', 'ASAT_S2', 'Status']);
+  const baris = sel.map(x => { const c = guruHitung(x);
+    return [x.kelas, x.absen, x.nama, x.total_exp, c.sel.length, c.terakhir, c.pct].concat(BAB.map(b => c.pr['B' + b.id] ? c.pr['B' + b.id].n : ''), [c.a1 == null ? '' : c.a1, c.a2 == null ? '' : c.a2, x.online ? 'Online' : 'Offline']).map(aman).join(','); });
+  const blob = new Blob(['﻿' + [kol.map(aman).join(',')].concat(baris).join('\r\n')], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'data-siswa' + (guruKelas === 'all' ? '' : '-' + guruKelas.replace(' ', '')) + '.csv';
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+$('#form-guru').addEventListener('submit', guruSubmit);
 
 /* =====================================================================
    LEADERBOARD (podium + daftar), realtime lewat Supabase
@@ -2444,6 +2784,7 @@ function selesaiLatihan(){
   const prog = store.get(kProg(), {}), p = prog[L.bab] || {best:0, tries:0};
   prog[L.bab] = {best:Math.max(p.best, nilai), last:nilai, tries:p.tries+1};
   store.set(kProg(), prog);
+  progAntre('B' + L.bab, prog[L.bab].best, prog[L.bab].tries);
   const payload = {type:'latihan', submissionId:L.sub, siswa:{nama:S.siswa.nama, absen:S.siswa.absen, kelas:S.siswa.kelas},
     bab:b.id, namaBab:b.judul, benar, jumlah:n, nilai, durasiDetik:Math.round((Date.now()-L.mulai)/1000),
     detail: detail.map(({e,...d}) => d)};
@@ -2639,6 +2980,7 @@ function selesaiAsat(cara){
     perTipe:h.perTipe, perBab:h.perBab, detail:h.detail, cara, durasi, waktu:Date.now()};
   store.set(kAsatDone(), rec);
   store.del(kAsatState());
+  progAntre('ASAT' + rec.sem, rec.nilai, 1);
   A = null; asatSelesaiBerjalan = false;
   const payload = {type:'asat', semester:st.sem === 2 ? 2 : 1, submissionId:st.sub, siswa:{nama:S.siswa.nama, absen:S.siswa.absen, kelas:S.siswa.kelas},
     cara, durasiMenit:durasi, nilai:h.nilai, detail:h.detail};
@@ -2686,6 +3028,16 @@ const ACT = {
   'keluar': keluar,
   'home': () => { renderHome(); show('v-home'); },
   'tema': gantiTema,
+  'progres': progresModal,
+  'guru-login': guruLogin,
+  'guru-batal': guruBatal,
+  'guru-keluar': () => guruKeluar(),
+  'g-segar': () => { guruPernah = false; guruRender(); guruMuat(); },
+  'g-kelas': d => { guruKelas = d.k; guruRender(); },
+  'g-edit': d => guruEdit(d.id),
+  'g-hapus': d => guruKonfirmHapus(d.id),
+  'g-pulih': d => guruPulih(d.id),
+  'g-csv': guruCsv,
   'lb': () => lbBuka('rank'),
   'lb-status': () => lbBuka('status'),
   'lb-tab': d => lbGantiTab(d.t),
@@ -2726,6 +3078,7 @@ document.addEventListener('change', e => {
 document.addEventListener('input', e => {
   const t = e.target;
   if(t.dataset && t.dataset.chg === 'is') ubahIS(t.value);
+  if(t.dataset && t.dataset.chg === 'gcari') guruCari_(t.value);
 });
 $('#ov').addEventListener('click', e => { if(e.target.id === 'ov') closeModal(); });
 
@@ -2747,6 +3100,7 @@ $('#ov').addEventListener('click', e => { if(e.target.id === 'ov') closeModal();
       }
     }
   } else show('v-login');
+  if(location.hash === '#guru') guruLogin();
   flushQueue();
 })();
 </script>
